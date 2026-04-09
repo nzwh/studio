@@ -133,9 +133,9 @@ export default function StickerSandbox() {
           alpha: bakeAlpha(img, w, h),
           x: Math.max(hw, Math.min(W - hw, W / 2 + Math.cos(spawnAngle) * rx)),
           y: Math.max(hh, Math.min(H - hh, H / 2 + Math.sin(spawnAngle) * ry)),
-          vx: 0, vy: 0, angle: 0, av: 0,
+          vx: 0, vy: 0, angle: (Math.random() - 0.5) * 0.15, av: 0,
           shape: CIRCLE_STICKERS.includes(filename) ? 'circle' : 'rect',
-          flickerEnd: 600 + Math.random() * 800,
+          flickerEnd: 200 + Math.random() * 1000,  // settles between 0.4s–2.4s
         }
       })
 
