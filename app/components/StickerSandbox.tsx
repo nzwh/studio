@@ -2,6 +2,44 @@
 
 import { useEffect, useRef } from 'react'
 
+interface StickerConfig {
+  file: string
+  x: number
+  y: number
+  angle: number
+  shape?: 'rect' | 'circle'
+}
+
+const STICKER_CONFIG: StickerConfig[] = [
+  // { file: '001.png', x: 475, y: 160, angle:  0 },
+  { file: '002.png', x: 475, y: 160, angle:  0 },
+  { file: '003.png', x: 170, y: 122, angle:  0.4,  shape: 'circle' },
+  { file: '003.png', x: 770, y: 162, angle:  1.4,  shape: 'circle' },
+  { file: '004.png', x: 483, y: 150, angle: -0.08 },
+  { file: '005.png', x: 315, y: 110, angle:  0.06 },
+  { file: '006.png', x: 274, y: 159, angle:  0.35, shape: 'circle' },
+  { file: '007.png', x: 274, y: 226, angle: -0.15  },
+    ...Array.from({ length: 7 }, () => ({
+    file: '015.png',
+    x: Math.floor(Math.random() * 701) + 100,
+    y: Math.floor(Math.random() * 201) + 40,
+    angle: 0
+  })),
+    ...Array.from({ length: 7 }, () => ({
+    file: '016.png',
+    x: Math.floor(Math.random() * 701) + 100,
+    y: Math.floor(Math.random() * 241) + 40,
+    angle: 0
+  })),
+  { file: '008.png', x: 175, y: 180, angle: -0.3,  shape: 'circle' },
+  { file: '009.png', x: 544, y: 206, angle: -0.02 },
+  { file: '010.png', x: 671, y: 142, angle:  0,    shape: 'circle' },
+  { file: '011.png', x: 768, y: 126, angle:  0.05 },
+  { file: '012.png', x: 782, y: 174, angle: -0.07 },
+  { file: '013.png', x: 808, y: 220, angle:  0 },
+  { file: '014.png', x: 610, y: 120, angle:  0 }
+]
+
 interface Sticker {
   img: HTMLImageElement
   w: number
@@ -57,7 +95,6 @@ function getBounds(s: Sticker): { hw: number; hh: number } {
   }
 }
 
-const CIRCLE_STICKERS: string[] = []
 const DAMP = 0.994
 
 export default function StickerSandbox() {
@@ -100,44 +137,52 @@ export default function StickerSandbox() {
     resize()
 
     async function init() {
-      const SCALE = W < 500 ? 0.15 : 0.25
+      const SCALE = W < 500 ? 0.10 : 0.2
       pushRadius = W < 500 ? 80 : 130
 
       const res = await fetch('/api/stickers')
-      const paths: string[] = await res.json()
+      const availablePaths: string[] = await res.json()
+      const availableFilenames = new Set(availablePaths.map(p => p.split('/').pop()!))
 
-      if (paths.length === 0) {
+      const pathMap = Object.fromEntries(
+        availablePaths.map(p => [p.split('/').pop()!, p])
+      )
+
+      const validConfig = STICKER_CONFIG.filter(cfg => availableFilenames.has(cfg.file))
+
+      if (validConfig.length === 0) {
         ctx.fillStyle = '#000'
         ctx.fillRect(0, 0, W, H)
         ctx.fillStyle = '#fff'
         ctx.font = '13px Helvetica Neue, sans-serif'
         ctx.textAlign = 'center'
-        ctx.fillText('Add PNG files to /public/stickers/', W / 2, H / 2)
+        ctx.fillText('No matching stickers found in /public/stickers/', W / 2, H / 2)
         return
       }
 
-      const imgs = await Promise.all(paths.map(loadImage))
+      const uniqueFiles = [...new Set(validConfig.map(cfg => cfg.file))]
+      const imgMap: Record<string, HTMLImageElement> = {}
+      await Promise.all(
+        uniqueFiles.map(async file => {
+          imgMap[file] = await loadImage(pathMap[file])
+        })
+      )
 
-      stickers = imgs.map((img, i) => {
+      stickers = validConfig.map((cfg) => {
+        const img = imgMap[cfg.file]
         const w = Math.round(img.naturalWidth  * SCALE)
         const h = Math.round(img.naturalHeight * SCALE)
-        const hw = w / 2 + 4
-        const hh = h / 2 + 4
-        const spawnAngle = (Math.PI * 2 / imgs.length) * i + 0.4
-        const rx = Math.max(20, Math.min(W * 0.3, W / 2 - hw))
-        const ry = Math.max(20, Math.min(H * 0.28, H / 2 - hh))
-        const filename = paths[i].split('/').pop() ?? ''
 
         return {
           img, w, h,
           alpha: bakeAlpha(img, w, h),
-          x: Math.max(hw, Math.min(W - hw, W / 2 + Math.cos(spawnAngle) * rx)),
-          y: Math.max(hh, Math.min(H - hh, H / 2 + Math.sin(spawnAngle) * ry)),
-          vx: (Math.random() - 0.5) * 0.2,
-          vy: (Math.random() - 0.5) * 0.2,
-          angle: (Math.random() - 0.5) * 0.15,
+          x: cfg.x,
+          y: cfg.y,
+          vx: (Math.random() - 0.5) * 0.1,
+          vy: (Math.random() - 0.5) * 0.1,
+          angle: cfg.angle,
           av: 0,
-          shape: CIRCLE_STICKERS.includes(filename) ? 'circle' : 'rect',
+          shape: cfg.shape ?? 'rect',
           flickerEnd: 400 + Math.random() * 2000,
         }
       })
@@ -195,17 +240,6 @@ export default function StickerSandbox() {
         ctx.drawImage(s.img, -s.w / 2, -s.h / 2, s.w, s.h)
         ctx.restore()
       }
-
-      ctx.save()
-      ctx.globalCompositeOperation = 'difference'
-      ctx.fillStyle = '#ffffff'
-      ctx.font = '700 12px "Space Mono", monospace'
-      ctx.letterSpacing = '-0.05em'
-      ctx.letterSpacing = '0.1em'
-      ctx.textAlign = 'center'
-      ctx.textBaseline = 'middle'
-      ctx.fillText('designing the future for the better', W / 2, H / 2)
-      ctx.restore()
 
       rafId = requestAnimationFrame(loop)
     }
