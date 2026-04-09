@@ -58,11 +58,7 @@ function getBounds(s: Sticker): { hw: number; hh: number } {
 }
 
 const CIRCLE_STICKERS: string[] = []
-
-const SCALE = 0.25
-const BOX_W = 48
-const BOX_H = 24
-const DAMP  = 0.994
+const DAMP = 0.994
 
 export default function StickerSandbox() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -76,6 +72,7 @@ export default function StickerSandbox() {
     let stickers: Sticker[] = []
     let W = 0, H = 0
     let startTime = 0
+    let pushRadius = 130
 
     let dragging: Sticker | null = null
     let dragOffX = 0, dragOffY = 0
@@ -84,9 +81,9 @@ export default function StickerSandbox() {
 
     function resize() {
       const dpr = window.devicePixelRatio || 1
-      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
-      W = BOX_W * rem
-      H = BOX_H * rem
+      const parent = canvas!.parentElement!
+      W = parent.clientWidth
+      H = parent.clientHeight
       canvas!.style.width  = `${W}px`
       canvas!.style.height = `${H}px`
       canvas!.width  = W * dpr
@@ -103,6 +100,9 @@ export default function StickerSandbox() {
     resize()
 
     async function init() {
+      const SCALE = W < 500 ? 0.15 : 0.25
+      pushRadius = W < 500 ? 80 : 130
+
       const res = await fetch('/api/stickers')
       const paths: string[] = await res.json()
 
@@ -133,9 +133,12 @@ export default function StickerSandbox() {
           alpha: bakeAlpha(img, w, h),
           x: Math.max(hw, Math.min(W - hw, W / 2 + Math.cos(spawnAngle) * rx)),
           y: Math.max(hh, Math.min(H - hh, H / 2 + Math.sin(spawnAngle) * ry)),
-          vx: 0, vy: 0, angle: (Math.random() - 0.5) * 0.15, av: 0,
+          vx: (Math.random() - 0.5) * 0.2,
+          vy: (Math.random() - 0.5) * 0.2,
+          angle: (Math.random() - 0.5) * 0.15,
+          av: 0,
           shape: CIRCLE_STICKERS.includes(filename) ? 'circle' : 'rect',
-          flickerEnd: 200 + Math.random() * 1000,  // settles between 0.4s–2.4s
+          flickerEnd: 400 + Math.random() * 2000,
         }
       })
 
@@ -144,14 +147,13 @@ export default function StickerSandbox() {
     }
 
     function pushObjects(mx: number, my: number) {
-      const PUSH_RADIUS = 130
-      const PUSH_FORCE  = 7
+      const PUSH_FORCE = 7
       for (const s of stickers) {
         const dx   = s.x - mx
         const dy   = s.y - my
         const dist = Math.sqrt(dx * dx + dy * dy)
-        if (dist < PUSH_RADIUS && dist > 1) {
-          const str = (1 - dist / PUSH_RADIUS) * PUSH_FORCE
+        if (dist < pushRadius && dist > 1) {
+          const str = (1 - dist / pushRadius) * PUSH_FORCE
           s.vx += (dx / dist) * str
           s.vy += (dy / dist) * str
           s.av += (Math.random() - 0.5) * 0.004
@@ -186,13 +188,24 @@ export default function StickerSandbox() {
 
         if (elapsed < s.flickerEnd) {
           const progress = elapsed / s.flickerEnd
-          const dip = Math.random() > 0.6 ? 0.1 : 1
+          const dip = Math.random() > 0.85 ? 0.1 : 1
           ctx.globalAlpha = progress * dip
         }
 
         ctx.drawImage(s.img, -s.w / 2, -s.h / 2, s.w, s.h)
         ctx.restore()
       }
+
+      ctx.save()
+      ctx.globalCompositeOperation = 'difference'
+      ctx.fillStyle = '#ffffff'
+      ctx.font = '700 12px "Space Mono", monospace'
+      ctx.letterSpacing = '-0.05em'
+      ctx.letterSpacing = '0.1em'
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'middle'
+      ctx.fillText('designing the future for the better', W / 2, H / 2)
+      ctx.restore()
 
       rafId = requestAnimationFrame(loop)
     }
