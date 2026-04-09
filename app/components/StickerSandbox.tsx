@@ -151,7 +151,7 @@ export default function StickerSandbox() {
           const str = (1 - dist / PUSH_RADIUS) * PUSH_FORCE
           s.vx += (dx / dist) * str
           s.vy += (dy / dist) * str
-          s.av += (Math.random() - 0.5) * 0.02
+          s.av += (Math.random() - 0.5) * 0.004
         }
       }
     }
@@ -228,7 +228,7 @@ export default function StickerSandbox() {
       const MAX = 18
       dragging.vx = Math.max(-MAX, Math.min(MAX, throwVX * 0.65))
       dragging.vy = Math.max(-MAX, Math.min(MAX, throwVY * 0.65))
-      dragging.av = (throwVX + throwVY) * 0.001
+      dragging.av = (throwVX + throwVY) * 0.0002
       dragging = null
     }
 
