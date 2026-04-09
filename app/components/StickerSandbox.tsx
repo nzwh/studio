@@ -11,33 +11,32 @@ interface StickerConfig {
 }
 
 const STICKER_CONFIG: StickerConfig[] = [
-  // { file: '001.png', x: 475, y: 160, angle:  0 },
-  { file: '002.png', x: 475, y: 160, angle:  0 },
-  { file: '003.png', x: 170, y: 122, angle:  0.4,  shape: 'circle' },
-  { file: '003.png', x: 770, y: 162, angle:  1.4,  shape: 'circle' },
-  { file: '004.png', x: 483, y: 150, angle: -0.08 },
-  { file: '005.png', x: 315, y: 110, angle:  0.06 },
-  { file: '006.png', x: 274, y: 159, angle:  0.35, shape: 'circle' },
-  { file: '007.png', x: 274, y: 226, angle: -0.15  },
-    ...Array.from({ length: 7 }, () => ({
+  { file: '002.png', x: 0.4847, y: 0.5161, angle:  0 },
+  { file: '003.png', x: 0.1735, y: 0.3935, angle:  0.4,  shape: 'circle' },
+  { file: '003.png', x: 0.7857, y: 0.5226, angle:  1.4,  shape: 'circle' },
+  { file: '004.png', x: 0.4929, y: 0.4839, angle: -0.08 },
+  { file: '005.png', x: 0.3214, y: 0.3548, angle:  0.06 },
+  { file: '006.png', x: 0.2796, y: 0.5129, angle:  0.35, shape: 'circle' },
+  { file: '007.png', x: 0.2796, y: 0.7290, angle: -0.15 },
+  ...Array.from({ length: 7 }, () => ({
     file: '015.png',
-    x: Math.floor(Math.random() * 701) + 100,
-    y: Math.floor(Math.random() * 201) + 40,
-    angle: 0
+    x: 0.1 + Math.random() * 0.8,
+    y: 0.1 + Math.random() * 0.8,
+    angle: 0,
   })),
-    ...Array.from({ length: 7 }, () => ({
+  ...Array.from({ length: 7 }, () => ({
     file: '016.png',
-    x: Math.floor(Math.random() * 701) + 100,
-    y: Math.floor(Math.random() * 241) + 40,
-    angle: 0
+    x: 0.1 + Math.random() * 0.8,
+    y: 0.1 + Math.random() * 0.8,
+    angle: 0,
   })),
-  { file: '008.png', x: 175, y: 180, angle: -0.3,  shape: 'circle' },
-  { file: '009.png', x: 544, y: 206, angle: -0.02 },
-  { file: '010.png', x: 671, y: 142, angle:  0,    shape: 'circle' },
-  { file: '011.png', x: 768, y: 126, angle:  0.05 },
-  { file: '012.png', x: 782, y: 174, angle: -0.07 },
-  { file: '013.png', x: 808, y: 220, angle:  0 },
-  { file: '014.png', x: 610, y: 120, angle:  0 }
+  { file: '008.png', x: 0.1786, y: 0.5806, angle: -0.3,  shape: 'circle' },
+  { file: '009.png', x: 0.5551, y: 0.6645, angle: -0.02 },
+  { file: '010.png', x: 0.6847, y: 0.4581, angle:  0,    shape: 'circle' },
+  { file: '011.png', x: 0.7837, y: 0.4065, angle:  0.05 },
+  { file: '012.png', x: 0.7980, y: 0.5613, angle: -0.07 },
+  { file: '013.png', x: 0.8245, y: 0.7097, angle:  0 },
+  { file: '014.png', x: 0.6224, y: 0.3871, angle:  0 },
 ]
 
 interface Sticker {
@@ -143,11 +142,7 @@ export default function StickerSandbox() {
       const res = await fetch('/api/stickers')
       const availablePaths: string[] = await res.json()
       const availableFilenames = new Set(availablePaths.map(p => p.split('/').pop()!))
-
-      const pathMap = Object.fromEntries(
-        availablePaths.map(p => [p.split('/').pop()!, p])
-      )
-
+      const pathMap = Object.fromEntries(availablePaths.map(p => [p.split('/').pop()!, p]))
       const validConfig = STICKER_CONFIG.filter(cfg => availableFilenames.has(cfg.file))
 
       if (validConfig.length === 0) {
@@ -162,11 +157,9 @@ export default function StickerSandbox() {
 
       const uniqueFiles = [...new Set(validConfig.map(cfg => cfg.file))]
       const imgMap: Record<string, HTMLImageElement> = {}
-      await Promise.all(
-        uniqueFiles.map(async file => {
-          imgMap[file] = await loadImage(pathMap[file])
-        })
-      )
+      await Promise.all(uniqueFiles.map(async file => {
+        imgMap[file] = await loadImage(pathMap[file])
+      }))
 
       stickers = validConfig.map((cfg) => {
         const img = imgMap[cfg.file]
@@ -176,14 +169,14 @@ export default function StickerSandbox() {
         return {
           img, w, h,
           alpha: bakeAlpha(img, w, h),
-          x: cfg.x,
-          y: cfg.y,
+          x: cfg.x * W,
+          y: cfg.y * H,
           vx: (Math.random() - 0.5) * 0.1,
           vy: (Math.random() - 0.5) * 0.1,
           angle: cfg.angle,
           av: 0,
           shape: cfg.shape ?? 'rect',
-          flickerEnd: 400 + Math.random() * 2000,
+          flickerEnd: 400 + Math.random() * 1500,
         }
       })
 
