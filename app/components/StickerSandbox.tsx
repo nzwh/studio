@@ -14,6 +14,7 @@ interface Sticker {
   av: number
   alpha: Uint8ClampedArray
   shape: 'rect' | 'circle'
+  flickerEnd: number
 }
 
 function bakeAlpha(img: HTMLImageElement, w: number, h: number): Uint8ClampedArray {
@@ -56,12 +57,11 @@ function getBounds(s: Sticker): { hw: number; hh: number } {
   }
 }
 
-// List filenames (without path) that should use circle bounds
 const CIRCLE_STICKERS: string[] = []
 
 const SCALE = 0.25
-const BOX_W = 60
-const BOX_H = 22
+const BOX_W = 48
+const BOX_H = 24
 const DAMP  = 0.994
 
 export default function StickerSandbox() {
@@ -75,6 +75,7 @@ export default function StickerSandbox() {
     let rafId = 0
     let stickers: Sticker[] = []
     let W = 0, H = 0
+    let startTime = 0
 
     let dragging: Sticker | null = null
     let dragOffX = 0, dragOffY = 0
@@ -134,9 +135,11 @@ export default function StickerSandbox() {
           y: Math.max(hh, Math.min(H - hh, H / 2 + Math.sin(spawnAngle) * ry)),
           vx: 0, vy: 0, angle: 0, av: 0,
           shape: CIRCLE_STICKERS.includes(filename) ? 'circle' : 'rect',
+          flickerEnd: 600 + Math.random() * 800,
         }
       })
 
+      startTime = performance.now()
       loop()
     }
 
@@ -160,6 +163,8 @@ export default function StickerSandbox() {
       ctx.fillStyle = '#000'
       ctx.fillRect(0, 0, W, H)
 
+      const elapsed = performance.now() - startTime
+
       for (const s of stickers) {
         if (s === dragging) continue
         s.vx *= DAMP; s.vy *= DAMP; s.av *= DAMP
@@ -178,6 +183,13 @@ export default function StickerSandbox() {
         ctx.save()
         ctx.translate(s.x, s.y)
         ctx.rotate(s.angle)
+
+        if (elapsed < s.flickerEnd) {
+          const progress = elapsed / s.flickerEnd
+          const dip = Math.random() > 0.6 ? 0.1 : 1
+          ctx.globalAlpha = progress * dip
+        }
+
         ctx.drawImage(s.img, -s.w / 2, -s.h / 2, s.w, s.h)
         ctx.restore()
       }
