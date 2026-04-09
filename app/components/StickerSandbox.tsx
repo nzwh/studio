@@ -13,6 +13,7 @@ interface Sticker {
   angle: number
   av: number
   alpha: Uint8ClampedArray
+  shape: 'rect' | 'circle'
 }
 
 function bakeAlpha(img: HTMLImageElement, w: number, h: number): Uint8ClampedArray {
@@ -41,6 +42,22 @@ function loadImage(src: string): Promise<HTMLImageElement> {
     img.src = src
   })
 }
+
+function getBounds(s: Sticker): { hw: number; hh: number } {
+  if (s.shape === 'circle') {
+    const r = Math.max(s.w, s.h) / 2 + 4
+    return { hw: r, hh: r }
+  }
+  const cos = Math.abs(Math.cos(s.angle))
+  const sin = Math.abs(Math.sin(s.angle))
+  return {
+    hw: (s.w / 2) * cos + (s.h / 2) * sin + 4,
+    hh: (s.w / 2) * sin + (s.h / 2) * cos + 4,
+  }
+}
+
+// List filenames (without path) that should use circle bounds
+const CIRCLE_STICKERS: string[] = []
 
 const SCALE = 0.25
 const BOX_W = 60
@@ -108,6 +125,7 @@ export default function StickerSandbox() {
         const spawnAngle = (Math.PI * 2 / imgs.length) * i + 0.4
         const rx = Math.max(20, Math.min(W * 0.3, W / 2 - hw))
         const ry = Math.max(20, Math.min(H * 0.28, H / 2 - hh))
+        const filename = paths[i].split('/').pop() ?? ''
 
         return {
           img, w, h,
@@ -115,10 +133,27 @@ export default function StickerSandbox() {
           x: Math.max(hw, Math.min(W - hw, W / 2 + Math.cos(spawnAngle) * rx)),
           y: Math.max(hh, Math.min(H - hh, H / 2 + Math.sin(spawnAngle) * ry)),
           vx: 0, vy: 0, angle: 0, av: 0,
+          shape: CIRCLE_STICKERS.includes(filename) ? 'circle' : 'rect',
         }
       })
 
       loop()
+    }
+
+    function pushObjects(mx: number, my: number) {
+      const PUSH_RADIUS = 130
+      const PUSH_FORCE  = 7
+      for (const s of stickers) {
+        const dx   = s.x - mx
+        const dy   = s.y - my
+        const dist = Math.sqrt(dx * dx + dy * dy)
+        if (dist < PUSH_RADIUS && dist > 1) {
+          const str = (1 - dist / PUSH_RADIUS) * PUSH_FORCE
+          s.vx += (dx / dist) * str
+          s.vy += (dy / dist) * str
+          s.av += (Math.random() - 0.5) * 0.02
+        }
+      }
     }
 
     function loop() {
@@ -130,12 +165,13 @@ export default function StickerSandbox() {
         s.vx *= DAMP; s.vy *= DAMP; s.av *= DAMP
         s.x += s.vx;  s.y += s.vy;  s.angle += s.av
 
-        const px = s.w / 2 + 4
-        const py = s.h / 2 + 4
-        if (s.x < px)     { s.x = px;     s.vx =  Math.abs(s.vx) * 0.55 }
-        if (s.x > W - px) { s.x = W - px; s.vx = -Math.abs(s.vx) * 0.55 }
-        if (s.y < py)     { s.y = py;     s.vy =  Math.abs(s.vy) * 0.55 }
-        if (s.y > H - py) { s.y = H - py; s.vy = -Math.abs(s.vy) * 0.55 }
+        const { hw, hh } = getBounds(s)
+        if (s.x < hw)     { s.vx =  Math.abs(s.vx) * 0.55; s.av *= 0.3 }
+        if (s.x > W - hw) { s.vx = -Math.abs(s.vx) * 0.55; s.av *= 0.3 }
+        if (s.y < hh)     { s.vy =  Math.abs(s.vy) * 0.55; s.av *= 0.3 }
+        if (s.y > H - hh) { s.vy = -Math.abs(s.vy) * 0.55; s.av *= 0.3 }
+        s.x = Math.max(hw, Math.min(W - hw, s.x))
+        s.y = Math.max(hh, Math.min(H - hh, s.y))
       }
 
       for (const s of stickers) {
@@ -171,6 +207,7 @@ export default function StickerSandbox() {
           return
         }
       }
+      pushObjects(x, y)
     }
 
     function onMove(e: MouseEvent | TouchEvent) {
@@ -180,15 +217,17 @@ export default function StickerSandbox() {
       throwVX = x - lastX
       throwVY = y - lastY
       lastX = x; lastY = y
-      dragging.x = x - dragOffX
-      dragging.y = y - dragOffY
+      const { hw, hh } = getBounds(dragging)
+      dragging.x = Math.max(hw, Math.min(W - hw, x - dragOffX))
+      dragging.y = Math.max(hh, Math.min(H - hh, y - dragOffY))
       dragging.vx = 0; dragging.vy = 0
     }
 
     function onUp() {
       if (!dragging) return
-      dragging.vx = throwVX * 0.65
-      dragging.vy = throwVY * 0.65
+      const MAX = 18
+      dragging.vx = Math.max(-MAX, Math.min(MAX, throwVX * 0.65))
+      dragging.vy = Math.max(-MAX, Math.min(MAX, throwVY * 0.65))
       dragging.av = (throwVX + throwVY) * 0.001
       dragging = null
     }
