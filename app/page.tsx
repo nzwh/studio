@@ -5,30 +5,31 @@ import { korataki } from './fonts/fonts';
 const StickerSandbox = dynamic(() => import("@/app/components/StickerSandbox"), {
   ssr: false,
 });
-const NowPlaying = dynamic(() => import("@/app/components/NowPlaying"), {
+const Headline = dynamic(() => import("@/app/components/Headline"), {
   ssr: false,
 });
-
 export default function Home() {
-
   return (
-    <main className="flex flex-col items-center gap-4 bg-black py-8 w-full min-h-screen">
-      <div className="flex flex-col items-center gap-32 w-7/12">
+    <main className="flex flex-col items-center gap-4 w-full min-h-screen">
+      <div className="flex flex-col gap-24 w-7/12 h-full">
 
-        <nav className="flex justify-between items-center w-full h-16">
-          <h1 className={`${korataki.className} font-light text-sm`}>nzwh</h1>
-          <div className="flex gap-4">
-            <a href="/works" className="text-sm">/works</a>
-            <a href="/connect" className="text-sm">/connect</a>
-            <a href="/archive" className="text-sm">/archive</a>
+        <nav className="flex justify-between items-center py-8 w-full">
+          <h1 className={`${korataki.className} font-light text-xs tracking-tighter`}>nzwh</h1>
+          <div className="flex items-center gap-4">
+            <a href="/works" className="font-light text-sm tracking-tight">/works</a>
+            <a href="/connect" className="font-light text-sm tracking-tight">/connect</a>
+            <a href="/archive" className="font-light text-sm tracking-tight">/archive</a>
           </div>
         </nav>
-
-        <section className="border border-white/10 rounded-lg w-full h-80 overflow-hidden pointer-events-none neue-gradient">
-          <StickerSandbox />
+        
+        <section className="@container flex flex-col items-center gap-4 w-full pointer-events-none">
+          <div className="border border-zinc-200 rounded-lg w-full h-80 overflow-hidden pointer-events-none">
+            <StickerSandbox />
+          </div>
+          <Headline />
         </section>
-
       </div>
+
     </main>
   )
 }

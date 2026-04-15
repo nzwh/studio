@@ -18,16 +18,16 @@ const STICKER_CONFIG: StickerConfig[] = [
   { file: '005.png', x: 0.3214, y: 0.3548, angle:  0.06 },
   { file: '006.png', x: 0.2796, y: 0.5129, angle:  0.35, shape: 'circle' },
   { file: '007.png', x: 0.2796, y: 0.7290, angle: -0.15 },
-  ...Array.from({ length: 7 }, () => ({
+  ...Array.from({ length: 10 }, () => ({
     file: '015.png',
-    x: 0.1 + Math.random() * 0.8,
-    y: 0.1 + Math.random() * 0.8,
+    x: 0.2 + Math.random() * 0.7,
+    y: 0.2 + Math.random() * 0.7,
     angle: 0,
   })),
-  ...Array.from({ length: 7 }, () => ({
+  ...Array.from({ length: 10 }, () => ({
     file: '016.png',
-    x: 0.1 + Math.random() * 0.8,
-    y: 0.1 + Math.random() * 0.8,
+    x: 0.2 + Math.random() * 0.7,
+    y: 0.2 + Math.random() * 0.7,
     angle: 0,
   })),
   { file: '008.png', x: 0.1786, y: 0.5806, angle: -0.3,  shape: 'circle' },
@@ -185,7 +185,7 @@ export default function StickerSandbox() {
           angle: cfg.angle,
           av: 0,
           shape: cfg.shape ?? 'rect',
-          flickerEnd: 400 + Math.random() * 1500,
+          flickerEnd: 0 //400 + Math.random() * 1500,
         }
       })
 
