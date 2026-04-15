@@ -11,7 +11,7 @@ interface StickerConfig {
 }
 
 const STICKER_CONFIG: StickerConfig[] = [
-  { file: '002.png', x: 0.4847, y: 0.5161, angle:  0 },
+  { file: '002.png', x: 0.5000, y: 0.5000, angle:  0 },
   { file: '003.png', x: 0.1735, y: 0.3935, angle:  0.4,  shape: 'circle' },
   { file: '003.png', x: 0.7857, y: 0.5226, angle:  1.4,  shape: 'circle' },
   { file: '004.png', x: 0.4929, y: 0.4839, angle: -0.08 },
@@ -52,6 +52,13 @@ interface Sticker {
   alpha: Uint8ClampedArray
   shape: 'rect' | 'circle'
   flickerEnd: number
+}
+
+interface Ripple {
+  x: number
+  y: number
+  r: number
+  a: number
 }
 
 function bakeAlpha(img: HTMLImageElement, w: number, h: number): Uint8ClampedArray {
@@ -106,6 +113,7 @@ export default function StickerSandbox() {
     const ctx = canvas.getContext('2d')!
     let rafId = 0
     let stickers: Sticker[] = []
+    let ripples: Ripple[] = []
     let W = 0, H = 0
     let startTime = 0
     let pushRadius = 130
@@ -114,6 +122,7 @@ export default function StickerSandbox() {
     let dragOffX = 0, dragOffY = 0
     let lastX = 0, lastY = 0
     let throwVX = 0, throwVY = 0
+    let didDrag = false
 
     function resize() {
       const dpr = window.devicePixelRatio || 1
@@ -136,7 +145,7 @@ export default function StickerSandbox() {
     resize()
 
     async function init() {
-      const SCALE = W < 500 ? 0.10 : 0.2
+      const SCALE = W < 500 ? 0.1 : 0.2
       pushRadius = W < 500 ? 80 : 130
 
       const res = await fetch('/api/stickers')
@@ -147,7 +156,7 @@ export default function StickerSandbox() {
 
       if (validConfig.length === 0) {
         ctx.fillStyle = '#000'
-        ctx.fillRect(0, 0, W, H)
+        ctx.clearRect(0, 0, W, H)
         ctx.fillStyle = '#fff'
         ctx.font = '13px Helvetica Neue, sans-serif'
         ctx.textAlign = 'center'
@@ -184,7 +193,12 @@ export default function StickerSandbox() {
       loop()
     }
 
+    function spawnRipple(x: number, y: number) {
+      ripples.push({ x, y, r: 0, a: 0.6 })
+    }
+
     function pushObjects(mx: number, my: number) {
+      spawnRipple(mx, my)
       const PUSH_FORCE = 7
       for (const s of stickers) {
         const dx   = s.x - mx
@@ -200,10 +214,20 @@ export default function StickerSandbox() {
     }
 
     function loop() {
-      ctx.fillStyle = '#000'
-      ctx.fillRect(0, 0, W, H)
+      ctx.clearRect(0, 0, W, H)
 
       const elapsed = performance.now() - startTime
+
+      ripples = ripples.filter(r => r.a > 0.01)
+      for (const r of ripples) {
+        r.r += 2.5
+        r.a *= 0.88
+        ctx.beginPath()
+        ctx.arc(r.x, r.y, r.r, 0, Math.PI * 2)
+        ctx.strokeStyle = `rgba(255,255,255,${r.a})`
+        ctx.lineWidth = 1
+        ctx.stroke()
+      }
 
       for (const s of stickers) {
         if (s === dragging) continue
@@ -248,6 +272,7 @@ export default function StickerSandbox() {
 
     function onDown(e: MouseEvent | TouchEvent) {
       e.preventDefault()
+      didDrag = false
       const { x, y } = getPos(e)
       for (let i = stickers.length - 1; i >= 0; i--) {
         if (hitTest(stickers[i], x, y)) {
@@ -265,6 +290,7 @@ export default function StickerSandbox() {
     function onMove(e: MouseEvent | TouchEvent) {
       if (!dragging) return
       e.preventDefault()
+      didDrag = true
       const { x, y } = getPos(e)
       throwVX = x - lastX
       throwVY = y - lastY
@@ -277,6 +303,7 @@ export default function StickerSandbox() {
 
     function onUp() {
       if (!dragging) return
+      if (!didDrag) spawnRipple(dragging.x, dragging.y)
       const MAX = 18
       dragging.vx = Math.max(-MAX, Math.min(MAX, throwVX * 0.65))
       dragging.vy = Math.max(-MAX, Math.min(MAX, throwVY * 0.65))
@@ -310,7 +337,7 @@ export default function StickerSandbox() {
   return (
     <canvas
       ref={canvasRef}
-      className="bg-black touch-none"
+      className="touch-none pointer-events-auto"
       style={{ cursor: 'grab' }}
     />
   )
