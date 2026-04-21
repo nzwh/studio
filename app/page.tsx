@@ -14,8 +14,10 @@ export default function Home() {
         <GlobalNav />
 
         <Divider />
-        <Monitor />
-        <Keyboard />
+        <section className="flex flex-col my-12">
+          <Monitor />
+          <Keyboard />
+        </section>
         <Divider />
 
         <GlobalFooter />
