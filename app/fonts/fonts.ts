@@ -1,47 +1,53 @@
 import localFont from 'next/font/local'
 
-export const korataki = localFont({
+export const concrete = localFont({
   src: [
-    { path: 'korataki/korataki-book-italic.otf',              weight: '400', style: 'italic' },
-    { path: 'korataki/korataki-book.otf',                     weight: '400', style: 'normal' }
+    { path: 'concrete/concrete-norm.ttf', weight: '400', style: 'normal' },
+    { path: 'concrete/concrete-noti.ttf', weight: '400', style: 'italic' },
+    { path: 'concrete/concrete-nobx.ttf', weight: '800', style: 'normal' },
+    { path: 'concrete/concrete-nobi.ttf', weight: '800', style: 'italic' },
   ],
-  variable: '--font-korataki',
-  display: 'swap'
+  variable: '--font-concrete',
+  display: 'swap',
 })
 
-export const ppnikkeimaru = localFont({
+export const nikkeimaru = localFont({
   src: [
-    { path: 'pp-nikkei-maru/ppnikkeimaru-light-italic.otf',   weight: '300', style: 'italic' },
-    { path: 'pp-nikkei-maru/ppnikkeimaru-light.otf',          weight: '300', style: 'normal' },
-    { path: 'pp-nikkei-maru/ppnikkeimaru-regular-italic.otf', weight: '400', style: 'italic' },
-    { path: 'pp-nikkei-maru/ppnikkeimaru-regular.otf',        weight: '400', style: 'normal' },
-    { path: 'pp-nikkei-maru/ppnikkeimaru-ultrabold.otf',      weight: '800', style: 'normal' }
+    { path: 'nikkei-maru/nikkeimaru-light.otf',          weight: '300', style: 'normal' },
+    { path: 'nikkei-maru/nikkeimaru-light-italic.otf',   weight: '300', style: 'italic' },
+    { path: 'nikkei-maru/nikkeimaru-regular.otf',        weight: '400', style: 'normal' },
+    { path: 'nikkei-maru/nikkeimaru-regular-italic.otf', weight: '400', style: 'italic' },
+    { path: 'nikkei-maru/nikkeimaru-ultrabold.otf',      weight: '800', style: 'normal' },
   ],
-  variable: '--font-pp-nikkei',
-  display: 'swap'
+  variable: '--font-nikkei-maru',
+  display: 'swap',
 })
 
-export const cmuconcrete = localFont({
+export const redaction20 = localFont({
   src: [
-    { path: 'cmu-concrete/cmuconcrete-nobi.ttf',  weight: '800', style: 'italic' },
-    { path: 'cmu-concrete/cmuconcrete-nobx.ttf',  weight: '800', style: 'normal' },
-    { path: 'cmu-concrete/cmuconcrete-noti.ttf',  weight: '400', style: 'italic' },
-    { path: 'cmu-concrete/cmuconcrete-norm.ttf',  weight: '400', style: 'normal' }
+    { path: 'redaction/redaction-20-regular.otf', weight: '400', style: 'normal' },
+    { path: 'redaction/redaction-20-italic.otf',  weight: '400', style: 'italic' },
+    { path: 'redaction/redaction-20-bold.otf',    weight: '700', style: 'normal' },
   ],
-  variable: '--font-cmu-concrete',
-  display: 'swap'
+  variable: '--font-redaction20',
+  display: 'swap',
 })
 
+// export const korataki = localFont({
+//   src: [
+//     { path: 'korataki/korataki-book.otf',        weight: '400', style: 'normal' },
+//     { path: 'korataki/korataki-book-italic.otf', weight: '400', style: 'italic' },
+//   ],
+//   variable: '--font-korataki',
+//   display: 'swap',
+// })
 
-export const redaction = localFont({
-  src: [
-    { path: 'redaction/redaction20-regular.otf',  weight: '400', style: 'normal' },
-    { path: 'redaction/redaction20-italic.otf',   weight: '400', style: 'italic' },
-    { path: 'redaction/redaction20-bold.otf',     weight: '500', style: 'normal' },
-    { path: 'redaction/redaction35-regular.otf',  weight: '600', style: 'normal' },
-    { path: 'redaction/redaction35-italic.otf',   weight: '600', style: 'italic' },
-    { path: 'redaction/redaction35-bold.otf',     weight: '700', style: 'normal' }
-  ],
-  variable: '--font-redaction',
-  display: 'swap'
-})
+// export const redaction35 = localFont({
+//   src: [
+//     { path: 'redaction/redaction-35-regular.otf', weight: '400', style: 'normal' },
+//     { path: 'redaction/redaction-35-italic.otf',  weight: '400', style: 'italic' },
+//     { path: 'redaction/redaction-35-bold.otf',    weight: '700', style: 'normal' },
+//   ],
+//   variable: '--font-redaction35',
+//   display: 'swap',
+// })

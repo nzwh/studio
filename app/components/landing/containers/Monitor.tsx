@@ -9,7 +9,7 @@ import DitherCanvas from '../sandbox/DitherCanvas';
 import DateTime from '../DateTime';
 import { SiGmail } from 'react-icons/si';
 
-import { redaction } from '@/app/fonts/fonts';
+import { redaction20 } from '@/app/fonts/fonts';
 
 const SandboxCanvas = dynamic(() => import("@/app/components/landing/sandbox/SandboxCanvas"), {
   ssr: false,
@@ -75,7 +75,7 @@ export default function Monitor() {
               <div className="bg-[#dadada] rounded w-1.5 h-1.5"></div>
             </div>
             <span className="top-1/9 left-1/2 -z-10 absolute font-light text-[#c0c0c0] text-[0.5rem] tracking-tight -translate-x-1/2 -translate-y-1/2 pointer-events-none">click for a surprise</span>
-            <span className={`${redaction.className} top-[42%] left-[45%] -z-10 absolute font-thin italic [-webkit-text-stroke:2px_#dadada] text-[#ffffff] text-[30rem] tracking-[-4rem] [paint-order:stroke_fill] -translate-x-1/2 -translate-y-1/2 pointer-events-none`}>nzwh</span>
+            <span className={`${redaction20.className} top-[42%] left-[45%] -z-10 absolute font-thin italic [-webkit-text-stroke:2px_#dadada] text-[#ffffff] text-[30rem] tracking-[-4rem] [paint-order:stroke_fill] -translate-x-1/2 -translate-y-1/2 pointer-events-none`}>nzwh</span>
           </div>
         </section>
 

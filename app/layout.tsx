@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ppnikkeimaru } from './fonts/fonts';
+import { nikkeimaru } from './fonts/fonts';
 import "./globals.css";
 
 import Cursor from "./components/global/effects/Cursor";
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ppnikkeimaru.className} antialiased`}>
+      <body className={`${nikkeimaru.className} antialiased`}>
         <Cursor />
         {children}
       </body>
