@@ -337,8 +337,8 @@ export default function StickerSandbox() {
   return (
     <canvas
       ref={canvasRef}
-      className="touch-none pointer-events-auto"
-      style={{ cursor: 'grab' }}
+      className="absolute inset-0 w-full h-full touch-none pointer-events-auto"
+      style={{ cursor: 'pointer' }}
     />
   )
 }

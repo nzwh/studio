@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { korataki, ppnikkeimaru } from './fonts/fonts';
 import "./globals.css";
+import Cursor from "./components/Cursor";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${ppnikkeimaru.className} ${korataki.variable} antialiased`}>
+        <Cursor />
         {children}
       </body>
     </html>
