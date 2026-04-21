@@ -35,9 +35,9 @@ const KeyButton = ({ icon: Icon, url, 'data-cursor': dataCursor }: {
 
 export default function Monitor() {
   return (
-    <main className="relative shadow-[0_16px_36px_0_rgba(0,0,0,0.05),0_8px_0_0_#F0F0F0] my-36 rounded-lg w-full">
+    <main className="relative shadow-[0_16px_36px_0_rgba(0,0,0,0.05),0_8px_0_0_#F0F0F0] my-36 rounded-lg w-full select-none">
       <main className="absolute inset-0 flex flex-col gap-2 m-3 text-[#888888]">
-        <section className="flex flex-row justify-between w-full">
+        <section className="flex flex-row justify-between w-full cursor-default">
           <div className="flex flex-row items-center gap-2">
             <MdAllInbox size={14} />
             <h6 className="text-xs tracking-tight">Intellecture</h6>

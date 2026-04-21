@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="mx-auto px-6 border-x border-zinc-200 w-200 max-md:w-full">
 
-        <nav className="flex justify-between items-center py-6">
+        <nav className="flex justify-between items-center py-6 cursor-default select-none">
           <div data-cursor="hi there!" className="flex flex-row items-center gap-4">
             <Link href="/" className={`${cmuconcrete.className} font-black text-xl italic tracking-[-0.15em] select-none`}>nzwh</Link>
             <div className="flex flex-col font-light text-[0.625rem] leading-2.5">

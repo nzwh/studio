@@ -8,6 +8,7 @@ export default function Cursor() {
   const labelRef = useRef<HTMLSpanElement>(null)
   const pos = useRef({ x: -200, y: -200 })
   const current = useRef({ x: -200, y: -200 })
+  const hovering = useRef(false)
 
   useEffect(() => {
     const box = boxRef.current
@@ -34,21 +35,24 @@ export default function Cursor() {
       const text = el.dataset.cursor ?? ''
       label!.textContent = text
       label!.style.opacity = '1'
-      
       const natural = label!.scrollWidth + 16
       box!.style.width = `${Math.max(28, natural)}px`
       box!.style.height = '28px'
       box!.style.borderRadius = '4px'
+      box!.style.transform = 'translate(-50%, 12px)'
+      hovering.current = true
     }
 
     function onOut(e: MouseEvent) {
       const to = e.relatedTarget as HTMLElement | null
       if (to?.closest('[data-cursor]')) return
       label!.textContent = ''
+      label!.style.opacity = '0'
       box!.style.width = '12px'
       box!.style.height = '12px'
       box!.style.borderRadius = '2px'
-      label!.style.opacity = '0'
+      box!.style.transform = 'translate(-50%, -50%)'
+      hovering.current = false
     }
 
     document.addEventListener('mousemove', onMove)
@@ -82,8 +86,8 @@ export default function Cursor() {
           position: 'absolute',
           transform: 'translate(-50%, -50%)',
           background: 'rgba(0, 0, 0, 0.5)',
-            backdropFilter: 'blur(4px)',
-            WebkitBackdropFilter: 'blur(4px)',
+          backdropFilter: 'blur(4px)',
+          WebkitBackdropFilter: 'blur(4px)',
           color: '#fff',
           display: 'flex',
           alignItems: 'center',
@@ -93,10 +97,10 @@ export default function Cursor() {
           borderRadius: '2px',
           fontSize: '10px',
           fontFamily: 'inherit',
-          letterSpacing: '0',
+          letterSpacing: '-0.05em',
           whiteSpace: 'nowrap',
           overflow: 'hidden',
-          transition: 'width 0.4s cubic-bezier(0.16,1,0.3,1), height 0.4s cubic-bezier(0.16,1,0.3,1), border-radius 0.4s cubic-bezier(0.16,1,0.3,1)',
+          transition: 'width 0.4s cubic-bezier(0.16,1,0.3,1), height 0.4s cubic-bezier(0.16,1,0.3,1), border-radius 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1)',
         }}
       >
         <span
@@ -104,7 +108,7 @@ export default function Cursor() {
           style={{
             opacity: 0,
             transition: 'opacity 0.2s ease',
-            padding: '0 0px',
+            padding: '0 6px',
           }}
         />
       </div>
