@@ -20,7 +20,7 @@ export default function MiniSocials() {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex justify-center items-center bg-zinc-100 hover:bg-zinc-200 rounded-sm w-6 h-6 text-zinc-500 hover:text-zinc-800 transition-all duration-200"
+          className="flex justify-center items-center bg-[#f0f0f0] hover:bg-[#dadada] rounded-sm w-6 h-6 text-[#707070] hover:text-[#303030] transition-all duration-200"
         >
           <Icon size={14} />
         </Link>

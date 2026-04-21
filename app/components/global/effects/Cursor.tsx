@@ -100,7 +100,7 @@ export default function Cursor() {
           borderRadius: '2px',
           fontSize: '10px',
           fontFamily: 'inherit',
-          letterSpacing: '-0.05em',
+          letterSpacing: '0',
           whiteSpace: 'nowrap',
           overflow: 'hidden',
           transition: 'width 0.4s cubic-bezier(0.16,1,0.3,1), height 0.4s cubic-bezier(0.16,1,0.3,1), border-radius 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1)',
