@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { FaXTwitter, FaBehance, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa6'
 import { SiGmail } from 'react-icons/si'
 
-const socials = [
+export const SOCIALS = [
   { icon: SiGmail, href: 'mailto:notzerowh@gmail.com' },
   { icon: FaXTwitter, href: 'https://x.com/arkusgray' },
   { icon: FaInstagram, href: 'https://instagram.com/arkusgray' },
@@ -11,10 +11,10 @@ const socials = [
   { icon: FaBehance, href: 'https://behance.net/nzwh' },
 ]
 
-export default function FooterSocials() {
+export default function MiniSocials() {
   return (
     <div className="flex items-center gap-1">
-      {socials.map(({ icon: Icon, href }) => (
+      {SOCIALS.map(({ icon: Icon, href }) => (
         <Link
           key={href}
           href={href}

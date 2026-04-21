@@ -39,7 +39,10 @@ export default function Cursor() {
       box!.style.width = `${Math.max(28, natural)}px`
       box!.style.height = '28px'
       box!.style.borderRadius = '4px'
-      box!.style.transform = 'translate(-50%, 12px)'
+
+      const rect = el.getBoundingClientRect()
+      const isNearBottom = rect.bottom > window.innerHeight * 0.8
+      box!.style.transform = isNearBottom ? 'translate(-50%, calc(-100% - 8px))' : 'translate(-50%, 12px)'
       hovering.current = true
     }
 

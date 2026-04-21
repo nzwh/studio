@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { MdAllInbox, MdOutlinePlayCircle, MdOutlineDarkMode, MdOutlineWbCloudy } from "react-icons/md";
 import { FaBehance, FaGithub, FaInstagram, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 
-import MonitorShape from './MonitorShape';
-import DitherCanvas from './DitherCanvas';
-import DateTime from './DateTime';
+import MonitorShape from '../MonitorShape';
+import DitherCanvas from '../sandbox/DitherCanvas';
+import DateTime from '../DateTime';
 import { SiGmail } from 'react-icons/si';
 
 import { redaction } from '@/app/fonts/fonts';
 
-const StickerSandbox = dynamic(() => import("@/app/components/landing/StickerSandbox"), {
+const SandboxCanvas = dynamic(() => import("@/app/components/landing/sandbox/SandboxCanvas"), {
   ssr: false,
 });
 
@@ -67,7 +67,7 @@ export default function Monitor() {
                 DitherCanvas(c, W, H)
               }}
             />
-            <StickerSandbox />
+            <SandboxCanvas />
             
             <div className="top-3 left-3 absolute flex flex-row items-center gap-1 pointer-events-none">
               <div className="bg-[#dadada] rounded w-1.5 h-1.5"></div>
