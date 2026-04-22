@@ -31,7 +31,7 @@ export default function DateTime({ className }: { className?: string }) {
   return (
     <span data-cursor="current time for me" className={`flex items-center gap-2 ${className}`}>
       <span>{date}</span>
-      <span className="flex justify-end w-14">{clock}</span>
+      <span className="flex justify-end w-15">{clock}</span>
     </span>
   )
 }
