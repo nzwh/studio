@@ -7,9 +7,9 @@ import { useThock } from "@/app/hooks/useThock"
 const Keycap = ({ children, text, fill }: { children?: React.ReactNode, text?: string, fill?: boolean }) => {
   const thock = useThock()
   return (
-    <div className={`relative h-full cursor-pointer select-none ${fill ? 'w-full' : 'w-fit'}`} {...thock}>
+    <div className={`relative h-full cursor-pointer select-none ${fill ? 'w-full' : 'w-fit'}`}>
       <div className="absolute inset-0 bg-[#dddddd] rounded-md translate-y-1" />
-      <div className="relative bg-linear-to-b from-[#ffffff] to-[#dadada] p-px rounded-md h-full text-[#393939] transition-transform active:translate-y-1 duration-100">
+      <div className="relative bg-linear-to-b from-[#ffffff] to-[#dadada] p-px rounded-md h-full text-[#393939] transition-transform active:translate-y-1 duration-100" {...thock}>
         <div className="flex justify-center items-center bg-linear-to-b from-[#f2f2f2] to-[#ffffff] p-2 rounded-md h-full font-light text-xs tracking-tight">
           {text
             ? <h4 className="text-[1.625rem] tracking-tight whitespace-nowrap">{text}</h4>

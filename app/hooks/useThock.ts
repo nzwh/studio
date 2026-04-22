@@ -7,7 +7,7 @@ export function useThock() {
   }
 
   return {
-    onMouseDown: () => play(0.3),
+    onMouseDown: () => play(0.4),
     // onMouseUp: () => play(0.15),
   }
 }
