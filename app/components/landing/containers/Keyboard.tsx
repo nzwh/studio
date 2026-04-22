@@ -2,10 +2,12 @@ import { useState } from "react"
 import { concrete } from "@/app/fonts/fonts"
 import { FiLoader } from "react-icons/fi"
 import { MdKeyboardArrowDown, MdKeyboardArrowLeft, MdKeyboardArrowRight, MdKeyboardArrowUp, MdKeyboardCommandKey, MdKeyboardOptionKey } from "react-icons/md"
+import { useThock } from "@/app/hooks/useThock"
 
 const Keycap = ({ children, text, fill }: { children?: React.ReactNode, text?: string, fill?: boolean }) => {
+  const thock = useThock()
   return (
-    <div className={`relative h-full cursor-pointer select-none ${fill ? 'w-full' : 'w-fit'}`}>
+    <div className={`relative h-full cursor-pointer select-none ${fill ? 'w-full' : 'w-fit'}`} {...thock}>
       <div className="absolute inset-0 bg-[#dddddd] rounded-md translate-y-1" />
       <div className="relative bg-linear-to-b from-[#ffffff] to-[#dadada] p-px rounded-md h-full text-[#393939] transition-transform active:translate-y-1 duration-100">
         <div className="flex justify-center items-center bg-linear-to-b from-[#f2f2f2] to-[#ffffff] p-2 rounded-md h-full font-light text-xs tracking-tight">

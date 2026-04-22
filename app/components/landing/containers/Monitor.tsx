@@ -10,6 +10,7 @@ import DateTime from '../DateTime';
 import { SiGmail } from 'react-icons/si';
 
 import { redaction20 } from '@/app/fonts/fonts';
+import { useClick } from '@/app/hooks/useClick';
 
 const SandboxCanvas = dynamic(() => import("@/app/components/landing/sandbox/SandboxCanvas"), {
   ssr: false,
@@ -34,6 +35,7 @@ const KeyButton = ({ icon: Icon, url, 'data-cursor': dataCursor }: {
 )
 
 export default function Monitor() {
+  const click = useClick();
   return (
     <main className="relative shadow-[0_16px_36px_0_rgba(0,0,0,0.05),0_8px_0_0_#F0F0F0] rounded-lg w-full select-none">
       <main className="absolute inset-0 flex flex-col gap-2 m-3 text-[#888888]">
@@ -56,7 +58,7 @@ export default function Monitor() {
         </section>
 
         <section className="@container mb-3 rounded-sm w-full h-full">
-          <div className="relative shadow-[inset_0_-20px_50px_0_rgba(0,0,0,0.05)] border border-[#f0f0f0] rounded-lg w-full h-full overflow-hidden">
+          <div className="relative shadow-[inset_0_-20px_50px_0_rgba(0,0,0,0.05)] border border-[#f0f0f0] rounded-lg w-full h-full overflow-hidden" {...click}>
             <canvas
               className="z-10 absolute inset-0 w-full h-full pointer-events-none"
               ref={(c) => {
