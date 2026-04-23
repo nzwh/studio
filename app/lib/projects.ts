@@ -1,3 +1,6 @@
+import Array from "../components/branding/logo/Array";
+import Influx from "../components/branding/logo/Influx";
+import Phainon from "../components/branding/logo/Phainon";
 import Triagent from "../components/branding/logo/Triagent";
 
 export interface Project {
@@ -52,7 +55,7 @@ export const PROJECTS: Project[] = [
     read_time: "5m read",
     date_published: "12-2023",
     cover_url: "/images/array/array-banner.png",
-    Icon: Triagent,
+    Icon: Array,
     roles: [
       "Design Lead",
       "UI/UX Designer",
@@ -72,7 +75,7 @@ export const PROJECTS: Project[] = [
     read_time: "5m read",
     date_published: "03-2026",
     cover_url: "/images/influx/influx-banner.png",
-    Icon: Triagent,
+    Icon: Influx,
     roles: [
       "Project Manager",
       "Design Lead",
@@ -94,7 +97,7 @@ export const PROJECTS: Project[] = [
     read_time: "5m read",
     date_published: "09-2025",
     cover_url: "/images/phainon/phainon-banner.png",
-    Icon: Triagent,
+    Icon: Phainon,
     roles: [
       "Project Manager",
       "Design Lead",
