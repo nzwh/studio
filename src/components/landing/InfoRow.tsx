@@ -1,4 +1,4 @@
-import { Project } from "@/app/lib/projects";
+import { Project } from "@/src/lib/projects";
 
 export default function InfoRow({ project }: { project: Project }) {
   return (

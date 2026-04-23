@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import CassetteShape from "../../shapes/CassetteShape";
 import { MdOutlineAutoStories } from "react-icons/md";
-import { Project } from "@/app/lib/projects";
+import { Project } from "@/src/lib/projects";
 
 export default function Cassette({ project }: { project: Project }) {
   return (

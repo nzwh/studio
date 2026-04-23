@@ -5,19 +5,19 @@ import {
   MdAllInbox,
   MdOutlineDarkMode,
   MdOutlinePlayCircle,
-  MdOutlineWbCloudy,
 } from "react-icons/md";
 
-import { redaction20 } from "@/app/fonts/fonts";
-import { useClick } from "@/app/hooks/useClick";
+import { redaction20 } from "@/src/fonts/fonts";
+import { useClick } from "@/src/hooks/useClick";
 
 import MonitorShape from "../../shapes/MonitorShape";
 import DitherCanvas from "../sandbox/DitherCanvas";
 import DateTime from "../DateTime";
-import { SOCIALS } from "@/app/lib/socials";
+import { SOCIALS } from "@/src/lib/socials";
+import { FaLocationArrow } from "react-icons/fa6";
 
 const SandboxCanvas = dynamic(
-  () => import("@/app/components/landing/sandbox/SandboxCanvas"),
+  () => import("@/src/components/landing/sandbox/SandboxCanvas"),
   { ssr: false },
 );
 
@@ -40,9 +40,9 @@ export default function Monitor() {
           <div className="flex items-center gap-3">
             <div
               data-cursor="where i'm based on"
-              className="flex items-center gap-2"
+              className="flex items-center gap-1"
             >
-              <MdOutlineWbCloudy size={14} />
+              <FaLocationArrow size={14} />
               <span className="text-xs font-light tracking-tight">
                 Manila, PH
               </span>

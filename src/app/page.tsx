@@ -1,20 +1,21 @@
 "use client";
 
-import Footer from "./components/global/static/Footer";
-import Navbar from "./components/global/static/Navbar";
-import Divider from "./components/global/static/Divider";
+import Footer from "../components/global/static/Footer";
+import Navbar from "../components/global/static/Navbar";
+import Divider from "../components/global/static/Divider";
 
-import Monitor from "./components/landing/containers/Monitor";
-import Keyboard from "./components/landing/containers/Keyboard";
-import Cassette from "./components/landing/containers/Cassette";
+import Monitor from "../components/landing/containers/Monitor";
+import Keyboard from "../components/landing/containers/Keyboard";
+import Cassette from "../components/landing/containers/Cassette";
 
-import InfoRow from "./components/landing/InfoRow";
-import FadeIn from "./components/global/effects/FadeIn";
-import HoverText from "./components/global/effects/HoverText";
+import InfoRow from "../components/landing/InfoRow";
+import FadeIn from "../components/global/effects/FadeIn";
+import HoverText from "../components/global/effects/HoverText";
 
 import Image from "next/image";
 import Link from "next/link";
-import { Project, PROJECTS } from "./lib/projects";
+import { Project, PROJECTS } from "../lib/projects";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function Home() {
   return (
@@ -57,6 +58,19 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        <div className="w-full border-b border-[#f0f0f0]" />
+        <Link
+          href="/works"
+          className="trakcing-tight flex w-full flex-row justify-between text-sm font-light text-[#393939] transition-transform duration-200 hover:-translate-y-1"
+        >
+          <span>see—more—works—here</span>
+          <div className="flex flex-row items-center gap-1">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <FaArrowRightLong key={i} size={12} />
+            ))}
+          </div>
+        </Link>
       </section>
 
       <Divider />

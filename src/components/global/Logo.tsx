@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { concrete } from "@/app/fonts/fonts";
+import { concrete } from "@/src/fonts/fonts";
 
 // ── Constants ─────────────────────────────────────────────────
 

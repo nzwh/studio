@@ -1,4 +1,4 @@
-import { SOCIALS } from "@/app/lib/socials";
+import { SOCIALS } from "@/src/lib/socials";
 import Link from "next/link";
 
 export default function MiniSocials() {

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { nikkeimaru } from "./fonts/fonts";
+import { nikkeimaru } from "../fonts/fonts";
 import "./globals.css";
 
-import Cursor from "./components/global/effects/Cursor";
-import SmoothScroll from "./components/global/effects/SmoothScroll";
+import Cursor from "../components/global/effects/Cursor";
+import SmoothScroll from "../components/global/effects/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Create Next App",

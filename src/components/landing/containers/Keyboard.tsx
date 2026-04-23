@@ -10,9 +10,9 @@ import {
   MdKeyboardOptionKey,
 } from "react-icons/md";
 
-import { concrete } from "@/app/fonts/fonts";
-import { useThock } from "@/app/hooks/useThock";
-import { useClick } from "@/app/hooks/useClick";
+import { concrete } from "@/src/fonts/fonts";
+import { useThock } from "@/src/hooks/useThock";
+import { useClick } from "@/src/hooks/useClick";
 
 type KeySize = "default" | "small";
 type KeyData = { text: string; fill?: boolean; size?: KeySize };
