@@ -39,7 +39,7 @@ export default function DateTime({ className }: { className?: string }) {
       className={`flex items-center gap-2 ${className}`}
     >
       <span>{date}</span>
-      <span className="flex justify-end w-15">{clock}</span>
+      <span className="flex w-15 justify-end">{clock}</span>
     </span>
   );
 }

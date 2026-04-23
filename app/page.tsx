@@ -8,67 +8,91 @@ import Monitor from "./components/landing/containers/Monitor";
 import Keyboard from "./components/landing/containers/Keyboard";
 import Cassette from "./components/landing/containers/Cassette";
 
-import Triagent from "./components/branding/logo/Triagent";
+import InfoRow from "./components/landing/InfoRow";
+import FadeIn from "./components/global/effects/FadeIn";
+import HoverText from "./components/global/effects/HoverText";
+
+import Image from "next/image";
+import Link from "next/link";
+import { Project, PROJECTS } from "./lib/projects";
 
 export default function Home() {
-  const SHOWCASE_PROJECT = {
-    title: "Triagent",
-    description: `Wrong doctors, wrong information, wrong care.\nSee how we used AI to change the way people seek proper care, fast.`,
-    work_type: "collaborative-work",
-    read_time: "5m read",
-    date_published: "09-2025",
-    logo_url: "/shapes/disk-sticker.svg",
-    cover_url: "/placeholder.jpg",
-  };
-
   return (
     <main
       className="mx-auto w-200 border-x border-[#f0f0f0] px-6 max-md:w-full"
       data-gramm="false"
     >
       <Navbar />
-
       <Divider />
+
       <section className="my-12 flex flex-col">
-        <Monitor />
-        <Keyboard />
+        <FadeIn delay={100}>
+          <Monitor />
+        </FadeIn>
+        <FadeIn delay={200}>
+          <Keyboard />
+        </FadeIn>
       </section>
+
       <Divider />
 
-      <section className="ites-center my-12 flex w-full flex-col gap-3">
-        <h2 className="w-full text-center text-sm font-light tracking-tight">
-          highlighted—works
-        </h2>
-        <Cassette {...SHOWCASE_PROJECT} />
-        <div className="flex w-full flex-row items-center gap-2">
-          <div className="flex w-40 flex-row items-center gap-2">
-            <h6 className="text-sm font-normal tracking-tight text-[#393939]">
-              Triagent
-            </h6>
-            <div className="flex h-4 w-4 items-center justify-center rounded-xs bg-[#f0f0f0]">
-              <Triagent className="h-2 w-2 text-[#393939]" />
-            </div>
-          </div>
-          <div className="aspect-square h-1 w-1 rounded-full bg-[#f0f0f0]" />
-          <p className="w-full text-sm font-light tracking-tight text-[#393939]">
-            AI-powered medical chatbot & doctor recommendation web-app
-          </p>
-          <div className="flex w-fit flex-row gap-1">
-            {["Design Lead", "UX Researcher", "+4"].map((role, i) => (
-              <span
-                key={i}
-                className="h-fit flex-nowrap rounded-xs bg-[#F0F0F0] px-1 py-0.5 text-xs font-normal tracking-tight whitespace-nowrap text-[#707070]"
-              >
-                {role}
-              </span>
+      <section className="mt-6 mb-12 flex w-full flex-col items-center gap-6">
+        <FadeIn delay={100}>
+          <HoverText
+            hoverText="all my relevant works as of late"
+            className="w-full text-center text-sm font-light tracking-tight"
+          >
+            highlighted—works
+          </HoverText>
+        </FadeIn>
+
+        <div className="flex h-fit w-full flex-col gap-12">
+          <ProjectCard project={PROJECTS[0]}>
+            <Cassette project={PROJECTS[0]} />
+          </ProjectCard>
+
+          <div className="flex w-full flex-col gap-6">
+            {PROJECTS.slice(1).map((project, i) => (
+              <ProjectCard key={i} project={project} />
             ))}
           </div>
         </div>
       </section>
 
       <Divider />
-
       <Footer />
     </main>
   );
 }
+
+const ProjectCard = ({
+  project,
+  children,
+}: {
+  project: Project;
+  children?: React.ReactNode;
+  data_cursor?: string;
+}) => (
+  <FadeIn delay={200} className="flex w-full flex-col gap-6">
+    <Link
+      href={project.href}
+      className="transition-transform duration-200 hover:-translate-y-1"
+      data-cursor={`read about ${project.title} here!`}
+    >
+      {children ?? (
+        <div className="shadow-card relative h-48 w-full rounded-lg border border-[#dadada] bg-[#ffffff] px-12 pt-4">
+          <Image
+            src={project.cover_url || "/placeholder.jpg"}
+            alt="Project Cover Image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="h-full w-full cursor-pointer rounded-t-lg object-cover"
+            draggable={false}
+          />
+        </div>
+      )}
+    </Link>
+    <InfoRow project={project} />
+  </FadeIn>
+);

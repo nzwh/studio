@@ -13,6 +13,7 @@ const eslintConfig = defineConfig([
     rules: {
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": "warn",
+      "@typescript-eslint/no-inferrable-types": "warn",
     },
   },
   globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),

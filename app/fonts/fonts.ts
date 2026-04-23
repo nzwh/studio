@@ -2,10 +2,26 @@ import localFont from "next/font/local";
 
 export const concrete = localFont({
   src: [
-    { path: "concrete/concrete-norm.ttf", weight: "400", style: "normal" },
-    { path: "concrete/concrete-noti.ttf", weight: "400", style: "italic" },
-    { path: "concrete/concrete-nobx.ttf", weight: "800", style: "normal" },
-    { path: "concrete/concrete-nobi.ttf", weight: "800", style: "italic" },
+    {
+      path: "concrete/concrete-norm.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "concrete/concrete-noti.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "concrete/concrete-nobx.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "concrete/concrete-nobi.ttf",
+      weight: "800",
+      style: "italic",
+    },
   ],
   variable: "--font-concrete",
   display: "swap",
