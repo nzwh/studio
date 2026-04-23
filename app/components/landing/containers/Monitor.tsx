@@ -31,7 +31,7 @@ export default function Monitor() {
             <MdAllInbox size={14} />
             <h6 className="text-xs tracking-tight">Intellecture</h6>
             <h6 className="text-xs font-light tracking-tight">
-              Futurist-based Architect
+              Open to new opportunities!
             </h6>
           </div>
           <div className="flex items-center gap-3">
@@ -60,9 +60,12 @@ export default function Monitor() {
             <canvas
               className="pointer-events-none absolute inset-0 z-10 h-full w-full"
               ref={(c) => {
-                if (!c) return;
-                const section = c.parentElement!;
-                DitherCanvas(c, section.offsetWidth, section.offsetHeight);
+                if (!c || !c.parentElement) return;
+                DitherCanvas(
+                  c,
+                  c.parentElement.offsetWidth,
+                  c.parentElement.offsetHeight,
+                );
               }}
             />
             <SandboxCanvas />
@@ -82,7 +85,7 @@ export default function Monitor() {
           </div>
         </section>
 
-        <section className="absolute bottom-0 left-1/2 z-11 flex w-fit -translate-x-1/2 gap-1.5 rounded-xl border border-[#f0f0f0] bg-[#ffffff] px-2 pt-1.5 pb-2 shadow-[0_2px_8px_0_rgba(0,0,0,0.04)]">
+        <section className="absolute bottom-0 left-1/2 z-11 flex w-fit -translate-x-1/2 gap-1.5 rounded-xl border border-[#f0f0f0] bg-[#ffffff]/50 p-2 shadow-[0_2px_8px_0_rgba(0,0,0,0.04)] backdrop-blur-md">
           {SOCIALS.map(({ icon, href, cursor }) => (
             <KeyButton key={href} icon={icon} url={href} cursor={cursor} />
           ))}
@@ -102,15 +105,15 @@ const KeyButton = ({
   url: string;
   cursor?: string;
 }) => (
-  <div className="bg-keycap rounded-lg p-px text-[#393939] shadow-[0_4px_0_0_#F0F0F0]">
+  <div className="bg-keycap rounded-md p-px text-[#393939] shadow-[0_3px_0_0_#F0F0F0] transition-all duration-300 hover:-translate-y-1">
     <Link
       href={url}
       target="_blank"
       rel="noopener noreferrer"
       data-cursor={cursor}
-      className="bg-keycap-inner flex items-center justify-center rounded-lg p-2 text-xs font-light tracking-tight transition-all duration-300 hover:-translate-y-1"
+      className="bg-keycap-inner flex items-center justify-center rounded-md p-2 text-xs font-light tracking-tight"
     >
-      <Icon size={12} />
+      <Icon size={14} />
     </Link>
   </div>
 );
