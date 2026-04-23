@@ -35,7 +35,7 @@ export default function Logo() {
     <Link
       href="/"
       data-cursor="hi there! 👋"
-      className="mb-1 flex cursor-crosshair flex-row items-center select-none"
+      className="mb-1 flex cursor-pointer flex-row items-center select-none"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

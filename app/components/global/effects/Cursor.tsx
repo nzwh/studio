@@ -11,6 +11,8 @@ export default function Cursor() {
   const hovering = useRef(false);
 
   useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+
     const box = boxRef.current;
     const label = labelRef.current;
     const root = rootRef.current;
@@ -95,6 +97,7 @@ export default function Cursor() {
     >
       <div
         ref={boxRef}
+        className="hidden md:block"
         style={{
           position: "absolute",
           transform: "translate(-50%, -50%)",

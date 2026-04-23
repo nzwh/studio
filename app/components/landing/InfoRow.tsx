@@ -2,7 +2,7 @@ import { Project } from "@/app/lib/projects";
 
 export default function InfoRow({ project }: { project: Project }) {
   return (
-    <div className="flex w-full flex-row items-center gap-2 text-sm tracking-tight text-[#393939]">
+    <div className="flex w-full flex-row items-center gap-2 text-sm tracking-tight whitespace-nowrap text-[#393939]">
       <div className="flex w-40 flex-row items-center gap-2">
         <h6>{project.title}</h6>
         <div className="flex h-4 w-4 items-center justify-center rounded-xs bg-[#f0f0f0]">

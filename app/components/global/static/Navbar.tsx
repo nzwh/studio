@@ -15,7 +15,7 @@ export default function GlobalNav() {
         <Logo />
         <div
           data-cursor="and some more..."
-          className="flex flex-col text-[0.625rem] leading-2.5 font-light"
+          className="flex flex-col text-[0.625rem] leading-2.5 font-light whitespace-nowrap"
         >
           <span>UI/UX Designer</span>
           <span>Front-end Engineer</span>
@@ -28,7 +28,7 @@ export default function GlobalNav() {
             <Link
               href={href}
               data-cursor={cursor}
-              className="block text-sm font-light tracking-tight transition-transform duration-200 group-hover:-translate-y-0.5"
+              className="block text-sm font-light tracking-tight whitespace-nowrap transition-transform duration-200 group-hover:-translate-y-0.5"
             >
               {label}
             </Link>

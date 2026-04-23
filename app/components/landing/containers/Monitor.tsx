@@ -24,13 +24,16 @@ const SandboxCanvas = dynamic(
 export default function Monitor() {
   const click = useClick();
   return (
-    <div className="relative z-0 w-full rounded-lg shadow-[0_16px_36px_0_rgba(0,0,0,0.05),0_8px_0_0_#F0F0F0] select-none">
+    <div className="relative z-0 w-full rounded-lg whitespace-nowrap shadow-[0_16px_36px_0_rgba(0,0,0,0.05),0_8px_0_0_#F0F0F0] select-none">
       <div className="absolute inset-0 m-3 flex flex-col gap-2 text-[#888888]">
         <section className="flex w-full cursor-default flex-row justify-between">
           <div className="flex items-center gap-2">
             <MdAllInbox size={14} />
             <h6 className="text-xs tracking-tight">Intellecture</h6>
-            <h6 className="text-xs font-light tracking-tight">
+            <h6
+              data-cursor="currently looking for work"
+              className="text-xs font-light tracking-tight"
+            >
               Open to new opportunities!
             </h6>
           </div>
