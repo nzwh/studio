@@ -1,15 +1,21 @@
-import Link from 'next/link'
-import { FaXTwitter, FaBehance, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa6'
-import { SiGmail } from 'react-icons/si'
+import Link from "next/link";
+import {
+  FaXTwitter,
+  FaBehance,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa6";
+import { SiGmail } from "react-icons/si";
 
 export const SOCIALS = [
-  { icon: SiGmail, href: 'mailto:notzerowh@gmail.com' },
-  { icon: FaXTwitter, href: 'https://x.com/arkusgray' },
-  { icon: FaInstagram, href: 'https://instagram.com/arkusgray' },
-  { icon: FaGithub, href: 'https://github.com/nzwh' },
-  { icon: FaLinkedin, href: 'https://linkedin.com/in/nzwh' },
-  { icon: FaBehance, href: 'https://behance.net/nzwh' },
-]
+  { icon: SiGmail, href: "mailto:notzerowh@gmail.com" },
+  { icon: FaXTwitter, href: "https://x.com/arkusgray" },
+  { icon: FaInstagram, href: "https://instagram.com/arkusgray" },
+  { icon: FaGithub, href: "https://github.com/nzwh" },
+  { icon: FaLinkedin, href: "https://linkedin.com/in/nzwh" },
+  { icon: FaBehance, href: "https://behance.net/nzwh" },
+];
 
 export default function MiniSocials() {
   return (
@@ -26,5 +32,5 @@ export default function MiniSocials() {
         </Link>
       ))}
     </div>
-  )
+  );
 }

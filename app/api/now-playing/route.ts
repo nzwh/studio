@@ -2,10 +2,10 @@
 export async function GET() {
   const res = await fetch(
     `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks` +
-    `&user=${process.env.LASTFM_USER}` +
-    `&api_key=${process.env.LASTFM_API_KEY}` +
-    `&format=json&limit=1`,
-    { next: { revalidate: 30 } } // cache for 30s
+      `&user=${process.env.LASTFM_USER}` +
+      `&api_key=${process.env.LASTFM_API_KEY}` +
+      `&format=json&limit=1`,
+    { next: { revalidate: 30 } }, // cache for 30s
   );
 
   const data = await res.json();
@@ -17,7 +17,9 @@ export async function GET() {
     title: track.name,
     artist: track.artist["#text"],
     album: track.album["#text"],
-    albumArt: track.image.find((i: { size: string }) => i.size === "extralarge")?.["#text"],
+    albumArt: track.image.find(
+      (i: { size: string }) => i.size === "extralarge",
+    )?.["#text"],
     url: track.url,
   });
 }

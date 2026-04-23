@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -18,7 +18,7 @@ export default function NowPlaying() {
   useEffect(() => {
     const fetchTrack = () => {
       fetch("/api/now-playing")
-        .then(r => {
+        .then((r) => {
           if (!r.ok) throw new Error(`HTTP ${r.status}`);
           return r.json();
         })
@@ -36,7 +36,13 @@ export default function NowPlaying() {
 
   return (
     <div className="flex flex-row gap-3 bg-zinc-900 py-2 pr-4 pl-2 rounded-lg">
-      <Image src={track.albumArt} alt={track.album} width={36} height={36} className="rounded-sm" />
+      <Image
+        src={track.albumArt}
+        alt={track.album}
+        width={36}
+        height={36}
+        className="rounded-sm"
+      />
       {/* {track.isPlaying ? "🎵 Now playing" : "🎧 Last played"}:{" "} */}
       <div className="flex flex-col">
         <h6 className="font-semibold text-sm">{track.title}</h6>

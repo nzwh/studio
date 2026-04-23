@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { nikkeimaru } from './fonts/fonts';
+import { nikkeimaru } from "./fonts/fonts";
 import "./globals.css";
 
 import Cursor from "./components/global/effects/Cursor";
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${nikkeimaru.className} antialiased`}>
         <Cursor />
         {children}
