@@ -13,7 +13,6 @@ export default function MonitorShape({
       viewBox="0 0 672 360"
       overflow="visible"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
       <path

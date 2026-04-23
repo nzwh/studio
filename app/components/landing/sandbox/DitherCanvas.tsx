@@ -58,7 +58,6 @@ export default function DitherCanvas(
         if (p < thresholds[rowBase + c]) {
           const xStart = c * pixel;
           const seg = c === cols - 1 ? lastSegment : blackSegment;
-          // stamp this segment into every pixel row of this cell
           for (let y = yStart; y < yEnd; y++) {
             buf.set(seg, y * W + xStart);
           }

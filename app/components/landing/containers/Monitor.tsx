@@ -7,14 +7,6 @@ import {
   MdOutlinePlayCircle,
   MdOutlineWbCloudy,
 } from "react-icons/md";
-import {
-  FaBehance,
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaXTwitter,
-} from "react-icons/fa6";
-import { SiGmail } from "react-icons/si";
 
 import { redaction20 } from "@/app/fonts/fonts";
 import { useClick } from "@/app/hooks/useClick";
@@ -22,61 +14,11 @@ import { useClick } from "@/app/hooks/useClick";
 import MonitorShape from "../../shapes/MonitorShape";
 import DitherCanvas from "../sandbox/DitherCanvas";
 import DateTime from "../DateTime";
-
-const SOCIAL_LINKS = [
-  { icon: SiGmail, url: "mailto:notzerowh@gmail.com", cursor: "email me!" },
-  {
-    icon: FaXTwitter,
-    url: "https://x.com/arkusgray",
-    cursor: "@arkusgray on x!",
-  },
-  {
-    icon: FaInstagram,
-    url: "https://instagram.com/arkusgray",
-    cursor: "@arkusgray on instagram!",
-  },
-  {
-    icon: FaGithub,
-    url: "https://github.com/nzwh",
-    cursor: "@nzwh on github!",
-  },
-  {
-    icon: FaLinkedin,
-    url: "https://linkedin.com/in/nzwh",
-    cursor: "@nzwh on linkedin!",
-  },
-  {
-    icon: FaBehance,
-    url: "https://behance.net/nzwh",
-    cursor: "@nzwh on behance!",
-  },
-] as const;
+import { SOCIALS } from "@/app/lib/socials";
 
 const SandboxCanvas = dynamic(
   () => import("@/app/components/landing/sandbox/SandboxCanvas"),
   { ssr: false },
-);
-
-const KeyButton = ({
-  icon: Icon,
-  url,
-  cursor,
-}: {
-  icon: React.ComponentType<{ size?: number }>;
-  url: string;
-  cursor?: string;
-}) => (
-  <div className="bg-keycap rounded-lg p-px text-[#393939] shadow-[0_4px_0_0_#F0F0F0]">
-    <Link
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      data-cursor={cursor}
-      className="bg-keycap-inner flex items-center justify-center rounded-lg p-2 text-xs font-light tracking-tight transition-all duration-300 hover:-translate-y-1"
-    >
-      <Icon size={12} />
-    </Link>
-  </div>
 );
 
 export default function Monitor() {
@@ -141,8 +83,8 @@ export default function Monitor() {
         </section>
 
         <section className="absolute bottom-0 left-1/2 z-11 flex w-fit -translate-x-1/2 gap-1.5 rounded-xl border border-[#f0f0f0] bg-[#ffffff] px-2 pt-1.5 pb-2 shadow-[0_2px_8px_0_rgba(0,0,0,0.04)]">
-          {SOCIAL_LINKS.map(({ icon, url, cursor }) => (
-            <KeyButton key={url} icon={icon} url={url} cursor={cursor} />
+          {SOCIALS.map(({ icon, href, cursor }) => (
+            <KeyButton key={href} icon={icon} url={href} cursor={cursor} />
           ))}
         </section>
       </div>
@@ -150,3 +92,25 @@ export default function Monitor() {
     </div>
   );
 }
+
+const KeyButton = ({
+  icon: Icon,
+  url,
+  cursor,
+}: {
+  icon: React.ComponentType<{ size?: number }>;
+  url: string;
+  cursor?: string;
+}) => (
+  <div className="bg-keycap rounded-lg p-px text-[#393939] shadow-[0_4px_0_0_#F0F0F0]">
+    <Link
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor={cursor}
+      className="bg-keycap-inner flex items-center justify-center rounded-lg p-2 text-xs font-light tracking-tight transition-all duration-300 hover:-translate-y-1"
+    >
+      <Icon size={12} />
+    </Link>
+  </div>
+);

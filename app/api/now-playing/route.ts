@@ -1,11 +1,10 @@
-// app/api/now-playing/route.ts
 export async function GET() {
   const res = await fetch(
     `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks` +
       `&user=${process.env.LASTFM_USER}` +
       `&api_key=${process.env.LASTFM_API_KEY}` +
       `&format=json&limit=1`,
-    { next: { revalidate: 30 } }, // cache for 30s
+    { next: { revalidate: 30 } },
   );
 
   const data = await res.json();

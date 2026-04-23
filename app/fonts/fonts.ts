@@ -76,22 +76,3 @@ export const redaction20 = localFont({
   variable: "--font-redaction20",
   display: "swap",
 });
-
-// export const korataki = localFont({
-//   src: [
-//     { path: 'korataki/korataki-book.otf',        weight: '400', style: 'normal' },
-//     { path: 'korataki/korataki-book-italic.otf', weight: '400', style: 'italic' },
-//   ],
-//   variable: '--font-korataki',
-//   display: 'swap',
-// })
-
-// export const redaction35 = localFont({
-//   src: [
-//     { path: 'redaction/redaction-35-regular.otf', weight: '400', style: 'normal' },
-//     { path: 'redaction/redaction-35-italic.otf',  weight: '400', style: 'italic' },
-//     { path: 'redaction/redaction-35-bold.otf',    weight: '700', style: 'normal' },
-//   ],
-//   variable: '--font-redaction35',
-//   display: 'swap',
-// })

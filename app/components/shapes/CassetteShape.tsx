@@ -13,7 +13,6 @@ export default function CassetteShape({
       viewBox="0 0 672 264"
       overflow="visible"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
       <g filter="url(#filter0_i_149_1284)">

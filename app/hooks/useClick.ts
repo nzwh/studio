@@ -6,7 +6,6 @@ export function useClick() {
   }
 
   return {
-    onMouseDown: () => play(0.1),
-    // onMouseUp: () => play(0.15),
+    onMouseDown: () => play(0.2),
   };
 }
