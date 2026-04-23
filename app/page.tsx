@@ -37,7 +37,7 @@ export default function Home() {
       <Divider />
 
       <section className="mt-6 mb-12 flex w-full flex-col items-center gap-6">
-        <FadeIn delay={100}>
+        <FadeIn delay={100} className="w-full">
           <HoverText
             hoverText="all my relevant works as of late"
             className="w-full text-center text-sm font-light tracking-tight"

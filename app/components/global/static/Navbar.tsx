@@ -1,30 +1,39 @@
 import Link from "next/link";
 import Logo from "../Logo";
 
+const NAV_LINKS = [
+  { href: "/about", label: "—cv", cursor: "download my cv" },
+  { href: "/works", label: "—works", cursor: "view my works" },
+  { href: "/connect", label: "—connect", cursor: "get in touch" },
+  { href: "/archive", label: "—playground", cursor: "visit my playground" },
+];
+
 export default function GlobalNav() {
   return (
-    <nav className="flex justify-between items-center py-6 cursor-default select-none">
+    <nav className="flex cursor-default items-center justify-between py-6 select-none">
       <div className="flex flex-row items-center gap-4">
         <Logo />
-        <div className="flex flex-col font-light text-[0.625rem] leading-2.5">
+        <div
+          data-cursor="and some more..."
+          className="flex flex-col text-[0.625rem] leading-2.5 font-light"
+        >
           <span>UI/UX Designer</span>
           <span>Front-end Engineer</span>
         </div>
       </div>
 
       <div className="flex items-center gap-4">
-        <Link href="/about" className="font-light text-sm tracking-tight">
-          —cv
-        </Link>
-        <Link href="/works" className="font-light text-sm tracking-tight">
-          —works
-        </Link>
-        <Link href="/connect" className="font-light text-sm tracking-tight">
-          —connect
-        </Link>
-        <Link href="/archive" className="font-light text-sm tracking-tight">
-          —playground
-        </Link>
+        {NAV_LINKS.map(({ href, label, cursor }) => (
+          <div key={href} className="group">
+            <Link
+              href={href}
+              data-cursor={cursor}
+              className="block text-sm font-light tracking-tight transition-transform duration-200 group-hover:-translate-y-0.5"
+            >
+              {label}
+            </Link>
+          </div>
+        ))}
       </div>
     </nav>
   );
