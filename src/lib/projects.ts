@@ -23,7 +23,7 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    href: "/case-studies/triagent",
+    href: "/studies/triagent",
     title: "Triagent",
     description: "AI-powered medical triage & doctor recommendation platform",
     summary:
@@ -44,7 +44,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    href: "/case-studies/array",
+    href: "/studies/array",
     title: "Array",
     description:
       "Real-time mentor-mentee journaling platform for structured growth",
@@ -64,7 +64,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    href: "/case-studies/influx",
+    href: "/studies/influx",
     title: "Influx",
     description:
       "Community-driven marketplace for buying, selling, and local discovery",
@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    href: "/case-studies/phainon",
+    href: "/studies/phainon",
     title: "Phainon",
     description:
       "Cross-platform trading card game with a player-driven economy",
