@@ -77,7 +77,7 @@ export default function Monitor() {
                 <div key={i} className="h-1 w-1 rounded bg-[#dadada]" />
               ))}
             </div>
-            <span className="pointer-events-none absolute top-1/9 left-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 text-[0.5rem] font-light tracking-tight text-[#c0c0c0]">
+            <span className="pointer-events-none absolute top-1/11 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 text-xs font-light tracking-tight text-[#c0c0c0]">
               click for a surprise
             </span>
             <span
