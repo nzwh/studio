@@ -80,9 +80,9 @@ const Disk = ({ position }: { position: "left" | "right" }) => {
       <div
         className={`disk-circle absolute top-1/2 ${left ? "left-0" : "right-0"} h-96 w-96 -translate-y-1/2 rounded-full`}
       />
-      <div className="absolute inset-1/2 flex -translate-x-1/2 -translate-y-1/2 gap-2 pr-5">
-        {Array.from({ length: 8 }, (_, i) => (
-          <div key={i} className="h-4 w-1 rounded-lg bg-white shadow-lg" />
+      <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-row gap-2">
+        {Array.from({ length: 10 }, (_, i) => (
+          <div key={i} className="h-4 w-1 rounded-lg bg-[#ffffff] shadow-lg" />
         ))}
       </div>
     </div>
