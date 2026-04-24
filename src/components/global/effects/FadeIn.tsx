@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 export default function FadeIn({
   children,
@@ -17,27 +17,46 @@ export default function FadeIn({
   distance?: number;
   duration?: number;
 }) {
-  const OFFSET = {
-    up: { y: distance },
-    down: { y: -distance },
-    left: { x: distance },
-    right: { x: -distance },
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "-64px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const TRANSLATE = {
+    up: `translateY(${distance}px)`,
+    down: `translateY(-${distance}px)`,
+    left: `translateX(${distance}px)`,
+    right: `translateX(-${distance}px)`,
   };
 
   return (
-    <motion.div
+    <div
+      ref={ref}
       className={className}
-      initial={{ opacity: 0, ...OFFSET[direction] }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      transition={{
-        duration,
-        delay: delay / 1000,
-        ease: [0.21, 0.47, 0.32, 0.98],
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translate(0, 0)" : TRANSLATE[direction],
+        transition: `opacity ${duration}s cubic-bezier(0.21, 0.47, 0.32, 0.98) ${delay}ms, transform ${duration}s cubic-bezier(0.21, 0.47, 0.32, 0.98) ${delay}ms`,
+        willChange: "opacity, transform",
       }}
-      viewport={{ once: true, margin: "-64px" }}
-      style={{ willChange: "opacity, transform" }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
