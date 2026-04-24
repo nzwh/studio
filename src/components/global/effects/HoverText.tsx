@@ -2,15 +2,18 @@
 
 import { useState } from "react";
 
+interface HoverTextProps {
+  children: React.ReactNode;
+  hoverText: string;
+  className?: string;
+  onClick?: () => void;
+}
 export default function HoverText({
   children,
   hoverText,
   className,
-}: {
-  children: React.ReactNode;
-  hoverText: string;
-  className?: string;
-}) {
+  onClick,
+}: HoverTextProps) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -23,6 +26,7 @@ export default function HoverText({
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={onClick}
     >
       <span
         style={{

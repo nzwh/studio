@@ -1,5 +1,7 @@
-export default function Divider() {
+export default function Divider({ type }: { type: "short" | "long" }) {
   return (
-    <div className="-mx-[calc(50vw-50%)] w-screen border-b border-[#f0f0f0]" />
+    <div
+      className={`border-b border-[#f0f0f0] ${type === "short" ? "w-full" : "-mx-[calc(50vw-50%)] w-screen"}`}
+    />
   );
 }

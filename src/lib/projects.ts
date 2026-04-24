@@ -21,7 +21,7 @@ export interface Project {
   roles: string[];
 }
 
-export const PROJECTS: Project[] = [
+export const DESIGN_PROJECTS: Project[] = [
   {
     href: "/studies/triagent",
     title: "Triagent",
@@ -63,6 +63,29 @@ export const PROJECTS: Project[] = [
       "Quality Assurance",
     ],
   },
+];
+export const DEVELOPMENT_PROJECTS: Project[] = [
+  {
+    href: "/studies/phainon",
+    title: "Phainon",
+    description:
+      "Cross-platform trading card game with a player-driven economy",
+    summary:
+      "Collecting is solitary. Trading is social. Most card games miss the difference.\nSee how we designed Phainon to make every card feel valuable and every trade feel meaningful.",
+    project_type: "case—study",
+    work_type: "collaborative—work",
+    read_time: "5m read",
+    date_published: "09-2025",
+    cover_url: "/images/phainon/phainon-banner.png",
+    Icon: Phainon,
+    roles: [
+      "Project Manager",
+      "Design Lead",
+      "UI/UX Designer",
+      "Full-stack Developer",
+      "Quality Assurance",
+    ],
+  },
   {
     href: "/studies/influx",
     title: "Influx",
@@ -82,27 +105,6 @@ export const PROJECTS: Project[] = [
       "UI/UX Designer",
       "Full-stack Developer",
       "Product Designer",
-      "Quality Assurance",
-    ],
-  },
-  {
-    href: "/studies/phainon",
-    title: "Phainon",
-    description:
-      "Cross-platform trading card game with a player-driven economy",
-    summary:
-      "Collecting is solitary. Trading is social. Most card games miss the difference.\nSee how we designed Phainon to make every card feel valuable and every trade feel meaningful.",
-    project_type: "case—study",
-    work_type: "collaborative—work",
-    read_time: "5m read",
-    date_published: "09-2025",
-    cover_url: "/images/phainon/phainon-banner.png",
-    Icon: Phainon,
-    roles: [
-      "Project Manager",
-      "Design Lead",
-      "UI/UX Designer",
-      "Full-stack Developer",
       "Quality Assurance",
     ],
   },

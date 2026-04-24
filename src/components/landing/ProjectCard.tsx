@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Project } from "@/src/lib/projects";
-import FadeIn from "../global/effects/FadeIn";
 import ProjectDetails from "./ProjectDetails";
 
 interface ProjectCardProps {
@@ -11,7 +10,7 @@ interface ProjectCardProps {
 }
 export default function ProjectCard({ project, children }: ProjectCardProps) {
   return (
-    <FadeIn delay={200} className="flex w-full flex-col gap-6">
+    <div className="flex w-full flex-col gap-6">
       <Link
         href={project.href}
         className="transition-transform duration-200 hover:-translate-y-1"
@@ -32,6 +31,6 @@ export default function ProjectCard({ project, children }: ProjectCardProps) {
         )}
       </Link>
       <ProjectDetails project={project} />
-    </FadeIn>
+    </div>
   );
 }
