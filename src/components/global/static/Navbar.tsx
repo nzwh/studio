@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { href: "/archive", label: "—playground", cursor: "visit my playground" },
 ];
 
-export default function GlobalNav() {
+export default function Navbar() {
   return (
     <nav className="flex cursor-default items-center justify-between py-6 select-none">
       <div className="flex flex-row items-center gap-4">

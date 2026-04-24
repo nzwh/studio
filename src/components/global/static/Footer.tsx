@@ -2,13 +2,13 @@ import HoverText from "../effects/HoverText";
 import Logo from "../Logo";
 import MiniSocials from "../MiniSocials";
 
-export default function GlobalFooter() {
+export default function Footer() {
   return (
-    <footer className="flex justify-between items-center py-6">
-      <div className="flex flex-row items-center gap-4 w-full">
+    <footer className="flex items-center justify-between py-6">
+      <div className="flex w-full flex-row items-center gap-4">
         <Logo />
         <HoverText
-          className="w-full font-light text-sm tracking-tighter"
+          className="w-full text-sm font-light tracking-tighter"
           hoverText="@2026 all—nights—persevered"
         >
           @2026 all—rights—reserved

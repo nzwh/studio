@@ -4,8 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { concrete } from "@/src/fonts/fonts";
 
-// ── Constants ─────────────────────────────────────────────────
-
 const LETTERS = [
   { char: "n", width: "0.65em" },
   { char: "z", width: "0.48em" },

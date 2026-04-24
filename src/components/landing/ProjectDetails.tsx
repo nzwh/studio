@@ -1,6 +1,6 @@
 import { Project } from "@/src/lib/projects";
 
-export default function InfoRow({ project }: { project: Project }) {
+export default function ProjectDetails({ project }: { project: Project }) {
   return (
     <div className="flex w-full flex-row items-center gap-2 text-sm tracking-tight whitespace-nowrap text-[#393939]">
       <div className="flex w-40 flex-row items-center gap-2">
