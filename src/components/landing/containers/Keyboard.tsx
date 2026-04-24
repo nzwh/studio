@@ -80,7 +80,13 @@ const Keycap = ({
         {...thock}
       >
         <div className="bg-keycap-inner flex h-full items-center justify-center rounded-md p-2 text-xs font-light tracking-tight">
-          {text ? <h4 className={textClass}>{text}</h4> : children}
+          {text ? (
+            <h4 className={textClass + " " + (text.length === 2 ? "mt-1" : "")}>
+              {text}
+            </h4>
+          ) : (
+            children
+          )}
         </div>
       </button>
     </div>
