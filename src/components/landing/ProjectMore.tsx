@@ -5,7 +5,7 @@ export default function ProjectMore() {
   return (
     <Link
       href="/works"
-      className="flex w-full flex-row justify-between text-sm font-light tracking-tight text-[#393939] transition-transform duration-200 hover:-translate-y-1"
+      className="flex w-full flex-row justify-between text-sm font-light tracking-tight text-[#393939] transition-transform duration-200 hover:translate-y-1"
     >
       <span>see—more—works—here</span>
       <div className="flex flex-row items-center gap-1">

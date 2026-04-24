@@ -48,9 +48,7 @@ export default function Home() {
       <Divider type="long" />
 
       <section className="mt-6 mb-12 flex w-full flex-col items-center gap-6">
-        <FadeIn delay={100} className="w-full">
-          <ProjectTabs type={type} HandleTypeChange={HandleTypeChange} />
-        </FadeIn>
+        <ProjectTabs type={type} HandleTypeChange={HandleTypeChange} />
 
         <div key={type} className="flex h-fit w-full flex-col gap-12">
           <FadeIn delay={100} className="flex w-full flex-col gap-6">
@@ -68,7 +66,7 @@ export default function Home() {
           </div>
         </div>
 
-        <FadeIn delay={100} className="flex w-full flex-col gap-3">
+        <FadeIn delay={100} className="flex w-full flex-col gap-4">
           <Divider type="short" />
           <ProjectMore />
         </FadeIn>

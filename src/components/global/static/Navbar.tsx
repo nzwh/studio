@@ -17,8 +17,8 @@ export default function Navbar() {
           data-cursor="and some more..."
           className="flex flex-col text-[0.625rem] leading-2.5 font-light whitespace-nowrap"
         >
-          <span>UI/UX Designer</span>
-          <span>Front-end Engineer</span>
+          <span>Frontend Engineer</span>
+          <span>& UI/UX Designer</span>
         </div>
       </div>
 

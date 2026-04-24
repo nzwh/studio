@@ -39,10 +39,10 @@ const ROWS: KeyData[][] = [
   ],
   [
     { text: "✏️" },
-    { text: "ui/ux," },
-    { text: "front-end," },
-    { text: "product design," },
     { text: "full-stack," },
+    { text: "front-end" },
+    { text: "development," },
+    { text: "ui/ux," },
     { text: "i'll handle it." },
     { text: "🤞", fill: true },
   ],
@@ -72,6 +72,8 @@ const Keycap = ({
       ? `text-xs font-extrabold italic -tracking-widest text-[#a5a5a5] ${concrete.className}`
       : "whitespace-nowrap text-[1.625rem] tracking-tight";
 
+  const isEmoji = (str: string) => /^\p{Emoji_Presentation}$/u.test(str.trim());
+
   return (
     <div className={`relative h-full select-none ${fill ? "w-full" : "w-fit"}`}>
       <div className="absolute inset-0 translate-y-1 rounded-md bg-[#dddddd]" />
@@ -81,7 +83,7 @@ const Keycap = ({
       >
         <div className="bg-keycap-inner flex h-full items-center justify-center rounded-md p-2 text-xs font-light tracking-tight">
           {text ? (
-            <h4 className={textClass + " " + (text.length === 2 ? "mt-1" : "")}>
+            <h4 className={textClass + " " + (isEmoji(text) ? "mt-1" : "")}>
               {text}
             </h4>
           ) : (
