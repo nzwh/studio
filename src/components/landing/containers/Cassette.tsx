@@ -45,7 +45,10 @@ export default function Cassette({ project }: { project: Project }) {
             fill="#ffffff"
             stroke="#dadada"
           />
-          <Disk position="left" />
+          <Disk
+            position="left"
+            color={project.color || ["#ffffff", "#8d93ff"]}
+          />
           <Image
             src={project.cover_url || "/placeholder.jpg"}
             alt="Project Cover Image"
@@ -55,7 +58,10 @@ export default function Cassette({ project }: { project: Project }) {
             className="disk-image h-full w-full cursor-pointer rounded-lg object-cover select-none"
             draggable={false}
           />
-          <Disk position="right" />
+          <Disk
+            position="right"
+            color={project.color || ["#ffffff", "#8d93ff"]}
+          />
         </div>
       </div>
 
@@ -68,7 +74,13 @@ export default function Cassette({ project }: { project: Project }) {
   );
 }
 
-const Disk = ({ position }: { position: "left" | "right" }) => {
+const Disk = ({
+  position,
+  color,
+}: {
+  position: "left" | "right";
+  color: string[];
+}) => {
   const left = position === "left";
   const mask = `radial-gradient(circle 4rem at ${left ? "130%" : "-30%"} 50%, transparent 99%, black 100%)`;
 
@@ -79,6 +91,9 @@ const Disk = ({ position }: { position: "left" | "right" }) => {
     >
       <div
         className={`disk-circle absolute top-1/2 ${left ? "left-0" : "right-0"} h-96 w-96 -translate-y-1/2 rounded-full`}
+        style={{
+          background: `radial-gradient(circle, ${color[0]} 0%, ${color[1]} 100%)`,
+        }}
       />
       <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-row gap-2">
         {Array.from({ length: 10 }, (_, i) => (

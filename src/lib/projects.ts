@@ -19,6 +19,7 @@ export interface Project {
     stroke?: string;
   }>;
   roles: string[];
+  color?: string[];
 }
 
 export const DESIGN_PROJECTS: Project[] = [
@@ -42,6 +43,7 @@ export const DESIGN_PROJECTS: Project[] = [
       "Front-end Developer",
       "Quality Assurance",
     ],
+    color: ["#ffffff", "#8d93ff"],
   },
   {
     href: "/studies/array",
@@ -62,6 +64,7 @@ export const DESIGN_PROJECTS: Project[] = [
       "Product Designer",
       "Quality Assurance",
     ],
+    color: ["#ffffff", "#8d93ff"],
   },
 ];
 export const DEVELOPMENT_PROJECTS: Project[] = [
@@ -85,6 +88,7 @@ export const DEVELOPMENT_PROJECTS: Project[] = [
       "Full-stack Developer",
       "Quality Assurance",
     ],
+    color: ["#DAC6B4", "#171748"],
   },
   {
     href: "/studies/influx",
@@ -107,5 +111,6 @@ export const DEVELOPMENT_PROJECTS: Project[] = [
       "Product Designer",
       "Quality Assurance",
     ],
+    color: ["#ffffff", "#8d93ff"],
   },
 ];
