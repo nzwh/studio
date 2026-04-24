@@ -246,7 +246,7 @@ export default function SandboxCanvas() {
         r.a *= 0.88;
         ctx.beginPath();
         ctx.arc(r.x, r.y, r.r, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(255,255,255,${r.a})`;
+        ctx.strokeStyle = `rgba(0,0,0,${r.a})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -383,7 +383,7 @@ export default function SandboxCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="z-1 absolute inset-0 w-full h-full touch-none pointer-events-auto"
+      className="pointer-events-auto absolute inset-0 z-1 h-full w-full touch-none"
       style={{ cursor: "pointer" }}
     />
   );
