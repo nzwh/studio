@@ -49,15 +49,18 @@ export default function Cassette({ project }: { project: Project }) {
             position="left"
             color={project.color || ["#ffffff", "#8d93ff"]}
           />
-          <Image
-            src={project.cover_url || "/placeholder.jpg"}
-            alt="Project Cover Image"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="disk-image h-full w-full cursor-pointer rounded-lg object-cover select-none"
-            draggable={false}
-          />
+          <div className="h-full w-full rounded-lg">
+            <Image
+              src={project.cover_url || "/placeholder.jpg"}
+              alt="Project Cover Image"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="disk-image h-full w-full cursor-pointer rounded-lg object-cover select-none"
+              draggable={false}
+            />
+          </div>
+
           <Disk
             position="right"
             color={project.color || ["#ffffff", "#8d93ff"]}

@@ -15,8 +15,8 @@
 @theme {
   --shadow-card: 0 16px 36px 0 rgba(0, 0, 0, 0.03), 0 8px 0 0 #f0f0f0;
   --background-image-card: linear-gradient(
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(240, 240, 240, 0.9) 100%
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(240, 240, 240, 0.8) 100%
   );
 
   --background-image-keycap: linear-gradient(to bottom, #ffffff, #dadada);
@@ -75,7 +75,6 @@ body {
   }
 }
 
-/* globals.css */
 @keyframes letter-float {
   0%,
   100% {

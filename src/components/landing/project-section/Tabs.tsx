@@ -1,4 +1,4 @@
-import HoverText from "../global/effects/HoverText";
+import HoverText from "../../global/effects/HoverText";
 
 const TABS = [
   {
@@ -29,7 +29,7 @@ export default function ProjectTabs({
           key={value}
           hoverText={hover}
           className={`w-full cursor-pointer ${align} text-sm font-light tracking-tight transition-colors duration-300 ${
-            type === value ? "text-[#393939]" : "text-[#dadada]"
+            type === value ? "text-[#393939]" : "text-[#a5a5a5]"
           }`}
           onClick={() => HandleTypeChange(value)}
         >

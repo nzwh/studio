@@ -6,12 +6,12 @@ import Navbar from "../components/global/static/Navbar";
 import Divider from "../components/global/static/Divider";
 import FadeIn from "../components/global/effects/FadeIn";
 
-import Monitor from "../components/landing/containers/Monitor";
-import Keyboard from "../components/landing/containers/Keyboard";
-import Cassette from "../components/landing/containers/Cassette";
-import ProjectCard from "../components/landing/ProjectCard";
-import ProjectMore from "../components/landing/ProjectMore";
-import ProjectTabs from "../components/landing/ProjectTabs";
+import Monitor from "../components/landing/hero-section/Monitor";
+import Keyboard from "../components/landing/hero-section/Keyboard";
+import Cassette from "../components/landing/hero-section/Cassette";
+import ProjectCard from "../components/landing/project-section/Card";
+import ProjectMore from "../components/landing/project-section/SeeMore";
+import ProjectTabs from "../components/landing/project-section/Tabs";
 
 import { DEVELOPMENT_PROJECTS, DESIGN_PROJECTS } from "../lib/projects";
 
