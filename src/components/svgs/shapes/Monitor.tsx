@@ -3,7 +3,7 @@ interface MonitorShapeProps {
   fill?: string;
   stroke?: string;
 }
-export default function MonitorShape({
+export default function Monitor({
   className,
   fill = "transparent",
   stroke = "currentColor",

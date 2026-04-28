@@ -1,4 +1,3 @@
-import VeritcalDividers from "../VerticalDividers";
 import Divider from "./Divider";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
@@ -21,7 +20,7 @@ export default function Boilerplate({
         <Divider type="long" />
       </div>
 
-      {dividers && <VeritcalDividers />}
+      {dividers && <Divider direction="vertical" />}
       {children}
 
       <Divider type="long" />

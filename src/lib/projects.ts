@@ -1,7 +1,7 @@
-import Array from "../components/branding/logo/Array";
-import Influx from "../components/branding/logo/Influx";
-import Phainon from "../components/branding/logo/Phainon";
-import Triagent from "../components/branding/logo/Triagent";
+import Array from "../components/svgs/logos/Array";
+import Influx from "../components/svgs/logos/Influx";
+import Phainon from "../components/svgs/logos/Phainon";
+import Triagent from "../components/svgs/logos/Triagent";
 
 export interface Project {
   title: string;

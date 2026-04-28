@@ -12,7 +12,7 @@ export default function ProjectCard({ project, children }: ProjectCardProps) {
   return (
     <div className="flex w-full flex-col gap-6">
       <Link
-        href={`/studies/${project.title.toLowerCase()}`}
+        href={`/articles/${project.title.toLowerCase()}`}
         className="transition-transform duration-200 hover:-translate-y-1"
         data-cursor={`read about ${project.title} here!`}
       >

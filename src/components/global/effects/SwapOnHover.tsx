@@ -2,18 +2,18 @@
 
 import { useState } from "react";
 
-interface HoverTextProps {
+interface SwapOnHoverProps {
   children: React.ReactNode;
-  hoverText: string;
+  SwapOnHover: string;
   className?: string;
   onClick?: () => void;
 }
-export default function HoverText({
+export default function SwapOnHover({
   children,
-  hoverText,
+  SwapOnHover,
   className,
   onClick,
-}: HoverTextProps) {
+}: SwapOnHoverProps) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -46,7 +46,7 @@ export default function HoverText({
           transition: "transform 0.3s cubic-bezier(0.16,1,0.3,1)",
         }}
       >
-        {hoverText}
+        {SwapOnHover}
       </span>
     </span>
   );

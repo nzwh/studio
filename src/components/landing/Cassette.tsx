@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import CassetteShape from "../../shapes/CassetteShape";
+import CassetteShape from "../svgs/shapes/Cassette";
 import { MdOutlineAutoStories } from "react-icons/md";
 import { Project } from "@/src/lib/projects";
 

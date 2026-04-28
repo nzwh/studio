@@ -4,14 +4,15 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { use, useEffect, useState } from "react";
 
-import Divider from "@/src/components/global/static/Divider";
-import Boilerplate from "@/src/components/global/static/Boilerplate";
+import Divider from "@/src/components/global/Divider";
+import Boilerplate from "@/src/components/global/Boilerplate";
 import { useLenis } from "@/src/components/global/effects/LenisScroll";
 
 import { instrumentsans } from "@/src/fonts/fonts";
 import { PROJECTS } from "@/src/lib/data";
+import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
 
-export default function Study({
+export default function Article({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -65,7 +66,7 @@ export default function Study({
 
   return (
     <Boilerplate dividers={false}>
-      <section
+      <AnimateFlyIn
         className={`${instrumentsans.className} my-12 flex w-300 gap-4 max-xl:w-full`}
       >
         <aside className="sticky top-24 flex h-fit w-48 flex-col gap-4 max-md:hidden">
@@ -146,7 +147,7 @@ export default function Study({
             ))}
           </div>
         </article>
-      </section>
+      </AnimateFlyIn>
     </Boilerplate>
   );
 }

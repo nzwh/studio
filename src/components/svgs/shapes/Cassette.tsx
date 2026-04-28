@@ -3,7 +3,7 @@ interface CassetteShapeProps {
   fill?: string;
   stroke?: string;
 }
-export default function CassetteShape({
+export default function Cassette({
   className,
   fill = "transparent",
   stroke = "currentColor",

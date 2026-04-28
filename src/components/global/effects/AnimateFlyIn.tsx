@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function FadeIn({
+export default function AnimateFlyIn({
   children,
   className,
   delay = 0,

@@ -10,9 +10,9 @@ import {
 import { redaction20 } from "@/src/fonts/fonts";
 import { useClick } from "@/src/hooks/useClick";
 
-import MonitorShape from "../../shapes/MonitorShape";
-import DitherCanvas from "../sandbox/DitherCanvas";
-import DateTime from "../DateTime";
+import MonitorShape from "../svgs/shapes/Monitor";
+import DitherCanvas from "./sandbox/DitherCanvas";
+import DateTime from "./DateTime";
 import { SOCIALS } from "@/src/lib/socials";
 import { FaLocationArrow } from "react-icons/fa6";
 

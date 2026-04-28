@@ -1,4 +1,4 @@
-import HoverText from "../../global/effects/HoverText";
+import SwapOnHover from "../../global/effects/SwapOnHover";
 
 const TABS = [
   {
@@ -25,16 +25,16 @@ export default function ProjectTabs({
   return (
     <div className="flex w-full flex-row items-center justify-between gap-4 py-3">
       {TABS.map(({ value, label, hover, align }) => (
-        <HoverText
+        <SwapOnHover
           key={value}
-          hoverText={hover}
+          SwapOnHover={hover}
           className={`w-full cursor-pointer ${align} text-sm font-light tracking-tight transition-colors duration-300 ${
             type === value ? "text-[#393939]" : "text-[#a5a5a5]"
           }`}
           onClick={() => HandleTypeChange(value)}
         >
           {label}
-        </HoverText>
+        </SwapOnHover>
       ))}
     </div>
   );
