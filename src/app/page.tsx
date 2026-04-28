@@ -8,7 +8,6 @@ import Monitor from "../components/landing/Monitor";
 import Keyboard from "../components/landing/Keyboard";
 import Cassette from "../components/landing/Cassette";
 import ProjectCard from "../components/landing/project/Card";
-import ProjectMore from "../components/landing/project/SeeMore";
 import ProjectTabs from "../components/landing/project/Tabs";
 
 import { PROJECTS } from "../lib/projects.data";
@@ -66,10 +65,10 @@ export default function Home() {
           </div>
         </div>
 
-        <AnimateFlyIn delay={100} className="flex w-full flex-col gap-4">
+        {/* <AnimateFlyIn delay={100} className="flex w-full flex-col gap-4">
           <Divider type="short" />
           <ProjectMore />
-        </AnimateFlyIn>
+        </AnimateFlyIn> */}
       </section>
     </Boilerplate>
   );

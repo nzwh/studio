@@ -33,12 +33,9 @@ export default function Cassette({ project }: { project: Project }) {
       </div>
 
       <div className="absolute inset-0 m-3 flex flex-col gap-3">
-        <div className="flex w-full flex-row justify-end gap-2 text-xs tracking-tight">
-          <span className="font-light text-[#707070]">{project.work_type}</span>
-          <span className="font-normal text-[#a5a5a5]">
-            {project.duration || "In Progress"}
-          </span>
-        </div>
+        <span className="flex w-full flex-row justify-end gap-2 text-xs font-normal tracking-tight text-[#a5a5a5]">
+          {project.duration || "In Progress"}
+        </span>
         <div className="relative flex h-full w-full flex-row gap-2 overflow-hidden">
           <project.icon
             className="absolute -bottom-10 left-3/5 z-2 w-40"
@@ -69,7 +66,7 @@ export default function Cassette({ project }: { project: Project }) {
       </div>
 
       <CassetteShape
-        className="h-auto w-full"
+        className="h-auto w-full overflow-visible"
         stroke="#dadada"
         fill="#ffffff"
       />

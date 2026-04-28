@@ -1,5 +1,3 @@
-import ArrayIcon from "../components/svgs/logos/Array";
-import InfluxIcon from "../components/svgs/logos/Influx";
 import PhainonIcon from "../components/svgs/logos/Phainon";
 import TriagentIcon from "../components/svgs/logos/Triagent";
 
@@ -10,7 +8,7 @@ export const ARTICLES: ProjectArticle[] = [
     title: "triagent",
     sections: [
       {
-        header: "Initial",
+        header: "Introduction",
         paragraphs: [
           {
             content:
@@ -191,7 +189,7 @@ export const PROJECTS: Project[] = [
     summary:
       "Wrong doctors, wrong information, wrong care.\nSee how we leveraged AI to connect patients with the right care, fast.",
 
-    project_type: "Collaborative Work",
+    project_type: "Thesis Work",
     work_type: "design",
     read_time: "3m read",
     duration: "September 2025",
@@ -208,9 +206,9 @@ export const PROJECTS: Project[] = [
   {
     title: "Phainon",
     description: "Card-collecting Discord bot with a player-driven economy.",
-    summary: "Years of playing card bots. One decision to build a better one.",
+    summary: "Years of playing card bots.\nOne decision to build a better one.",
 
-    project_type: "Collaborative Work",
+    project_type: "Passion Project",
     work_type: "development",
     read_time: "3m read",
     duration: "In Development",
@@ -224,58 +222,46 @@ export const PROJECTS: Project[] = [
 
     article: ARTICLES.find((a) => a.title === "phainon"),
   },
-  {
-    title: "Array",
-    description:
-      "Real-time mentor-mentee journaling platform for structured growth.",
-    summary:
-      "Accountability is the missing piece in most mentorship.\nSee how we built a shared journaling space that keeps mentors and mentees aligned, reflective, and growing together.",
+  // {
+  //   title: "Array",
+  //   description:
+  //     "Real-time mentor-mentee journaling platform for structured growth.",
+  //   summary:
+  //     "Accountability is the missing piece in most mentorship.\nSee how we built a shared journaling space that keeps mentors and mentees aligned, reflective, and growing together.",
 
-    project_type: "Collaborative Work",
-    work_type: "design",
-    read_time: "5m read",
-    duration: "December 2023",
+  //   project_type: "Collaborative Work",
+  //   work_type: "design",
+  //   read_time: "5m read",
+  //   duration: "December 2023",
 
-    stack: [],
-    roles: [
-      "Design Lead",
-      "UI/UX Designer",
-      "Product Designer",
-      "Quality Assurance",
-    ],
+  //   stack: [],
+  //   roles: [],
 
-    icon: ArrayIcon,
-    cover: "/images/array/array-banner.png",
-    colors: ["#ffffff", "#8d93ff"],
+  //   icon: ArrayIcon,
+  //   cover: "/images/array/banner.png",
+  //   colors: ["#ffffff", "#8d93ff"],
 
-    article: ARTICLES.find((a) => a.title === "Array"),
-  },
-  {
-    title: "Influx",
-    description:
-      "Community-driven marketplace for buying, selling, and local discovery.",
-    summary:
-      "Local commerce is fragmented and impersonal.\nSee how we designed Influx to make buying and selling feel like a community experience, not a transaction.",
+  //   article: ARTICLES.find((a) => a.title === "Array"),
+  // },
+  // {
+  //   title: "Influx",
+  //   description:
+  //     "Community-driven marketplace for buying, selling, and local discovery.",
+  //   summary:
+  //     "Local commerce is fragmented and impersonal.\nSee how we designed Influx to make buying and selling feel like a community experience, not a transaction.",
 
-    project_type: "Collaborative Work",
-    work_type: "development",
-    read_time: "5m read",
-    duration: "March 2026",
+  //   project_type: "Collaborative Work",
+  //   work_type: "development",
+  //   read_time: "5m read",
+  //   duration: "March 2026",
 
-    stack: [],
-    roles: [
-      "Project Manager",
-      "Design Lead",
-      "UI/UX Designer",
-      "Full-stack Developer",
-      "Product Designer",
-      "Quality Assurance",
-    ],
+  //   stack: [],
+  //   roles: [],
 
-    icon: InfluxIcon,
-    cover: "/images/influx/influx-banner.png",
-    colors: ["#ffffff", "#8d93ff"],
+  //   icon: InfluxIcon,
+  //   cover: "/images/influx/banner.png",
+  //   colors: ["#ffffff", "#8d93ff"],
 
-    article: ARTICLES.find((a) => a.title === "Influx"),
-  },
+  //   article: ARTICLES.find((a) => a.title === "Influx"),
+  // },
 ];

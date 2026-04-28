@@ -11,6 +11,7 @@ import { useLenis } from "@/src/components/global/effects/LenisScroll";
 import { instrumentsans } from "@/src/fonts/fonts";
 import { PROJECTS } from "@/src/lib/projects.data";
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
+import Headline from "@/src/components/articles/Headline";
 
 export default function Article({
   params,
@@ -66,11 +67,9 @@ export default function Article({
 
   return (
     <Boilerplate dividers={false}>
-      <AnimateFlyIn
-        className={`${instrumentsans.className} my-12 flex w-300 gap-4 max-xl:w-full`}
-      >
-        <aside className="sticky top-24 flex h-fit w-48 flex-col gap-4 max-md:hidden">
-          <h3 className="text-xs font-extrabold text-[#a5a5a5]">CHAPTERS</h3>
+      <div className={`my-12 flex w-300 gap-12 max-xl:w-full`}>
+        <aside className="sticky top-24 flex h-fit w-60 flex-col gap-4 font-light max-md:hidden">
+          <h3 className="text-xs font-normal text-[#a5a5a5]">CHAPTERS</h3>
           <ul className="gap-1text-sm flex flex-col">
             {project?.article?.sections.map((section) => (
               <li key={section.header}>
@@ -79,7 +78,7 @@ export default function Article({
                   onClick={(e) => HandleScroll(e, section.header)}
                   className={`text-sm transition-colors duration-200 hover:text-[#8d93ff] ${
                     activeId === ConvertID(section.header)
-                      ? "font-extrabold text-[#393939]"
+                      ? "font-normal text-[#393939]"
                       : "text-[#a5a5a5]"
                   }`}
                 >
@@ -90,41 +89,23 @@ export default function Article({
           </ul>
         </aside>
         <article className="flex w-full flex-col gap-3 text-lg font-light tracking-tight">
-          <Image
-            src={project?.cover || "/placeholder.jpg"}
-            alt={`${project?.title} cover image`}
-            className="h-40 w-full rounded-lg object-cover"
-            width={0}
-            height={0}
-            sizes="100vw"
-          />
-          <h1 className="text-4xl">{project?.title}</h1>
-          <p className="text-lg text-[#a5a5a5]">{project?.description}</p>
-          <Divider type="short" />
-          <div className="flex w-full flex-row gap-4">
-            <div className="flex w-full flex-col gap-1">
-              <h4 className="text-xs text-[#a5a5a5] uppercase">Type</h4>
-              <p>{project?.work_type}</p>
-            </div>
-            <div className="flex w-full flex-col gap-1">
-              <h4 className="text-xs text-[#a5a5a5] uppercase">Stack</h4>
-              <p>{project?.stack.join(", ")}</p>
-            </div>
-            <div className="flex w-full flex-col gap-1">
-              <h4 className="text-xs text-[#a5a5a5] uppercase">Roles</h4>
-              <p>{project?.roles.join(", ")}</p>
-            </div>
-          </div>
-          <Divider type="short" />
-          <div className="my-6 flex flex-col gap-12">
+          <AnimateFlyIn delay={100} className="flex w-full flex-col gap-3">
+            <Headline project={project} />
+            <Divider type="short" />
+          </AnimateFlyIn>
+          <AnimateFlyIn
+            delay={200}
+            className={`${instrumentsans.className} my-6 flex flex-col gap-12`}
+          >
             {project?.article?.sections.map((section) => (
               <div key={section.header} className="flex flex-col gap-3">
                 <h2
                   id={ConvertID(section.header)}
-                  className="text-2xl font-medium"
+                  className={`text-2xl font-medium ${section.header === "Introduction" ? "h-0 overflow-hidden" : ""}`}
                 >
                   {section.header}
                 </h2>
+
                 {section.paragraphs.map((paragraph, index) => (
                   <div key={index} className="flex flex-col gap-3">
                     <p className="text-justify">{paragraph.content}</p>
@@ -145,9 +126,9 @@ export default function Article({
                 ))}
               </div>
             ))}
-          </div>
+          </AnimateFlyIn>
         </article>
-      </AnimateFlyIn>
+      </div>
     </Boilerplate>
   );
 }
