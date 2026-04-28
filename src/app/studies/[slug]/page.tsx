@@ -1,47 +1,51 @@
 "use client";
 
-import Divider from "@/src/components/global/static/Divider";
-import Footer from "@/src/components/global/static/Footer";
-import Navbar from "@/src/components/global/static/Navbar";
-import { PROJECTS } from "@/src/lib/data";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-
-import { instrumentsans } from "@/src/fonts/fonts";
-import { useLenis } from "@/src/components/global/effects/LenisScroll";
 import { use, useEffect, useState } from "react";
 
-export default function Triagent({
+import Divider from "@/src/components/global/static/Divider";
+import Boilerplate from "@/src/components/global/static/Boilerplate";
+import { useLenis } from "@/src/components/global/effects/LenisScroll";
+
+import { instrumentsans } from "@/src/fonts/fonts";
+import { PROJECTS } from "@/src/lib/data";
+
+export default function Study({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = use(params);
-  const project = PROJECTS.find((p) => p.title.toLowerCase() === slug);
-
+  const project = PROJECTS.find(
+    (p) => p.title.toLowerCase() === use(params).slug,
+  );
   if (!project) notFound();
   const lenis = useLenis();
 
-  const HandleIDConversion = (header: string) => {
-    return header.toLowerCase().replace(/\s+/g, "-");
+  const ConvertID = (header: string) => {
+    return header
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-");
   };
+
   const HandleScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     header: string,
   ) => {
     e.preventDefault();
-    const id = HandleIDConversion(header);
+    const id = ConvertID(header);
+
     lenis?.scrollTo(`#${id}`, { offset: -80 });
     history.pushState(null, "", `#${id}`);
   };
 
   const [activeId, setActiveId] = useState<string | null>(null);
-
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
     project?.sections.forEach((section) => {
-      const id = HandleIDConversion(section.header);
+      const id = ConvertID(section.header);
       const el = document.getElementById(id);
       if (!el) return;
 
@@ -58,28 +62,23 @@ export default function Triagent({
 
     return () => observers.forEach((o) => o.disconnect());
   }, [project]);
-  return (
-    <main
-      className="mx-auto flex w-200 flex-col items-center px-6 max-md:w-full"
-      data-gramm="false"
-    >
-      <Navbar />
-      <Divider type="long" />
 
+  return (
+    <Boilerplate dividers={false}>
       <section
-        className={`${instrumentsans.className} text-md relative my-12 flex w-300 flex-row gap-4 font-light tracking-tight max-xl:w-full`}
+        className={`${instrumentsans.className} my-12 flex w-300 gap-4 max-xl:w-full`}
       >
-        <aside className="sticky top-20 h-fit w-60 max-md:hidden">
+        <aside className="sticky top-24 flex h-fit w-48 flex-col gap-4 max-md:hidden">
           <h3 className="text-xs font-extrabold text-[#a5a5a5]">CHAPTERS</h3>
-          <ul className="flex flex-col gap-1 pt-2 text-sm">
+          <ul className="gap-1text-sm flex flex-col">
             {project?.sections.map((section) => (
               <li key={section.header}>
                 <a
-                  href={`#${HandleIDConversion(section.header)}`}
+                  href={`#${ConvertID(section.header)}`}
                   onClick={(e) => HandleScroll(e, section.header)}
                   className={`text-sm transition-colors duration-200 hover:text-[#8d93ff] ${
-                    activeId === HandleIDConversion(section.header)
-                      ? "font-medium text-[#8d93ff]"
+                    activeId === ConvertID(section.header)
+                      ? "font-extrabold text-[#393939]"
                       : "text-[#a5a5a5]"
                   }`}
                 >
@@ -89,7 +88,15 @@ export default function Triagent({
             ))}
           </ul>
         </aside>
-        <article className="flex w-full flex-col gap-3">
+        <article className="flex w-full flex-col gap-3 text-lg font-light tracking-tight">
+          <Image
+            src={project?.cover_url || "/placeholder.jpg"}
+            alt={`${project?.title} cover image`}
+            className="h-40 w-full rounded-lg object-cover"
+            width={0}
+            height={0}
+            sizes="100vw"
+          />
           <h1 className="text-4xl">{project?.title}</h1>
           <p className="text-lg text-[#a5a5a5]">{project?.description}</p>
           <Divider type="short" />
@@ -108,39 +115,38 @@ export default function Triagent({
             </div>
           </div>
           <Divider type="short" />
-          {project?.sections.map((section) => (
-            <div key={section.header} className="flex flex-col gap-3">
-              <h2
-                id={HandleIDConversion(section.header)}
-                className="text-2xl font-medium"
-              >
-                {section.header}
-              </h2>
-              {section.paragraphs.map((paragraph, index) => (
-                <div key={index} className="flex flex-col gap-3">
-                  <p className="text-justify">{paragraph.content}</p>
-                  {paragraph.media?.map((media, mediaIndex) => {
-                    if (media.type === "image") {
-                      return (
-                        <Image
-                          key={mediaIndex}
-                          src={media.src}
-                          alt={media.alt || "Project media"}
-                          className="w-full max-w-md rounded-lg shadow-md"
-                        />
-                      );
-                    }
-                    return null;
-                  })}
-                </div>
-              ))}
-            </div>
-          ))}
+          <div className="my-6 flex flex-col gap-12">
+            {project?.sections.map((section) => (
+              <div key={section.header} className="flex flex-col gap-3">
+                <h2
+                  id={ConvertID(section.header)}
+                  className="text-2xl font-medium"
+                >
+                  {section.header}
+                </h2>
+                {section.paragraphs.map((paragraph, index) => (
+                  <div key={index} className="flex flex-col gap-3">
+                    <p className="text-justify">{paragraph.content}</p>
+                    {paragraph.media?.map((media, mediaIndex) => {
+                      if (media.type === "image") {
+                        return (
+                          <Image
+                            key={mediaIndex}
+                            src={media.src}
+                            alt={media.alt || "Project media"}
+                            className="w-full max-w-md rounded-lg shadow-md"
+                          />
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </article>
       </section>
-
-      <Divider type="long" />
-      <Footer />
-    </main>
+    </Boilerplate>
   );
 }

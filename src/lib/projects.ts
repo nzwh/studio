@@ -4,7 +4,6 @@ import Phainon from "../components/branding/logo/Phainon";
 import Triagent from "../components/branding/logo/Triagent";
 
 export interface Project {
-  href: string;
   title: string;
   description: string;
   summary: string;
@@ -24,14 +23,13 @@ export interface Project {
 
 export const DESIGN_PROJECTS: Project[] = [
   {
-    href: "/studies/triagent",
     title: "Triagent",
     description: "AI-powered medical triage & doctor recommendation platform",
     summary:
       "Wrong doctors, wrong information, wrong care.\nSee how we leveraged AI to connect patients with the right care — fast.",
     project_type: "case—study",
     work_type: "collaborative—work",
-    read_time: "5m read",
+    read_time: "3m read",
     date_published: "09-2025",
     cover_url: "/images/triagent/triagent-banner.png",
     Icon: Triagent,
@@ -46,7 +44,6 @@ export const DESIGN_PROJECTS: Project[] = [
     color: ["#ffffff", "#8d93ff"],
   },
   {
-    href: "/studies/array",
     title: "Array",
     description:
       "Real-time mentor-mentee journaling platform for structured growth",
@@ -69,7 +66,6 @@ export const DESIGN_PROJECTS: Project[] = [
 ];
 export const DEVELOPMENT_PROJECTS: Project[] = [
   {
-    href: "/studies/phainon",
     title: "Phainon",
     description:
       "Cross-platform trading card game with a player-driven economy",
@@ -79,7 +75,7 @@ export const DEVELOPMENT_PROJECTS: Project[] = [
     work_type: "collaborative—work",
     read_time: "5m read",
     date_published: "09-2025",
-    cover_url: "/images/phainon/phainon-banner.png",
+    cover_url: "/images/phainon/banner.gif",
     Icon: Phainon,
     roles: [
       "Project Manager",
@@ -91,7 +87,6 @@ export const DEVELOPMENT_PROJECTS: Project[] = [
     color: ["#DAC6B4", "#171748"],
   },
   {
-    href: "/studies/influx",
     title: "Influx",
     description:
       "Community-driven marketplace for buying, selling, and local discovery",

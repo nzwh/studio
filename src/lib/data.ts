@@ -15,7 +15,7 @@ interface ProjectSection {
 interface ProjectArticle {
   cover_url: string;
   title: string;
-  type: "development" | "design";
+  type: string;
   stack: string[];
   roles: string[];
   description: string;
@@ -24,7 +24,7 @@ interface ProjectArticle {
 
 export const PROJECTS: ProjectArticle[] = [
   {
-    cover_url: "/images/triagent/triagent-banner.png",
+    cover_url: "/images/triagent/banner.png",
     title: "Triagent",
     type: "design",
     stack: ["Figma", "AI/NLP Integration"],
@@ -123,9 +123,9 @@ export const PROJECTS: ProjectArticle[] = [
     ],
   },
   {
-    cover_url: "/images/phainon/phainon-banner.png",
+    cover_url: "/images/phainon/banner.gif",
     title: "Phainon",
-    type: "development",
+    type: "Development",
     stack: [
       "Discord.js v14",
       "Node.js",

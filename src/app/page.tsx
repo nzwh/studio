@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 
-import Footer from "../components/global/static/Footer";
-import Navbar from "../components/global/static/Navbar";
 import Divider from "../components/global/static/Divider";
 import FadeIn from "../components/global/effects/FadeIn";
 
@@ -14,7 +12,7 @@ import ProjectMore from "../components/landing/project-section/SeeMore";
 import ProjectTabs from "../components/landing/project-section/Tabs";
 
 import { DEVELOPMENT_PROJECTS, DESIGN_PROJECTS } from "../lib/projects";
-import VeritcalDividers from "../components/global/VerticalDividers";
+import Boilerplate from "../components/global/static/Boilerplate";
 
 export default function Home() {
   const [type, setType] = useState<"development" | "design">("development");
@@ -30,19 +28,12 @@ export default function Home() {
   };
 
   return (
-    <main className="mx-auto w-200 px-6 max-md:w-full" data-gramm="false">
-      <nav className="fixed inset-x-0 top-0 z-10 mx-auto flex w-200 flex-col justify-between bg-[#ffffff]/90 px-6 backdrop-blur-xs">
-        <Navbar />
-        <Divider type="long" />
-      </nav>
-
-      <div className="h-16" />
-      <VeritcalDividers />
-
+    <Boilerplate>
       <section className="my-12 flex flex-col">
         <FadeIn delay={100}>
           <Monitor />
         </FadeIn>
+
         <FadeIn delay={200}>
           <Keyboard />
         </FadeIn>
@@ -74,9 +65,6 @@ export default function Home() {
           <ProjectMore />
         </FadeIn>
       </section>
-
-      <Divider type="long" />
-      <Footer />
-    </main>
+    </Boilerplate>
   );
 }

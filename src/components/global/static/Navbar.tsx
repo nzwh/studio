@@ -10,7 +10,7 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   return (
-    <nav className="flex w-full items-center justify-between py-4 select-none">
+    <nav className="flex w-200 items-center justify-between px-6 py-4 select-none max-md:w-full max-md:px-0">
       <div className="flex items-center gap-4">
         <Logo />
         <div
