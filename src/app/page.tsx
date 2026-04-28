@@ -11,11 +11,17 @@ import ProjectCard from "../components/landing/project/Card";
 import ProjectMore from "../components/landing/project/SeeMore";
 import ProjectTabs from "../components/landing/project/Tabs";
 
-import { DEVELOPMENT_PROJECTS, DESIGN_PROJECTS } from "../lib/projects";
+import { PROJECTS } from "../lib/projects.data";
 import Boilerplate from "../components/global/Boilerplate";
 
 export default function Home() {
   const [type, setType] = useState<"development" | "design">("development");
+
+  const DEVELOPMENT_PROJECTS = PROJECTS.filter(
+    (p) => p.work_type === "development",
+  );
+
+  const DESIGN_PROJECTS = PROJECTS.filter((p) => p.work_type === "design");
   const [projects, setProjects] = useState(DEVELOPMENT_PROJECTS);
 
   const HandleTypeChange = (newType: "development" | "design") => {

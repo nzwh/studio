@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import CassetteShape from "../svgs/shapes/Cassette";
 import { MdOutlineAutoStories } from "react-icons/md";
-import { Project } from "@/src/lib/projects";
+import { Project } from "@/src/lib/projects.types";
 
 export default function Cassette({ project }: { project: Project }) {
   return (
@@ -36,22 +36,22 @@ export default function Cassette({ project }: { project: Project }) {
         <div className="flex w-full flex-row justify-end gap-2 text-xs tracking-tight">
           <span className="font-light text-[#707070]">{project.work_type}</span>
           <span className="font-normal text-[#a5a5a5]">
-            {project.date_published}
+            {project.duration || "In Progress"}
           </span>
         </div>
         <div className="relative flex h-full w-full flex-row gap-2 overflow-hidden">
-          <project.Icon
+          <project.icon
             className="absolute -bottom-10 left-3/5 z-2 w-40"
             fill="#ffffff"
             stroke="#dadada"
           />
           <Disk
             position="left"
-            color={project.color || ["#ffffff", "#8d93ff"]}
+            color={project.colors || ["#ffffff", "#8d93ff"]}
           />
           <div className="h-full w-full rounded-lg">
             <Image
-              src={project.cover_url || "/placeholder.jpg"}
+              src={project.cover || "/placeholder.jpg"}
               alt="Project Cover Image"
               width={0}
               height={0}
@@ -63,7 +63,7 @@ export default function Cassette({ project }: { project: Project }) {
 
           <Disk
             position="right"
-            color={project.color || ["#ffffff", "#8d93ff"]}
+            color={project.colors || ["#ffffff", "#8d93ff"]}
           />
         </div>
       </div>

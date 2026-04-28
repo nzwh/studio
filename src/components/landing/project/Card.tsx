@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Project } from "@/src/lib/projects";
+import { Project } from "@/src/lib/projects.types";
 import ProjectDetails from "./Details";
 
 interface ProjectCardProps {
@@ -19,7 +19,7 @@ export default function ProjectCard({ project, children }: ProjectCardProps) {
         {children ?? (
           <div className="shadow-card relative h-48 w-full rounded-lg border border-[#dadada] bg-[#ffffff] px-12 pt-4">
             <Image
-              src={project.cover_url || "/placeholder.jpg"}
+              src={project.cover || "/placeholder.jpg"}
               alt="Project Cover Image"
               width={0}
               height={0}

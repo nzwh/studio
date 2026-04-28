@@ -9,7 +9,7 @@ import Boilerplate from "@/src/components/global/Boilerplate";
 import { useLenis } from "@/src/components/global/effects/LenisScroll";
 
 import { instrumentsans } from "@/src/fonts/fonts";
-import { PROJECTS } from "@/src/lib/data";
+import { PROJECTS } from "@/src/lib/projects.data";
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
 
 export default function Article({
@@ -45,7 +45,7 @@ export default function Article({
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
-    project?.sections.forEach((section) => {
+    project?.article?.sections.forEach((section) => {
       const id = ConvertID(section.header);
       const el = document.getElementById(id);
       if (!el) return;
@@ -72,7 +72,7 @@ export default function Article({
         <aside className="sticky top-24 flex h-fit w-48 flex-col gap-4 max-md:hidden">
           <h3 className="text-xs font-extrabold text-[#a5a5a5]">CHAPTERS</h3>
           <ul className="gap-1text-sm flex flex-col">
-            {project?.sections.map((section) => (
+            {project?.article?.sections.map((section) => (
               <li key={section.header}>
                 <a
                   href={`#${ConvertID(section.header)}`}
@@ -91,7 +91,7 @@ export default function Article({
         </aside>
         <article className="flex w-full flex-col gap-3 text-lg font-light tracking-tight">
           <Image
-            src={project?.cover_url || "/placeholder.jpg"}
+            src={project?.cover || "/placeholder.jpg"}
             alt={`${project?.title} cover image`}
             className="h-40 w-full rounded-lg object-cover"
             width={0}
@@ -104,7 +104,7 @@ export default function Article({
           <div className="flex w-full flex-row gap-4">
             <div className="flex w-full flex-col gap-1">
               <h4 className="text-xs text-[#a5a5a5] uppercase">Type</h4>
-              <p>{project?.type}</p>
+              <p>{project?.work_type}</p>
             </div>
             <div className="flex w-full flex-col gap-1">
               <h4 className="text-xs text-[#a5a5a5] uppercase">Stack</h4>
@@ -117,7 +117,7 @@ export default function Article({
           </div>
           <Divider type="short" />
           <div className="my-6 flex flex-col gap-12">
-            {project?.sections.map((section) => (
+            {project?.article?.sections.map((section) => (
               <div key={section.header} className="flex flex-col gap-3">
                 <h2
                   id={ConvertID(section.header)}
