@@ -14,6 +14,7 @@ import ProjectMore from "../components/landing/project-section/SeeMore";
 import ProjectTabs from "../components/landing/project-section/Tabs";
 
 import { DEVELOPMENT_PROJECTS, DESIGN_PROJECTS } from "../lib/projects";
+import VeritcalDividers from "../components/global/VerticalDividers";
 
 export default function Home() {
   const [type, setType] = useState<"development" | "design">("development");
@@ -29,12 +30,14 @@ export default function Home() {
   };
 
   return (
-    <main
-      className="mx-auto w-200 border-x border-[#f0f0f0] px-6 max-md:w-full"
-      data-gramm="false"
-    >
-      <Navbar />
-      <Divider type="long" />
+    <main className="mx-auto w-200 px-6 max-md:w-full" data-gramm="false">
+      <nav className="fixed inset-x-0 top-0 z-10 mx-auto flex w-200 flex-col justify-between bg-[#ffffff]/90 px-6 backdrop-blur-xs">
+        <Navbar />
+        <Divider type="long" />
+      </nav>
+
+      <div className="h-16" />
+      <VeritcalDividers />
 
       <section className="my-12 flex flex-col">
         <FadeIn delay={100}>

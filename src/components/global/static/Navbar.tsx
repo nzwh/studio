@@ -10,12 +10,12 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   return (
-    <nav className="flex cursor-default items-center justify-between py-6 select-none">
-      <div className="flex flex-row items-center gap-4">
+    <nav className="flex w-full items-center justify-between py-4 select-none">
+      <div className="flex items-center gap-4">
         <Logo />
         <div
-          data-cursor="and some more..."
           className="flex flex-col text-[0.625rem] leading-2.5 font-light whitespace-nowrap"
+          data-cursor="and more!"
         >
           <span>Frontend Engineer</span>
           <span>& UI/UX Designer</span>

@@ -3,7 +3,7 @@ import { nikkeimaru } from "../fonts/fonts";
 import "./globals.css";
 
 import Cursor from "../components/global/effects/Cursor";
-import SmoothScroll from "../components/global/effects/SmoothScroll";
+import { LenisProvider } from "../components/global/effects/LenisScroll";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nikkeimaru.className} antialiased`}>
-        <SmoothScroll>
+        <LenisProvider>
           <Cursor />
           {children}
-        </SmoothScroll>
+        </LenisProvider>
       </body>
     </html>
   );
