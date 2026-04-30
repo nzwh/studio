@@ -2,10 +2,9 @@ import Link from "next/link";
 import Logo from "./Logo";
 
 const NAV_LINKS = [
-  { href: "/about", label: "—cv", cursor: "download my cv" },
-  // { href: "/works", label: "—works", cursor: "view my works" },
-  { href: "/connect", label: "—connect", cursor: "get in touch" },
-  // { href: "/archive", label: "—playground", cursor: "visit my playground" },
+  { href: "/cv", label: "—cv", cursor: "view my cv" },
+  { href: "/about", label: "—about", cursor: "more about me" },
+  { href: "/playground", label: "—playground", cursor: "visit my playground" },
 ];
 
 export default function Navbar() {
