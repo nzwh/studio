@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { nikkeimaru } from "../fonts/fonts";
 import "./globals.css";
-
-import Cursor from "../components/global/effects/Cursor";
 import { LenisScroll } from "../components/global/effects/LenisScroll";
+import Cursor from "../components/global/effects/Cursor";
 
 export const metadata: Metadata = {
   title: "@nzwh—portfolio",

@@ -30,7 +30,7 @@ const ToolbarSelect = ({ label, full }: { label: string; full?: boolean }) => (
 );
 
 export const PanelToolbar = () => (
-  <div className="flex h-6 w-full gap-1 text-[#707070] select-none">
+  <div className="flex h-6 w-full gap-1 whitespace-nowrap text-[#707070] select-none">
     <ToolbarGroup>
       <FaBold size={10} />
       <ToolbarSeparator />

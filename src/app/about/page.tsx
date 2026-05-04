@@ -30,7 +30,7 @@ export default function AboutPage() {
       });
 
       return lineIndex < lines.length - 1
-        ? [...parsed, <br key={`br-${lineIndex}`} />]
+        ? [...parsed, <br key={`br-${lineIndex}`} className="max-md:hidden" />]
         : parsed;
     });
   };
@@ -71,7 +71,7 @@ export default function AboutPage() {
           </article>
         </WindowPanel>
 
-        <aside className="relative flex w-52 shrink-0 flex-col gap-3 self-stretch text-sm">
+        <aside className="relative flex w-52 shrink-0 flex-col gap-3 self-stretch text-sm max-md:hidden">
           <PanelImage
             src="/images/about/photo1.jpg"
             title="0001.jpg"

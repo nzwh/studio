@@ -12,6 +12,7 @@ import ProjectTabs from "../components/landing/project/Tabs";
 
 import { PROJECTS } from "../lib/projects.data";
 import Boilerplate from "../components/global/Boilerplate";
+import FooterButton from "../components/global/FooterButton";
 
 export default function HomePage() {
   const [type, setType] = useState<"development" | "design">("development");
@@ -48,27 +49,28 @@ export default function HomePage() {
       <ProjectTabs type={type} HandleTypeChange={HandleTypeChange} />
       <Divider type="long" />
 
-      <section className="mt-6 mb-12 flex w-full flex-col items-center gap-6">
-        <div key={type} className="flex h-fit w-full flex-col gap-12">
-          <AnimateFlyIn delay={100} className="flex w-full flex-col gap-6">
+      <section
+        id="work"
+        className="my-12 flex w-full flex-col items-center gap-6"
+      >
+        <div key={type} className="flex w-full flex-col">
+          <AnimateFlyIn delay={100} className="flex w-full flex-col">
             <ProjectCard project={projects[0]}>
               <Cassette project={projects[0]} />
             </ProjectCard>
           </AnimateFlyIn>
 
-          <div className="flex w-full flex-col gap-6">
-            {projects.slice(1).map((project, i) => (
-              <AnimateFlyIn key={project.title} delay={200 + i * 100}>
-                <ProjectCard key={i} project={project} />
-              </AnimateFlyIn>
-            ))}
-          </div>
+          {projects && (
+            <div className="flex w-full flex-col gap-6">
+              {projects.slice(1).map((project, i) => (
+                <AnimateFlyIn key={project.title} delay={200 + i * 100}>
+                  <ProjectCard key={i} project={project} />
+                </AnimateFlyIn>
+              ))}
+            </div>
+          )}
         </div>
-
-        {/* <AnimateFlyIn delay={100} className="flex w-full flex-col gap-4">
-          <Divider type="short" />
-          <ProjectMore />
-        </AnimateFlyIn> */}
+        <FooterButton left="more—about—me—here—!" href="/about" />
       </section>
     </Boilerplate>
   );
