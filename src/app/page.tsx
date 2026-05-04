@@ -13,7 +13,7 @@ import ProjectTabs from "../components/landing/project/Tabs";
 import { PROJECTS } from "../lib/projects.data";
 import Boilerplate from "../components/global/Boilerplate";
 
-export default function Home() {
+export default function HomePage() {
   const [type, setType] = useState<"development" | "design">("development");
 
   const DEVELOPMENT_PROJECTS = PROJECTS.filter(
@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <Boilerplate>
-      <section className="my-12 flex flex-col">
+      <section className="my-12 flex flex-col gap-1">
         <AnimateFlyIn delay={100}>
           <Monitor />
         </AnimateFlyIn>
@@ -45,10 +45,10 @@ export default function Home() {
       </section>
 
       <Divider type="long" />
+      <ProjectTabs type={type} HandleTypeChange={HandleTypeChange} />
+      <Divider type="long" />
 
       <section className="mt-6 mb-12 flex w-full flex-col items-center gap-6">
-        <ProjectTabs type={type} HandleTypeChange={HandleTypeChange} />
-
         <div key={type} className="flex h-fit w-full flex-col gap-12">
           <AnimateFlyIn delay={100} className="flex w-full flex-col gap-6">
             <ProjectCard project={projects[0]}>

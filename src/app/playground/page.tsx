@@ -1,5 +1,5 @@
 "use client";
 
-export default function Home() {
+export default function PlaygroundPage() {
   return <main></main>;
 }

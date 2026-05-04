@@ -13,7 +13,7 @@ import { PROJECTS } from "@/src/lib/projects.data";
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
 import Headline from "@/src/components/articles/Headline";
 
-export default function Article({
+export default function ArticlePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -67,7 +67,9 @@ export default function Article({
 
   return (
     <Boilerplate dividers={false}>
-      <div className={`my-12 flex w-300 gap-12 max-xl:w-full`}>
+      <div
+        className={`my-12 flex w-270 gap-12 px-6 max-[1080px]:w-full max-[1080px]:p-0`}
+      >
         <aside className="sticky top-24 flex h-fit w-60 flex-col gap-4 font-light max-md:hidden">
           <h3 className="text-xs font-normal text-[#a5a5a5]">CHAPTERS</h3>
           <ul className="gap-1text-sm flex flex-col">
