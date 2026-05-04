@@ -205,7 +205,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Phainon",
-    description: "Card-collecting Discord bot with a player-driven economy.",
+    description: "Pop Culture Card-collecting and Trading Discord Bot",
     summary: "Years of playing card bots.\nOne decision to build a better one.",
 
     project_type: "Passion Project",
