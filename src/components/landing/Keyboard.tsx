@@ -156,10 +156,10 @@ export default function Keyboard() {
       ))}
       <section className="flex h-10 w-full gap-1">
         <Keycap>
-          <MdKeyboardCommandKey size={20} color="#a5a5a5" />
+          <MdKeyboardOptionKey size={20} color="#a5a5a5" />
         </Keycap>
         <Keycap>
-          <MdKeyboardOptionKey size={20} color="#a5a5a5" />
+          <MdKeyboardCommandKey size={20} color="#a5a5a5" />
         </Keycap>
         {ROWS[3].map((key, i) => (
           <Keycap key={i} {...key} />

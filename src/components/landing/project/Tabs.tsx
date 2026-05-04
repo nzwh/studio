@@ -23,7 +23,7 @@ export default function ProjectTabs({
   HandleTypeChange: (newType: "development" | "design") => void;
 }) {
   return (
-    <div className="flex w-full flex-row items-center justify-between gap-4 py-3">
+    <div className="flex w-full flex-row items-center justify-between gap-4 py-6">
       {TABS.map(({ value, label, hover, align }) => (
         <SwapOnHover
           key={value}

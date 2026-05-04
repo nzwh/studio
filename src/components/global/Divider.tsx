@@ -15,11 +15,11 @@ export default function Divider({
         <div className="h-full w-px bg-[#f0f0f0]" />
         <div className="h-full w-px bg-[#f0f0f0]" />
       </div>
-      <div className="pointer-events-none fixed top-0 left-1/2 z-10 flex h-full -translate-x-1/2 items-center gap-260 max-md:flex">
+      <div className="pointer-events-none fixed top-0 left-1/2 z-10 flex h-full -translate-x-1/2 items-center gap-256 max-md:flex">
         <div className="h-full w-px bg-[#f0f0f0]" />
         <div className="h-full w-px bg-[#f0f0f0]" />
       </div>
-      <div className="pointer-events-none fixed top-0 left-1/2 z-10 flex h-full -translate-x-1/2 items-center gap-210 max-md:flex">
+      <div className="pointer-events-none fixed top-0 left-1/2 z-10 flex h-full -translate-x-1/2 items-center gap-216 max-md:flex">
         <div className="h-full w-px bg-[#f0f0f0]" />
         <div className="h-full w-px bg-[#f0f0f0]" />
       </div>

@@ -35,7 +35,7 @@ export default function NowPlaying() {
   if (!track) return null;
 
   return (
-    <div className="flex flex-row gap-3 bg-zinc-900 py-2 pr-4 pl-2 rounded-lg">
+    <div className="absolute top-5 left-1/2 z-10 flex w-60 -translate-x-1/2 flex-row gap-2 rounded-md border border-[#f0f0f0] bg-[#ffffff]/80 p-2 tracking-tight text-[#393939] backdrop-blur-sm">
       <Image
         src={track.albumArt}
         alt={track.album}
@@ -43,10 +43,9 @@ export default function NowPlaying() {
         height={36}
         className="rounded-sm"
       />
-      {/* {track.isPlaying ? "🎵 Now playing" : "🎧 Last played"}:{" "} */}
-      <div className="flex flex-col">
-        <h6 className="font-semibold text-sm">{track.title}</h6>
-        <a href={track.url} target="_blank" className="text-gray-400 text-xs">
+      <div className="flex flex-col gap-0">
+        <h6 className="text-sm font-normal">{track.title}</h6>
+        <a href={track.url} target="_blank" className="text-xs">
           {track.artist}
         </a>
       </div>

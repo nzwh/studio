@@ -20,11 +20,9 @@ export default function Headline({ project }: { project: Project }) {
 
   return (
     <div className="flex w-full flex-col gap-6 pb-3">
-      <div className="flex w-full justify-between">
-        <h1 className="text-2xl font-normal">{project?.title}</h1>
-        <p className="text-2xl font-light text-[#a5a5a5]">
-          {project?.description}
-        </p>
+      <div className="flex w-full justify-between text-2xl">
+        <h1 className="font-normal">{project?.title}</h1>
+        <p className="font-light text-[#a5a5a5]">{project?.description}</p>
       </div>
 
       <div className="relative w-full gap-6 overflow-hidden">
@@ -44,7 +42,7 @@ export default function Headline({ project }: { project: Project }) {
       </div>
 
       <div className="flex w-full flex-row gap-8">
-        <div className="grid w-full grid-cols-2 grid-rows-2 gap-3">
+        <div className="grid w-full grid-cols-2 grid-rows-2 gap-x-8 gap-y-3">
           {Object.entries(TYPES).map(([key, value]) => (
             <div key={key} className="flex w-full flex-col gap-0.5">
               <span className="text-xs font-normal text-[#a5a5a5]">
@@ -58,7 +56,7 @@ export default function Headline({ project }: { project: Project }) {
             </div>
           ))}
         </div>
-        <div className="flex w-full flex-row">
+        <div className="flex w-full flex-row gap-8">
           {Object.entries(TAGS).map(([key, value]) => (
             <div key={key} className="flex w-full flex-col gap-0.5">
               <span className="text-xs font-normal text-[#a5a5a5]">

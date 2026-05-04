@@ -3,53 +3,93 @@ import Link from "next/link";
 
 import {
   MdAllInbox,
+  MdLocationSearching,
   MdOutlineDarkMode,
   MdOutlinePlayCircle,
 } from "react-icons/md";
 
-import { redaction20 } from "@/src/fonts/fonts";
 import { useClick } from "@/src/hooks/useClick";
 
 import MonitorShape from "../svgs/shapes/Monitor";
 import DitherCanvas from "./sandbox/DitherCanvas";
 import DateTime from "./DateTime";
 import { SOCIALS } from "@/src/lib/socials";
-import { FaLocationArrow } from "react-icons/fa6";
+import { useState } from "react";
 
 const SandboxCanvas = dynamic(
   () => import("@/src/components/landing/sandbox/SandboxCanvas"),
   { ssr: false },
 );
 
+const LocModal = () => (
+  <div className="absolute top-5 left-1/2 z-10 flex w-60 -translate-x-1/2 flex-row gap-2 rounded-md border border-[#f0f0f0] bg-[#ffffff]/80 p-2 tracking-tight text-[#393939] backdrop-blur-sm">
+    <p className="text-sm font-normal">Location Modal</p>
+  </div>
+);
+
+const PlayModal = () => (
+  <div className="absolute top-5 left-1/2 z-10 flex w-60 -translate-x-1/2 flex-row gap-2 rounded-md border border-[#f0f0f0] bg-[#ffffff]/80 p-2 tracking-tight text-[#393939] backdrop-blur-sm">
+    <p className="text-sm font-normal">Now Playing Modal</p>
+  </div>
+);
+
+const DarkModeModal = () => (
+  <div className="absolute top-5 left-1/2 z-10 flex w-60 -translate-x-1/2 flex-row gap-2 rounded-md border border-[#f0f0f0] bg-[#ffffff]/80 p-2 tracking-tight text-[#393939] backdrop-blur-sm">
+    <p className="text-sm font-normal">Dark Mode Modal</p>
+  </div>
+);
+
 export default function Monitor() {
   const click = useClick();
+
+  const [isLocModalOpen, setIsLocModalOpen] = useState(false);
+  const [isPlayModalOpen, setIsPlayModalOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const HandleLocClick = () => {
+    setIsLocModalOpen(!isLocModalOpen);
+    setIsPlayModalOpen(false);
+    setIsDarkMode(false);
+  };
+  const HandlePlayClick = () => {
+    setIsPlayModalOpen(!isPlayModalOpen);
+    setIsLocModalOpen(false);
+    setIsDarkMode(false);
+  };
+  const HandleDarkModeClick = () => {
+    setIsDarkMode(!isDarkMode);
+    setIsLocModalOpen(false);
+    setIsPlayModalOpen(false);
+  };
+
   return (
-    <div className="relative z-0 w-full rounded-lg whitespace-nowrap shadow-[0_16px_36px_0_rgba(0,0,0,0.05),0_8px_0_0_#F0F0F0] select-none">
+    <div className="shadow-card relative z-0 w-full rounded-lg whitespace-nowrap select-none">
       <div className="absolute inset-0 m-3 flex flex-col gap-2 text-[#888888]">
         <section className="flex w-full cursor-default flex-row justify-between">
           <div className="flex items-center gap-2">
             <MdAllInbox size={14} />
             <h6 className="text-xs tracking-tight">Intellecture</h6>
-            <h6
-              data-cursor="currently looking for work"
-              className="text-xs font-light tracking-tight"
-            >
-              Open to new opportunities!
-            </h6>
           </div>
-          <div className="flex items-center gap-3">
-            <div
-              data-cursor="where i'm based on"
-              className="flex items-center gap-1"
-            >
-              <FaLocationArrow size={14} />
-              <span className="text-xs font-light tracking-tight">
-                Manila, PH
-              </span>
-            </div>
-            <div className="flex items-center gap-1">
-              <MdOutlinePlayCircle size={14} />
-              <MdOutlineDarkMode size={14} />
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="relative cursor-pointer" onClick={HandleLocClick}>
+                <MdLocationSearching size={14} />
+                {isLocModalOpen && <LocModal />}
+              </div>
+              <div
+                className="relative cursor-pointer"
+                onClick={HandlePlayClick}
+              >
+                <MdOutlinePlayCircle size={14} />
+                {isPlayModalOpen && <PlayModal />}
+              </div>
+              <div
+                className="relative cursor-pointer"
+                onClick={HandleDarkModeClick}
+              >
+                <MdOutlineDarkMode size={14} />
+                {isDarkMode && <DarkModeModal />}
+              </div>
             </div>
             <DateTime className="text-xs font-light tracking-tight" />
           </div>
@@ -77,18 +117,10 @@ export default function Monitor() {
                 <div key={i} className="h-1 w-1 rounded bg-[#dadada]" />
               ))}
             </div>
-            <span className="pointer-events-none absolute top-1/11 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 text-xs font-light tracking-tight text-[#c0c0c0]">
-              click for a surprise
-            </span>
-            <span
-              className={`${redaction20.className} pointer-events-none absolute top-[42%] left-[45%] z-0 -translate-x-1/2 -translate-y-1/2 text-[30rem] font-normal tracking-[-4rem] text-[#ffffff] italic [-webkit-text-stroke:2px_#dadada] [paint-order:stroke_fill]`}
-            >
-              nzwh
-            </span>
           </div>
         </section>
 
-        <section className="absolute bottom-0 left-1/2 z-11 flex w-fit -translate-x-1/2 gap-1.5 rounded-xl border border-[#f0f0f0] bg-[#ffffff]/50 p-2 shadow-[0_2px_8px_0_rgba(0,0,0,0.04)] backdrop-blur-md">
+        <section className="absolute bottom-0 left-1/2 z-11 flex w-fit -translate-x-1/2 gap-1.5 rounded-xl border border-[#f0f0f0] bg-[#ffffff]/50 p-2 pb-2.5 shadow-[0_2px_8px_0_rgba(0,0,0,0.04)] backdrop-blur-sm">
           {SOCIALS.map(({ icon, href, cursor }) => (
             <KeyButton key={href} icon={icon} url={href} cursor={cursor} />
           ))}
@@ -108,13 +140,13 @@ const KeyButton = ({
   url: string;
   cursor?: string;
 }) => (
-  <div className="bg-keycap rounded-md p-px text-[#393939] shadow-[0_3px_0_0_#F0F0F0] transition-all duration-300 hover:-translate-y-1">
+  <div className="bg-keycap rounded-lg p-px text-[#393939] shadow-[0_2px_0_0_#F0F0F0] transition-all duration-300 hover:-translate-y-1">
     <Link
       href={url}
       target="_blank"
       rel="noopener noreferrer"
       data-cursor={cursor}
-      className="bg-keycap-inner flex items-center justify-center rounded-md p-2 text-xs font-light tracking-tight"
+      className="bg-keycap-inner flex items-center justify-center rounded-lg p-2 text-xs font-light tracking-tight"
     >
       <Icon size={14} />
     </Link>
