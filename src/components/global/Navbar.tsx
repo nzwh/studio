@@ -2,7 +2,6 @@ import Link from "next/link";
 import Logo from "./Logo";
 
 const NAV_LINKS = [
-  { href: "/cv", label: "—cv", cursor: "view my cv" },
   { href: "/about", label: "—about", cursor: "more about me" },
   { href: "/playground", label: "—playground", cursor: "visit my playground" },
 ];
