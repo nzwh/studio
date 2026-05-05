@@ -13,6 +13,7 @@ import ProjectTabs from "../components/landing/project/Tabs";
 import { PROJECTS } from "../lib/projects.data";
 import Boilerplate from "../components/global/Boilerplate";
 import FooterButton from "../components/global/FooterButton";
+import File from "../components/landing/File";
 
 export default function HomePage() {
   const [type, setType] = useState<"development" | "design">("development");
@@ -32,6 +33,24 @@ export default function HomePage() {
       setProjects(DESIGN_PROJECTS);
     }
   };
+
+  const DESIGNED_PROJECTS = [
+    {
+      href: "https://www.figma.com/community/file/1616703158808681788/array",
+      title: "Array",
+      description: "A design system for Figma users.",
+    },
+    {
+      href: "https://www.figma.com/community/file/1616702986484755771/senge",
+      title: "Senge",
+      description: "A design system for Figma users.",
+    },
+    {
+      href: "https://www.figma.com/community/file/1616702824695818552/influx",
+      title: "Influx",
+      description: "A design system for Figma users.",
+    },
+  ];
 
   return (
     <Boilerplate>
@@ -53,18 +72,25 @@ export default function HomePage() {
         id="work"
         className="my-12 flex w-full flex-col items-center gap-6"
       >
-        <div key={type} className="flex w-full flex-col">
+        <div key={type} className="flex w-full flex-col gap-6">
           <AnimateFlyIn delay={100} className="flex w-full flex-col">
             <ProjectCard project={projects[0]}>
               <Cassette project={projects[0]} />
             </ProjectCard>
           </AnimateFlyIn>
 
-          {projects && (
-            <div className="flex w-full flex-col gap-6">
-              {projects.slice(1).map((project, i) => (
-                <AnimateFlyIn key={project.title} delay={200 + i * 100}>
-                  <ProjectCard key={i} project={project} />
+          {type === "design" && (
+            <div className="flex w-full flex-col gap-3">
+              {DESIGNED_PROJECTS.map((project, i) => (
+                <AnimateFlyIn
+                  key={project.title}
+                  delay={200 + (projects.length + i) * 100}
+                >
+                  <File
+                    href={project.href}
+                    title={project.title}
+                    description={project.description}
+                  />
                 </AnimateFlyIn>
               ))}
             </div>
