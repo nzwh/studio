@@ -15,6 +15,29 @@ import Boilerplate from "../components/global/Boilerplate";
 import FooterButton from "../components/global/Redirect";
 import File from "../components/page-landing/project/ProjectGridItem";
 
+const DESIGNED_PROJECTS = [
+  {
+    href: "https://www.figma.com/community/file/1616703158808681788/array",
+    title: "Array",
+    description:
+      "Real-time mentor-mentee journaling platform for structured growth.",
+    src: "/images/banners/array.png",
+  },
+  {
+    href: "https://www.figma.com/community/file/1616702986484755771/senge",
+    title: "Senge",
+    description: "Facebook Messenger redesign for productivity.",
+    src: "/images/banners/senge.png",
+  },
+  {
+    href: "https://www.figma.com/community/file/1616702824695818552/influx",
+    title: "Influx",
+    description:
+      "Niche community marketplace for buying, selling, and discovery.",
+    src: "/images/banners/influx.png",
+  },
+];
+
 export default function HomePage() {
   const [type, setType] = useState<"development" | "design">("development");
 
@@ -33,24 +56,6 @@ export default function HomePage() {
       setProjects(DESIGN_PROJECTS);
     }
   };
-
-  const DESIGNED_PROJECTS = [
-    {
-      href: "https://www.figma.com/community/file/1616703158808681788/array",
-      title: "Array",
-      description: "A design system for Figma users.",
-    },
-    {
-      href: "https://www.figma.com/community/file/1616702986484755771/senge",
-      title: "Senge",
-      description: "A design system for Figma users.",
-    },
-    {
-      href: "https://www.figma.com/community/file/1616702824695818552/influx",
-      title: "Influx",
-      description: "A design system for Figma users.",
-    },
-  ];
 
   return (
     <Boilerplate>
@@ -80,7 +85,7 @@ export default function HomePage() {
           </AnimateFlyIn>
 
           {type === "design" && (
-            <div className="flex w-full flex-col gap-3">
+            <div className="grid grid-cols-2 gap-2">
               {DESIGNED_PROJECTS.map((project, i) => (
                 <AnimateFlyIn
                   key={project.title}
@@ -90,6 +95,7 @@ export default function HomePage() {
                     href={project.href}
                     title={project.title}
                     description={project.description}
+                    src={project.src}
                   />
                 </AnimateFlyIn>
               ))}

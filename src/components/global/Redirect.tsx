@@ -15,7 +15,7 @@ export default function Redirect({
       href={href}
       className="text-[#39393 flex h-fit w-full cursor-pointer justify-between gap-6 border-t border-[#f0f0f0] py-3 text-sm font-light transition-transform duration-200 hover:translate-y-1"
     >
-      <span className="9]">{left}</span>
+      <span>{left}</span>
       {right ? (
         <span className="font-normal tracking-tight text-indigo-400 underline">
           {right}
