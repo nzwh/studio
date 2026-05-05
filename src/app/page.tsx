@@ -4,16 +4,16 @@ import { useState } from "react";
 import Divider from "../components/global/Divider";
 import AnimateFlyIn from "../components/global/effects/AnimateFlyIn";
 
-import Monitor from "../components/landing/Monitor";
-import Keyboard from "../components/landing/Keyboard";
-import Cassette from "../components/landing/Cassette";
-import ProjectCard from "../components/landing/project/Card";
-import ProjectTabs from "../components/landing/project/Tabs";
+import Monitor from "../components/page-landing/LandingMonitor";
+import Keyboard from "../components/page-landing/LandingKeyboard";
+import Cassette from "../components/page-landing/LandingCassette";
+import ProjectCard from "../components/page-landing/project/ProjectCard";
+import ProjectTabs from "../components/page-landing/project/ProjectTabs";
 
 import { PROJECTS } from "../lib/projects.data";
 import Boilerplate from "../components/global/Boilerplate";
-import FooterButton from "../components/global/FooterButton";
-import File from "../components/landing/File";
+import FooterButton from "../components/global/Redirect";
+import File from "../components/page-landing/project/ProjectGridItem";
 
 export default function HomePage() {
   const [type, setType] = useState<"development" | "design">("development");

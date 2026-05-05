@@ -138,7 +138,7 @@ const ArrowCluster = () => (
   </div>
 );
 
-export default function Keyboard() {
+export default function LandingKeyboard() {
   return (
     <main className="shadow-card z-10 flex w-full flex-col gap-1.5 overflow-scroll rounded-lg border border-[#dadada] bg-[#ffffff] p-3 pb-4 text-[#393939]">
       <section className="flex h-10 w-full gap-1">

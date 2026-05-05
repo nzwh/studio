@@ -11,7 +11,7 @@ import { useLenis } from "@/src/components/global/effects/LenisScroll";
 import { instrumentsans } from "@/src/fonts/fonts";
 import { PROJECTS } from "@/src/lib/projects.data";
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
-import Headline from "@/src/components/articles/Headline";
+import Headline from "@/src/components/page-articles/ArticleHeadline";
 
 export default function ArticlePage({
   params,

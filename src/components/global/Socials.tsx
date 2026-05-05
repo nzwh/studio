@@ -1,7 +1,7 @@
 import { SOCIALS } from "@/src/lib/socials";
 import Link from "next/link";
 
-export default function MiniSocials() {
+export default function Socials() {
   return (
     <div className="flex items-center gap-1">
       {SOCIALS.map(({ icon: Icon, href, username }) => (

@@ -5,11 +5,11 @@ import { MdOutlineDownload } from "react-icons/md";
 
 import Boilerplate from "@/src/components/global/Boilerplate";
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
-import FooterButton from "@/src/components/global/FooterButton";
+import FooterButton from "@/src/components/global/Redirect";
 
-import { WindowPanel } from "@/src/components/page-about/WindowPanel";
-import { PanelToolbar } from "@/src/components/page-about/PanelToolbar";
-import { PanelImage } from "@/src/components/page-about/PanelImage";
+import { AboutWindow } from "@/src/components/page-about/AboutWindow";
+import { WindowToolbar } from "@/src/components/page-about/WindowToolbar";
+import { WindowImage } from "@/src/components/page-about/WindowImage";
 
 import { PARAGRAPHS } from "@/src/lib/about.data";
 
@@ -41,8 +41,8 @@ export default function AboutPage() {
       className="flex h-auto flex-1 flex-col items-center justify-center gap-3"
     >
       <AnimateFlyIn delay={100} className="mb-4 flex w-full gap-3">
-        <WindowPanel title="about_me.md — Edited" className="w-full">
-          <PanelToolbar />
+        <AboutWindow title="about_me.md — Edited" className="w-full">
+          <WindowToolbar />
           <article className="flex w-full flex-col gap-3 p-2 pt-4 font-light">
             <h2 className="text-2xl font-normal">
               Hey there!
@@ -69,20 +69,20 @@ export default function AboutPage() {
               <MdOutlineDownload size={16} />
             </a>
           </article>
-        </WindowPanel>
+        </AboutWindow>
 
         <aside className="relative flex w-52 shrink-0 flex-col gap-3 self-stretch text-sm max-md:hidden">
-          <PanelImage
+          <WindowImage
             src="/images/about/photo1.jpg"
             title="0001.jpg"
             className="z-3 h-full"
           />
-          <PanelImage
+          <WindowImage
             src="/images/about/photo2.jpg"
             title="0002.jpg"
             className="absolute top-40 right-14 z-4 h-68"
           />
-          <PanelImage
+          <WindowImage
             src="/images/about/photo3.jpg"
             title="0003.jpg"
             className="z-5 h-40"

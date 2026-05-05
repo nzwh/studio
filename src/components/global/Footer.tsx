@@ -1,6 +1,6 @@
 import SwapOnHover from "./effects/SwapOnHover";
 import Logo from "./Logo";
-import MiniSocials from "./MiniSocials";
+import MiniSocials from "./Socials";
 
 export default function Footer() {
   return (

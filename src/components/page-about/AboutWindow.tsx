@@ -4,7 +4,7 @@ interface WindowPanelProps {
   children?: React.ReactNode;
 }
 
-export const WindowPanel = ({
+export const AboutWindow = ({
   title,
   className,
   children,

@@ -15,11 +15,13 @@ import { MdFormatListBulleted } from "react-icons/md";
 const ToolbarSeparator = () => (
   <div className="h-2.5 w-0.5 rounded-full bg-[#dadada]" />
 );
+
 const ToolbarGroup = ({ children }: { children: React.ReactNode }) => (
   <div className="flex h-full w-fit cursor-pointer flex-row items-center gap-1.5 rounded-md bg-[#f0f0f0] px-2 text-[#a5a5a5]">
     {children}
   </div>
 );
+
 const ToolbarSelect = ({ label, full }: { label: string; full?: boolean }) => (
   <div
     className={`flex ${full ? "w-full" : "w-fit"} cursor-pointer items-center justify-between gap-1 rounded-md bg-[#f0f0f0] px-2 pl-2.5`}
@@ -29,7 +31,7 @@ const ToolbarSelect = ({ label, full }: { label: string; full?: boolean }) => (
   </div>
 );
 
-export const PanelToolbar = () => (
+export const WindowToolbar = () => (
   <div className="flex h-6 w-full gap-1 whitespace-nowrap text-[#707070] select-none">
     <ToolbarGroup>
       <FaBold size={10} />

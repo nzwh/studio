@@ -12,12 +12,12 @@ import { useClick } from "@/src/hooks/useClick";
 
 import MonitorShape from "../svgs/shapes/Monitor";
 import DitherCanvas from "./sandbox/DitherCanvas";
-import DateTime from "./DateTime";
+import DateTime from "./MonitorDateTime";
 import { SOCIALS } from "@/src/lib/socials";
 import { useState } from "react";
 
 const SandboxCanvas = dynamic(
-  () => import("@/src/components/landing/sandbox/SandboxCanvas"),
+  () => import("@/src/components/page-landing/sandbox/SandboxCanvas"),
   { ssr: false },
 );
 
@@ -39,7 +39,7 @@ const DarkModeModal = () => (
   </div>
 );
 
-export default function Monitor() {
+export default function LandingMonitor() {
   const click = useClick();
 
   const [isLocModalOpen, setIsLocModalOpen] = useState(false);

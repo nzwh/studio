@@ -2,7 +2,7 @@ import { instrumentsans } from "@/src/fonts/fonts";
 import { Project } from "@/src/lib/projects.types";
 import Image from "next/image";
 
-export default function Headline({ project }: { project: Project }) {
+export default function ArticleHeadline({ project }: { project: Project }) {
   const TYPES = {
     project_type: project?.project_type,
     work_type: project?.work_type + " Work",
