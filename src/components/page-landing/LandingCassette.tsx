@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import CassetteShape from "../svgs/shapes/Cassette";
 import { MdOutlineAutoStories } from "react-icons/md";
 import { Project } from "@/src/lib/projects.types";
+import CassetteShape from "../svgs/shapes/CassetteShape";
 
 export default function LandingCassette({ project }: { project: Project }) {
   return (

@@ -3,7 +3,7 @@ interface ArrayProps {
   fill?: string;
   stroke?: string;
 }
-export default function Array({
+export default function ArrayLogo({
   className,
   fill = "transparent",
   stroke = "currentColor",

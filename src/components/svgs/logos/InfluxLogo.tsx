@@ -3,7 +3,7 @@ interface InfluxProps {
   fill?: string;
   stroke?: string;
 }
-export default function Influx({
+export default function InfluxLogo({
   className,
   fill = "transparent",
   stroke = "currentColor",

@@ -3,7 +3,7 @@
 import Boilerplate from "@/src/components/global/Boilerplate";
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
 
-export default function AboutPage() {
+export default function PlaygroundPage() {
   return (
     <Boilerplate
       dividers={true}

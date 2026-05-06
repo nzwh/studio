@@ -1,19 +1,19 @@
 "use client";
 import { useState } from "react";
 
-import Divider from "../components/global/Divider";
 import AnimateFlyIn from "../components/global/effects/AnimateFlyIn";
+import Boilerplate from "../components/global/Boilerplate";
+import Divider from "../components/global/Divider";
+import Redirect from "../components/global/Redirect";
 
-import Monitor from "../components/page-landing/LandingMonitor";
-import Keyboard from "../components/page-landing/LandingKeyboard";
-import Cassette from "../components/page-landing/LandingCassette";
+import LandingMonitor from "../components/page-landing/LandingMonitor";
+import LandingKeyboard from "../components/page-landing/LandingKeyboard";
+import LandingCassette from "../components/page-landing/LandingCassette";
 import ProjectCard from "../components/page-landing/project/ProjectCard";
 import ProjectTabs from "../components/page-landing/project/ProjectTabs";
+import ProjectGridItem from "../components/page-landing/project/ProjectGridItem";
 
 import { PROJECTS } from "../lib/projects.data";
-import Boilerplate from "../components/global/Boilerplate";
-import FooterButton from "../components/global/Redirect";
-import File from "../components/page-landing/project/ProjectGridItem";
 
 const DESIGNED_PROJECTS = [
   {
@@ -59,13 +59,16 @@ export default function HomePage() {
 
   return (
     <Boilerplate>
-      <section className="my-12 flex flex-col gap-1">
+      <section
+        id="hero"
+        className="my-12 flex w-full flex-col items-center gap-1"
+      >
         <AnimateFlyIn delay={100}>
-          <Monitor />
+          <LandingMonitor />
         </AnimateFlyIn>
 
         <AnimateFlyIn delay={200}>
-          <Keyboard />
+          <LandingKeyboard />
         </AnimateFlyIn>
       </section>
 
@@ -80,10 +83,11 @@ export default function HomePage() {
         <div key={type} className="flex w-full flex-col gap-6">
           <AnimateFlyIn delay={100} className="flex w-full flex-col">
             <ProjectCard project={projects[0]}>
-              <Cassette project={projects[0]} />
+              <LandingCassette project={projects[0]} />
             </ProjectCard>
           </AnimateFlyIn>
 
+          {/* TODO:takes Project object as prop */}
           {type === "design" && (
             <div className="grid grid-cols-2 gap-2">
               {DESIGNED_PROJECTS.map((project, i) => (
@@ -91,7 +95,7 @@ export default function HomePage() {
                   key={project.title}
                   delay={200 + (projects.length + i) * 100}
                 >
-                  <File
+                  <ProjectGridItem
                     href={project.href}
                     title={project.title}
                     description={project.description}
@@ -102,7 +106,8 @@ export default function HomePage() {
             </div>
           )}
         </div>
-        <FooterButton left="more—about—me—here—!" href="/about" />
+
+        <Redirect left="more—about—me—here—!" href="/about" />
       </section>
     </Boilerplate>
   );

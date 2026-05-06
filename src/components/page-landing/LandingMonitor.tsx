@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useState } from "react";
 
 import {
   MdAllInbox,
@@ -8,13 +9,12 @@ import {
   MdOutlinePlayCircle,
 } from "react-icons/md";
 
-import { useClick } from "@/src/hooks/useClick";
-
-import MonitorShape from "../svgs/shapes/Monitor";
+import MonitorShape from "../svgs/shapes/MonitorShape";
+import MonitorDateTime from "./MonitorDateTime";
 import DitherCanvas from "./sandbox/DitherCanvas";
-import DateTime from "./MonitorDateTime";
+
+import { useClick } from "@/src/hooks/useClick";
 import { SOCIALS } from "@/src/lib/socials";
-import { useState } from "react";
 
 const SandboxCanvas = dynamic(
   () => import("@/src/components/page-landing/sandbox/SandboxCanvas"),
@@ -91,7 +91,7 @@ export default function LandingMonitor() {
                 {isDarkMode && <DarkModeModal />}
               </div>
             </div>
-            <DateTime className="text-xs font-light tracking-tight" />
+            <MonitorDateTime className="text-xs font-light tracking-tight" />
           </div>
         </section>
 

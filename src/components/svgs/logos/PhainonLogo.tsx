@@ -3,7 +3,7 @@ interface PhainonProps {
   fill?: string;
   stroke?: string;
 }
-export default function Phainon({
+export default function PhainonLogo({
   className,
   fill = "transparent",
   stroke = "currentColor",

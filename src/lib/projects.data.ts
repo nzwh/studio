@@ -1,5 +1,5 @@
-import PhainonIcon from "../components/svgs/logos/Phainon";
-import TriagentIcon from "../components/svgs/logos/Triagent";
+import PhainonIcon from "../components/svgs/logos/PhainonLogo";
+import TriagentIcon from "../components/svgs/logos/TriagentLogo";
 
 import { Project, ProjectArticle } from "./projects.types";
 

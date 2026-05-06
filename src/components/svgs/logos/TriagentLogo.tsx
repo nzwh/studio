@@ -3,7 +3,7 @@ interface TriagentProps {
   fill?: string;
   stroke?: string;
 }
-export default function Triagent({
+export default function TriagentLogo({
   className,
   fill = "transparent",
   stroke = "currentColor",

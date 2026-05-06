@@ -1,4 +1,4 @@
-export default function Loading() {
+export default function LoadingPage() {
   return (
     <div className="animate-fade flex h-screen w-screen items-center justify-center">
       <span className="text-xs font-light tracking-tight text-[#a5a5a5]">

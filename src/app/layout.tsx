@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import { nikkeimaru } from "../fonts/fonts";
 import "./globals.css";
+import type { Metadata } from "next";
+
+import { nikkeimaru } from "../fonts/fonts";
 import { LenisScroll } from "../components/global/effects/LenisScroll";
 import Cursor from "../components/global/effects/Cursor";
 
