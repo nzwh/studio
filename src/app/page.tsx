@@ -59,15 +59,12 @@ export default function HomePage() {
 
   return (
     <Boilerplate>
-      <section
-        id="hero"
-        className="my-12 flex w-full flex-col items-center gap-1"
-      >
-        <AnimateFlyIn delay={100}>
+      <section id="hero" className="my-12 flex flex-col items-center gap-1">
+        <AnimateFlyIn delay={100} className="w-full">
           <LandingMonitor />
         </AnimateFlyIn>
 
-        <AnimateFlyIn delay={200}>
+        <AnimateFlyIn delay={200} className="w-full">
           <LandingKeyboard />
         </AnimateFlyIn>
       </section>
@@ -81,7 +78,7 @@ export default function HomePage() {
         className="my-12 flex w-full flex-col items-center gap-6"
       >
         <div key={type} className="flex w-full flex-col gap-6">
-          <AnimateFlyIn delay={100} className="flex w-full flex-col">
+          <AnimateFlyIn delay={100} className="w-full">
             <ProjectCard project={projects[0]}>
               <LandingCassette project={projects[0]} />
             </ProjectCard>
