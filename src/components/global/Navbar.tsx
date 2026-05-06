@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
-import Logo from "./Logo";
+import { usePathname } from "next/navigation";
 import { useLenis } from "./effects/LenisScroll";
+
+import Logo from "./Logo";
 
 const NAV_LINKS = [
   { href: "/#work", label: "—works", cursor: "see my work" },
@@ -11,15 +13,17 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const lenis = useLenis();
+  const pathname = usePathname();
 
   const HandleScroll = (e: React.MouseEvent, href: string) => {
     if (!href.startsWith("/#")) return;
-    e.preventDefault();
     const id = href.replace("/#", "");
+    if (pathname !== "/") return;
+
+    e.preventDefault();
     const el = document.getElementById(id);
     if (el) lenis?.scrollTo(el, { duration: 1.2 });
   };
-
   return (
     <nav className="flex w-200 items-center justify-between px-6 py-4 select-none max-md:w-full max-md:px-0">
       <div className="flex items-center gap-4">
