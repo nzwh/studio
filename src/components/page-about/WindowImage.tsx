@@ -12,7 +12,12 @@ export const WindowImage = ({
 }) => (
   <AboutWindow title={title} className={className}>
     <div className="relative h-full w-full">
-      <Image src={src} alt={title} fill className="rounded-sm object-cover" />
+      <Image
+        src={src}
+        alt={title}
+        fill
+        className="rounded-sm object-cover object-bottom"
+      />
     </div>
   </AboutWindow>
 );
