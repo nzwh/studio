@@ -200,6 +200,7 @@ export const PROJECTS: Project[] = [
     icon: TriagentIcon,
     cover: "/images/triagent/banner.png",
     colors: ["#ffffff", "#8d93ff"],
+    href: "https://www.figma.com/community/file/1616703425860952385/triagent",
 
     article: ARTICLES.find((a) => a.title === "triagent"),
   },

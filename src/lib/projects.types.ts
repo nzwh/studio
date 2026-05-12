@@ -51,6 +51,8 @@ export interface Project {
   cover?: string;
   // (optional) array of colors associated with the project
   colors?: string[];
+  // (optional) URL to the project's page or external link
+  href?: string;
 
   // (optional) article about the project
   article?: ProjectArticle;

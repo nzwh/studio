@@ -39,14 +39,14 @@ const DESIGNED_PROJECTS = [
 ];
 
 export default function HomePage() {
-  const [type, setType] = useState<"development" | "design">("development");
+  const [type, setType] = useState<"development" | "design">("design");
 
   const DEVELOPMENT_PROJECTS = PROJECTS.filter(
     (p) => p.work_type === "development",
   );
 
   const DESIGN_PROJECTS = PROJECTS.filter((p) => p.work_type === "design");
-  const [projects, setProjects] = useState(DEVELOPMENT_PROJECTS);
+  const [projects, setProjects] = useState(DESIGN_PROJECTS);
 
   const HandleTypeChange = (newType: "development" | "design") => {
     setType(newType);

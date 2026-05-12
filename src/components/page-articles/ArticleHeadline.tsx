@@ -1,6 +1,7 @@
 import { instrumentsans } from "@/src/fonts/fonts";
 import { Project } from "@/src/lib/projects.types";
 import Image from "next/image";
+import Redirect from "../global/Redirect";
 
 export default function ArticleHeadline({ project }: { project: Project }) {
   const TYPES = {
@@ -76,6 +77,8 @@ export default function ArticleHeadline({ project }: { project: Project }) {
           ))}
         </div>
       </div>
+
+      <Redirect left="view—figma—file—here" href={project?.href || "#"} />
     </div>
   );
 }
