@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 import { nikkeimaru } from "../fonts/fonts";
 import { LenisScroll } from "../components/global/effects/LenisScroll";
@@ -21,6 +22,7 @@ export default function RootLayout({
         <LenisScroll>
           <Cursor />
           {children}
+          <Analytics />
         </LenisScroll>
       </body>
     </html>
