@@ -61,13 +61,12 @@ export default function HomePage() {
             </ProjectCard>
           </AnimateFlyIn>
 
-          {/* TODO:takes Project object as prop */}
-          {type === "design" && (
+          {projects && (
             <div className="grid grid-cols-2 gap-4 gap-y-6">
               {projects.slice(1).map((project, i) => (
                 <AnimateFlyIn
                   key={project.title}
-                  delay={200 + (projects.length + i) * 100}
+                  delay={100 + (projects.length + i) * 100}
                 >
                   <ProjectGridItem project={project} />
                 </AnimateFlyIn>

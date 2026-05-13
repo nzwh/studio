@@ -267,7 +267,7 @@ export const PROJECTS: Project[] = [
     colors: ["#ffffff", "#8d93ff"],
     href: "https://www.figma.com/community/file/1616702986484755771/senge",
 
-    article: undefined,
+    article: ARTICLES.find((a) => a.title === "senge"),
   },
   {
     title: "Influx",
@@ -276,7 +276,7 @@ export const PROJECTS: Project[] = [
       "Local commerce is fragmented and impersonal.\nSee how we designed Influx to make buying and selling feel like a community experience, not a transaction.",
 
     project_type: "Collaborative Work",
-    work_type: "design",
+    work_type: "development",
     read_time: "5m read",
     duration: "March 2026",
 
@@ -289,5 +289,26 @@ export const PROJECTS: Project[] = [
     href: "https://www.figma.com/community/file/1616702824695818552/influx",
 
     article: ARTICLES.find((a) => a.title === "influx"),
+  },
+  {
+    title: "Astrail",
+    description: "Honkai: Star Rail Build Showcase Tool",
+    summary:
+      "Builds are the heart of Honkai: Star Rail's gameplay, but sharing them is a hassle.\nSee how Astrail makes it easy for players to showcase their builds, share strategies, and connect with the community.",
+
+    project_type: "Passion Project",
+    work_type: "development",
+    read_time: "5m read",
+    duration: "In Development",
+
+    stack: [],
+    roles: ["Full-stack"],
+
+    icon: () => null,
+    cover: "/placeholder.jpg",
+    colors: ["#ffffff", "#8d93ff"],
+    href: "",
+
+    article: ARTICLES.find((a) => a.title === "astrail"),
   },
 ];

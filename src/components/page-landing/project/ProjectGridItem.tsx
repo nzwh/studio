@@ -1,10 +1,15 @@
 import { Project } from "@/src/lib/projects.types";
 import Image from "next/image";
+import Link from "next/link";
 import { FiFigma } from "react-icons/fi";
 
 export default function ProjectGridItem({ project }: { project: Project }) {
   return (
-    <div className="flex cursor-pointer flex-col gap-4 transition-transform duration-200 hover:-translate-y-1">
+    <Link
+      href={project.href || "#"}
+      target="_blank"
+      className="flex cursor-pointer flex-col gap-4 transition-transform duration-200 hover:-translate-y-1"
+    >
       <div className="shadow-card h-32 w-full overflow-hidden rounded-lg border border-[#dadada] bg-[#ffffff] px-8 pt-4">
         <div className="relative h-full w-full">
           <Image
@@ -47,7 +52,7 @@ export default function ProjectGridItem({ project }: { project: Project }) {
           {project.description}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
 
