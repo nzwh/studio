@@ -47,19 +47,19 @@ export default function LandingMonitor() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const HandleLocClick = () => {
-    setIsLocModalOpen(!isLocModalOpen);
-    setIsPlayModalOpen(false);
-    setIsDarkMode(false);
+    // setIsLocModalOpen(!isLocModalOpen);
+    // setIsPlayModalOpen(false);
+    // setIsDarkMode(false);
   };
   const HandlePlayClick = () => {
-    setIsPlayModalOpen(!isPlayModalOpen);
-    setIsLocModalOpen(false);
-    setIsDarkMode(false);
+    // setIsPlayModalOpen(!isPlayModalOpen);
+    // setIsLocModalOpen(false);
+    // setIsDarkMode(false);
   };
   const HandleDarkModeClick = () => {
-    setIsDarkMode(!isDarkMode);
-    setIsLocModalOpen(false);
-    setIsPlayModalOpen(false);
+    // setIsDarkMode(!isDarkMode);
+    // setIsLocModalOpen(false);
+    // setIsPlayModalOpen(false);
   };
 
   return (
