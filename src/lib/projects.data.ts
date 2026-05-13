@@ -1,5 +1,8 @@
 import PhainonIcon from "../components/svgs/logos/PhainonLogo";
 import TriagentIcon from "../components/svgs/logos/TriagentLogo";
+import ArrayIcon from "../components/svgs/logos/ArrayLogo";
+import InfluxIcon from "../components/svgs/logos/InfluxLogo";
+import SengeLogo from "../components/svgs/logos/SengeLogo";
 
 import { Project, ProjectArticle } from "./projects.types";
 
@@ -223,46 +226,68 @@ export const PROJECTS: Project[] = [
 
     article: ARTICLES.find((a) => a.title === "phainon"),
   },
-  // {
-  //   title: "Array",
-  //   description:
-  //     "Real-time mentor-mentee journaling platform for structured growth.",
-  //   summary:
-  //     "Accountability is the missing piece in most mentorship.\nSee how we built a shared journaling space that keeps mentors and mentees aligned, reflective, and growing together.",
+  {
+    title: "Array",
+    description: "Real-time Mentor-Mentee Journaling Platform ",
+    summary:
+      "Accountability is the missing piece in most mentorship.\nSee how we built a shared journaling space that keeps mentors and mentees aligned, reflective, and growing together.",
 
-  //   project_type: "Collaborative Work",
-  //   work_type: "design",
-  //   read_time: "5m read",
-  //   duration: "December 2023",
+    project_type: "Collaborative Work",
+    work_type: "design",
+    read_time: "5m read",
+    duration: "December 2023",
 
-  //   stack: [],
-  //   roles: [],
+    stack: [],
+    roles: ["UI/UX", "Product Design"],
 
-  //   icon: ArrayIcon,
-  //   cover: "/images/array/banner.png",
-  //   colors: ["#ffffff", "#8d93ff"],
+    icon: ArrayIcon,
+    cover: "/images/banners/array.png",
+    colors: ["#ffffff", "#8d93ff"],
+    href: "https://www.figma.com/community/file/1616703158808681788/array",
 
-  //   article: ARTICLES.find((a) => a.title === "Array"),
-  // },
-  // {
-  //   title: "Influx",
-  //   description:
-  //     "Community-driven marketplace for buying, selling, and local discovery.",
-  //   summary:
-  //     "Local commerce is fragmented and impersonal.\nSee how we designed Influx to make buying and selling feel like a community experience, not a transaction.",
+    article: ARTICLES.find((a) => a.title === "array"),
+  },
 
-  //   project_type: "Collaborative Work",
-  //   work_type: "development",
-  //   read_time: "5m read",
-  //   duration: "March 2026",
+  {
+    title: "Senge",
+    description: "Facebook Messenger Redesign for Productivity",
+    summary:
+      "Social apps are designed to be distracting.\nSee how we reimagined Facebook Messenger to help users connect without losing focus.",
 
-  //   stack: [],
-  //   roles: [],
+    project_type: "Collaborative Work",
+    work_type: "design",
+    read_time: "5m read",
+    duration: "November 2022",
 
-  //   icon: InfluxIcon,
-  //   cover: "/images/influx/banner.png",
-  //   colors: ["#ffffff", "#8d93ff"],
+    stack: [],
+    roles: ["UI/UX", "Product Design"],
 
-  //   article: ARTICLES.find((a) => a.title === "Influx"),
-  // },
+    icon: SengeLogo,
+    cover: "/images/banners/senge.png",
+    colors: ["#ffffff", "#8d93ff"],
+    href: "https://www.figma.com/community/file/1616702986484755771/senge",
+
+    article: undefined,
+  },
+  {
+    title: "Influx",
+    description: "Community-driven Marketplace for Local Discovery",
+    summary:
+      "Local commerce is fragmented and impersonal.\nSee how we designed Influx to make buying and selling feel like a community experience, not a transaction.",
+
+    project_type: "Collaborative Work",
+    work_type: "design",
+    read_time: "5m read",
+    duration: "March 2026",
+
+    stack: [],
+    roles: ["Full-stack"],
+
+    icon: InfluxIcon,
+    cover: "/images/banners/influx.png",
+    colors: ["#ffffff", "#8d93ff"],
+    href: "https://www.figma.com/community/file/1616702824695818552/influx",
+
+    article: ARTICLES.find((a) => a.title === "influx"),
+  },
 ];

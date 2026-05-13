@@ -15,29 +15,6 @@ import ProjectGridItem from "../components/page-landing/project/ProjectGridItem"
 
 import { PROJECTS } from "../lib/projects.data";
 
-const DESIGNED_PROJECTS = [
-  {
-    href: "https://www.figma.com/community/file/1616703158808681788/array",
-    title: "Array",
-    description:
-      "Real-time mentor-mentee journaling platform for structured growth.",
-    src: "/images/banners/array.png",
-  },
-  {
-    href: "https://www.figma.com/community/file/1616702986484755771/senge",
-    title: "Senge",
-    description: "Facebook Messenger redesign for productivity.",
-    src: "/images/banners/senge.png",
-  },
-  {
-    href: "https://www.figma.com/community/file/1616702824695818552/influx",
-    title: "Influx",
-    description:
-      "Niche community marketplace for buying, selling, and discovery.",
-    src: "/images/banners/influx.png",
-  },
-];
-
 export default function HomePage() {
   const [type, setType] = useState<"development" | "design">("design");
 
@@ -86,18 +63,13 @@ export default function HomePage() {
 
           {/* TODO:takes Project object as prop */}
           {type === "design" && (
-            <div className="grid grid-cols-2 gap-2">
-              {DESIGNED_PROJECTS.map((project, i) => (
+            <div className="grid grid-cols-2 gap-4 gap-y-6">
+              {projects.slice(1).map((project, i) => (
                 <AnimateFlyIn
                   key={project.title}
                   delay={200 + (projects.length + i) * 100}
                 >
-                  <ProjectGridItem
-                    href={project.href}
-                    title={project.title}
-                    description={project.description}
-                    src={project.src}
-                  />
+                  <ProjectGridItem project={project} />
                 </AnimateFlyIn>
               ))}
             </div>
