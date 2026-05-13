@@ -10,7 +10,7 @@ export const WindowImage = ({
   title: string;
   className?: string;
 }) => (
-  <AboutWindow title={title} className={className}>
+  <AboutWindow title={title} className={`h-full ${className ?? ""}`}>
     <div className="relative h-full w-full">
       <Image
         src={src}

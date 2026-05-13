@@ -72,21 +72,18 @@ export default function AboutPage() {
         </AboutWindow>
 
         <aside className="relative flex w-52 shrink-0 flex-col gap-3 self-stretch text-sm max-md:hidden">
-          <WindowImage
-            src="/images/about/photo1.jpeg"
-            title="0001.jpg"
-            className="z-3 h-full"
-          />
-          <WindowImage
-            src="/images/about/photo2.jpeg"
-            title="0002.jpg"
-            className="absolute top-40 right-14 z-4 h-68"
-          />
-          <WindowImage
-            src="/images/about/photo3.jpeg"
-            title="0003.jpg"
-            className="z-5 h-40"
-          />
+          <AnimateFlyIn delay={200} className="h-full">
+            <WindowImage src="/images/about/photo1.jpeg" title="0001.jpg" />
+          </AnimateFlyIn>
+          <AnimateFlyIn
+            delay={300}
+            className="absolute top-40 right-14 z-4 h-68 w-52"
+          >
+            <WindowImage src="/images/about/photo2.jpeg" title="0002.jpg" />
+          </AnimateFlyIn>
+          <AnimateFlyIn delay={400} className="z-5 h-40">
+            <WindowImage src="/images/about/photo3.jpeg" title="0003.jpg" />
+          </AnimateFlyIn>
         </aside>
       </AnimateFlyIn>
 
