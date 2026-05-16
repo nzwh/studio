@@ -8,7 +8,6 @@ export default function ArticleHeadline({ project }: { project: Project }) {
     project_type: project?.project_type,
     work_type: project?.work_type + " Work",
     period: project?.duration,
-    read_time: project?.read_time,
   };
   const TAGS = {
     stack: project?.stack,
