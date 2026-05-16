@@ -77,7 +77,9 @@ export default function ArticleHeadline({ project }: { project: Project }) {
         </div>
       </div>
 
-      <Redirect left="view—figma—file—here" href={project?.href || "#"} />
+      {project.work_type === "design" && (
+        <Redirect left="view—figma—file—here" href={project?.href || "#"} />
+      )}
     </div>
   );
 }
