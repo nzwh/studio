@@ -1,9 +1,15 @@
 import localFont from "next/font/local";
-import { Instrument_Sans } from "next/font/google";
+import { Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
 
 export const instrumentsans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-instrument-sans",
+});
+
+export const ibmplexmono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["300", "500", "700"],
+  variable: "--font-ibm-plex-mono",
 });
 
 export const concrete = localFont({

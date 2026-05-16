@@ -190,12 +190,12 @@ export const PROJECTS: Project[] = [
     title: "Triagent",
     description: "AI-powered Medical Triage & Doctor Recommendation System",
     summary:
-      "Wrong doctors, wrong information, wrong care.\nSee how we leveraged AI to connect patients with the right care, fast.",
+      "Wrong doctors, wrong care.\nSee how we used AI to connect patients with the right care, fast.",
 
     project_type: "Thesis Work",
     work_type: "design",
     read_time: "3m read",
-    duration: "September 2025",
+    duration: "SEP-2025",
 
     stack: ["Figma", "AI/NLP Integration", "Usability Testing"],
     roles: ["Lead UI/UX Designer", "UX Researcher", "Product Designer"],
@@ -215,7 +215,7 @@ export const PROJECTS: Project[] = [
     project_type: "Passion Project",
     work_type: "development",
     read_time: "3m read",
-    duration: "In Development",
+    duration: "IN-DEVELOPMENT",
 
     stack: ["Typescript", "Discord.js v14", "Supabase", "PostgreSQL"],
     roles: ["Owner", "Full-Stack Developer"],
@@ -235,7 +235,7 @@ export const PROJECTS: Project[] = [
     project_type: "Collaborative Work",
     work_type: "design",
     read_time: "5m read",
-    duration: "December 2023",
+    duration: "DEC-2023",
 
     stack: [],
     roles: ["UI/UX", "Product Design"],
@@ -257,7 +257,7 @@ export const PROJECTS: Project[] = [
     project_type: "Collaborative Work",
     work_type: "design",
     read_time: "5m read",
-    duration: "November 2022",
+    duration: "NOV-2022",
 
     stack: [],
     roles: ["UI/UX", "Product Design"],
@@ -278,7 +278,7 @@ export const PROJECTS: Project[] = [
     project_type: "Collaborative Work",
     work_type: "development",
     read_time: "5m read",
-    duration: "March 2026",
+    duration: "MAR-2026",
 
     stack: [],
     roles: ["Full-stack"],
@@ -299,7 +299,7 @@ export const PROJECTS: Project[] = [
     project_type: "Passion Project",
     work_type: "development",
     read_time: "5m read",
-    duration: "In Development",
+    duration: "IN-DEVELOPMENT",
 
     stack: [],
     roles: ["Full-stack"],

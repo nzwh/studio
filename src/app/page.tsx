@@ -36,7 +36,7 @@ export default function HomePage() {
 
   return (
     <Boilerplate>
-      <section id="hero" className="my-12 flex flex-col items-center gap-1">
+      <section id="hero" className="my-12 flex flex-col items-center">
         <AnimateFlyIn delay={100} className="w-full">
           <LandingMonitor />
         </AnimateFlyIn>
