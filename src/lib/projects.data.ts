@@ -190,15 +190,14 @@ export const PROJECTS: Project[] = [
     title: "Triagent",
     description: "AI-powered Medical Triage & Doctor Recommendation System",
     summary:
-      "Wrong doctors, wrong care.\nSee how we used AI to connect patients with the right care, fast.",
+      "Wrong doctors, wrong care.\nSee how AI was used to connect patients with the right care, fast.",
 
-    project_type: "Thesis Work",
+    project_type: "collaborative",
     work_type: "design",
-    read_time: "3m read",
-    duration: "SEP-2025",
+    duration: "sep-2025",
 
     stack: ["Figma", "AI/NLP Integration", "Usability Testing"],
-    roles: ["Lead UI/UX Designer", "UX Researcher", "Product Designer"],
+    roles: ["Lead UI/UX Engineer", "Product Designer"],
 
     icon: TriagentIcon,
     cover: "/images/triagent/banner.png",
@@ -212,10 +211,9 @@ export const PROJECTS: Project[] = [
     description: "Pop Culture Card-collecting and Trading Discord Bot",
     summary: "Years of playing card bots.\nOne decision to build a better one.",
 
-    project_type: "Passion Project",
+    project_type: "solo",
     work_type: "development",
-    read_time: "3m read",
-    duration: "IN-DEVELOPMENT",
+    duration: "in-development",
 
     stack: ["Typescript", "Discord.js v14", "Supabase", "PostgreSQL"],
     roles: ["Owner", "Full-Stack Developer"],
@@ -232,10 +230,9 @@ export const PROJECTS: Project[] = [
     summary:
       "Accountability is the missing piece in most mentorship.\nSee how we built a shared journaling space that keeps mentors and mentees aligned, reflective, and growing together.",
 
-    project_type: "Collaborative Work",
+    project_type: "collaborative",
     work_type: "design",
-    read_time: "5m read",
-    duration: "DEC-2023",
+    duration: "dec-2023",
 
     stack: [],
     roles: ["UI/UX", "Product Design"],
@@ -254,10 +251,9 @@ export const PROJECTS: Project[] = [
     summary:
       "Social apps are designed to be distracting.\nSee how we reimagined Facebook Messenger to help users connect without losing focus.",
 
-    project_type: "Collaborative Work",
+    project_type: "collaborative",
     work_type: "design",
-    read_time: "5m read",
-    duration: "NOV-2022",
+    duration: "nov-2022",
 
     stack: [],
     roles: ["UI/UX", "Product Design"],
@@ -275,10 +271,9 @@ export const PROJECTS: Project[] = [
     summary:
       "Local commerce is fragmented and impersonal.\nSee how we designed Influx to make buying and selling feel like a community experience, not a transaction.",
 
-    project_type: "Collaborative Work",
+    project_type: "collaborative",
     work_type: "development",
-    read_time: "5m read",
-    duration: "MAR-2026",
+    duration: "mar-2026",
 
     stack: [],
     roles: ["Full-stack"],
@@ -290,25 +285,24 @@ export const PROJECTS: Project[] = [
 
     article: ARTICLES.find((a) => a.title === "influx"),
   },
-  {
-    title: "Astrail",
-    description: "Honkai: Star Rail Build Showcase Tool",
-    summary:
-      "Builds are the heart of Honkai: Star Rail's gameplay, but sharing them is a hassle.\nSee how Astrail makes it easy for players to showcase their builds, share strategies, and connect with the community.",
+  // {
+  //   title: "Astrail",
+  //   description: "Honkai: Star Rail Build Showcase Tool",
+  //   summary:
+  //     "Builds are the heart of Honkai: Star Rail's gameplay, but sharing them is a hassle.\nSee how Astrail makes it easy for players to showcase their builds, share strategies, and connect with the community.",
 
-    project_type: "Passion Project",
-    work_type: "development",
-    read_time: "5m read",
-    duration: "IN-DEVELOPMENT",
+  //   project_type: "solo",
+  //   work_type: "development",
+  //   duration: "in-development",
 
-    stack: [],
-    roles: ["Full-stack"],
+  //   stack: [],
+  //   roles: ["Full-stack"],
 
-    icon: () => null,
-    cover: "/placeholder.jpg",
-    colors: ["#ffffff", "#8d93ff"],
-    href: "",
+  //   icon: () => null,
+  //   cover: "/placeholder.jpg",
+  //   colors: ["#ffffff", "#8d93ff"],
+  //   href: "",
 
-    article: ARTICLES.find((a) => a.title === "astrail"),
-  },
+  //   article: ARTICLES.find((a) => a.title === "astrail"),
+  // },
 ];

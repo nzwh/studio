@@ -35,8 +35,6 @@ export interface Project {
   project_type: string;
   // the type of work involved (ex. "design", "development")
   work_type: "design" | "development" | "full-stack";
-  // estimated read time for the project summary (ex. "5m")
-  read_time: string;
   // date the project was published (ex. "09-2025", "In Progress")
   duration: string;
 
