@@ -52,9 +52,9 @@ export default function HomePage() {
 
       <section
         id="work"
-        className="my-12 flex w-full flex-col items-center gap-6"
+        className="my-12 flex w-full flex-col items-center gap-12"
       >
-        <div key={type} className="flex w-full flex-col gap-6">
+        <div key={type} className="flex w-full flex-col gap-12">
           <AnimateFlyIn delay={100} className="w-full">
             <ProjectCard project={projects[0]}>
               <LandingCassette project={projects[0]} />
@@ -62,7 +62,7 @@ export default function HomePage() {
           </AnimateFlyIn>
 
           {projects && (
-            <div className="grid grid-cols-2 gap-4 gap-y-6">
+            <div className="grid grid-cols-2 gap-6">
               {projects.slice(1).map((project, i) => (
                 <AnimateFlyIn
                   key={project.title}

@@ -10,7 +10,7 @@ interface ProjectCardProps {
 }
 export default function ProjectCard({ project, children }: ProjectCardProps) {
   return (
-    <div className="flex w-full flex-col gap-6">
+    <div className="flex w-full flex-col gap-3">
       <Link
         href={`/articles/${project.title.toLowerCase()}`}
         className="transition-transform duration-200 hover:-translate-y-1"

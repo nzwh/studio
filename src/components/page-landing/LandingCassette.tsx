@@ -7,7 +7,7 @@ import CassetteShape from "../svgs/shapes/CassetteShape";
 export default function LandingCassette({ project }: { project: Project }) {
   return (
     <section className="shadow-card relative my-1.5 w-full rounded-lg">
-      <div className="bg-card absolute -top-2 left-8 z-1 flex h-[calc(100%+1.5rem)] w-48 flex-col rounded-lg border border-[#dadada] pb-2 backdrop-blur-md">
+      <div className="bg-card absolute -top-1 left-8 z-1 flex h-[calc(100%+1rem)] w-48 flex-col rounded-sm border border-[#dadada] pb-2 backdrop-blur-md">
         <div className="flex h-full flex-col gap-2 p-4">
           <div className="flex w-full flex-row items-center justify-between text-xs font-light tracking-tight text-[#a5a5a5]">
             <span>{project.project_type}</span>

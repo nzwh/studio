@@ -24,6 +24,7 @@ export default function Boilerplate({
 
       {dividers && <Divider direction="vertical" />}
       <div className={className}>{children}</div>
+
       <Divider type="long" />
       <Footer />
     </main>
