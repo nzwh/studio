@@ -33,13 +33,23 @@ export default function MonitorDateTime({ className }: { className?: string }) {
     return () => clearInterval(interval);
   }, []);
 
+  const getClockWidth = (hour: string) =>
+    54 + [...hour].reduce((w, d) => w + (d === "1" ? 4 : 8), 0);
+
   return (
     <span
       data-cursor="current time for me"
       className={`flex items-center gap-2 tracking-wide ${className}`}
     >
       <span>{date}</span>
-      <span className="flex w-16 justify-end">{clock}</span>
+      <span
+        className="flex justify-end"
+        style={{
+          width: `${getClockWidth(clock.slice(0, clock.indexOf(":")))}px`,
+        }}
+      >
+        {clock}
+      </span>
     </span>
   );
 }
