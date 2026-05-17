@@ -6,47 +6,10 @@ import CassetteShape from "../svgs/shapes/CassetteShape";
 
 import { ibmplexmono } from "@/src/fonts/fonts";
 
-const CassetteStripe = (project: Project) => {
-  const type = () => (project.work_type === "development" ? "dev" : "dsgn");
-  return (
-    <div className="bg-card shadow-card absolute -top-1 left-8 z-1 flex h-[calc(100%+0.5rem)] w-44 flex-col rounded-sm border border-[#dadada] pb-2">
-      <div className="flex h-full flex-col gap-2 p-3">
-        <div className="flex w-full flex-row items-center justify-between text-xs font-light tracking-tight text-[#a5a5a5]">
-          <span>/projects/{type()}</span>
-        </div>
-
-        <h2 className="bg-gradient-text bg-clip-text text-4xl font-normal tracking-[-0.08em] text-transparent">
-          {project.title}
-        </h2>
-
-        <div className="flex h-full w-full flex-col gap-1 py-3">
-          {Array.from({ length: 2 }, (_, i) => (
-            <div
-              key={i}
-              className="h-full w-full rounded-full border border-[#dadada]"
-            />
-          ))}
-        </div>
-
-        <div className="flex flex-col justify-end gap-2 text-sm leading-4 font-light tracking-tight text-[#707070]">
-          {project.summary.split("\n").map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
-        </div>
-      </div>
-      <div className="flex items-center gap-1 bg-white px-3 py-1.5 text-[#707070] transition-transform duration-200 hover:-translate-y-0.5 hover:text-[#393939]">
-        <span className="w-full text-start text-xs font-light tracking-tight">
-          Read more
-        </span>
-        <MdOutlineAutoStories size={14} />
-      </div>
-    </div>
-  );
-};
 export default function LandingCassette({ project }: { project: Project }) {
   return (
     <section className="shadow-card relative my-3 w-full rounded-lg">
-      <CassetteStripe {...project} />
+      <Stripe {...project} />
       <div className="absolute inset-0 m-3 flex flex-col gap-2">
         <div
           className={`${ibmplexmono.className} flex w-full justify-end gap-2 text-[0.625rem] tracking-tighter text-[#707070]`}
@@ -92,6 +55,44 @@ export default function LandingCassette({ project }: { project: Project }) {
   );
 }
 
+const Stripe = (project: Project) => {
+  const type = () => (project.work_type === "development" ? "dev" : "dsgn");
+  return (
+    <div className="bg-card shadow-card absolute -top-1 left-8 z-1 flex h-[calc(100%+0.5rem)] w-44 flex-col rounded-sm border border-[#dadada] pb-2">
+      <div className="flex h-full flex-col gap-2 p-3">
+        <div className="flex w-full flex-row items-center justify-between text-xs font-light tracking-tight text-[#a5a5a5]">
+          <span>/projects/{type()}</span>
+        </div>
+
+        <h2 className="bg-gradient-text bg-clip-text text-4xl font-normal tracking-[-0.08em] text-transparent">
+          {project.title}
+        </h2>
+
+        <div className="flex h-full w-full flex-col gap-1 py-3">
+          {Array.from({ length: 2 }, (_, i) => (
+            <div
+              key={i}
+              className="h-full w-full rounded-full bg-[#dadada]/40"
+            />
+          ))}
+        </div>
+
+        <div className="flex flex-col justify-end gap-2 text-sm leading-4 font-light tracking-tight text-[#707070]">
+          {project.summary.split("\n").map((line, i) => (
+            <p key={i}>{line}</p>
+          ))}
+        </div>
+      </div>
+      <div className="flex items-center gap-1 bg-white px-3 py-1.5 text-[#707070] transition-transform duration-200 hover:-translate-y-0.5 hover:text-[#393939]">
+        <span className="w-full text-start text-xs font-light tracking-tight">
+          Read more
+        </span>
+        <MdOutlineAutoStories size={14} />
+      </div>
+    </div>
+  );
+};
+
 const Disk = ({
   position,
   color,
@@ -114,7 +115,7 @@ const Disk = ({
         }}
       />
       <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-row gap-2">
-        {Array.from({ length: 10 }, (_, i) => (
+        {Array.from({ length: 8 }, (_, i) => (
           <div key={i} className="h-4 w-1 rounded-lg bg-[#ffffff] shadow-lg" />
         ))}
       </div>

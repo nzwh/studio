@@ -225,7 +225,7 @@ export const PROJECTS: Project[] = [
 
     techs: [SiDiscorddotjs, TbBrandTypescript, RiSupabaseLine],
     stack: ["Discord.js v14", "Typescript", "Supabase", "PostgreSQL"],
-    roles: ["Full-Stack"],
+    roles: ["Full-stack"],
 
     icon: PhainonIcon,
     cover: "/images/projects/phainon/banner.gif",
