@@ -51,8 +51,8 @@ export default function LandingCassette({ project }: { project: Project }) {
         <div
           className={`${ibmplexmono.className} flex w-full justify-end gap-2 text-[0.625rem] tracking-tighter text-[#707070]`}
         >
-          <span className="font-light">BETA-V0.1</span>
-          <span className="font-normal">{project.duration}</span>
+          <span className="font-light">{project.version.toUpperCase()}</span>
+          <span className="font-normal">{project.duration.toUpperCase()}</span>
         </div>
 
         <div className="relative flex h-full w-full flex-row gap-2 overflow-hidden">

@@ -195,6 +195,7 @@ export const PROJECTS: Project[] = [
     project_type: "collaborative",
     work_type: "design",
     duration: "sep-2025",
+    version: "alpha-v1.0",
 
     stack: ["Figma", "AI/NLP Integration", "Usability Testing"],
     roles: ["Lead UI/UX Engineer", "Product Designer"],
@@ -214,6 +215,7 @@ export const PROJECTS: Project[] = [
     project_type: "solo",
     work_type: "development",
     duration: "in-development",
+    version: "beta-v0.4",
 
     stack: ["Typescript", "Discord.js v14", "Supabase", "PostgreSQL"],
     roles: ["Owner", "Full-Stack Developer"],
@@ -233,6 +235,7 @@ export const PROJECTS: Project[] = [
     project_type: "collaborative",
     work_type: "design",
     duration: "dec-2023",
+    version: "alpha-v1.0",
 
     stack: [],
     roles: ["UI/UX", "Product Design"],
@@ -254,6 +257,7 @@ export const PROJECTS: Project[] = [
     project_type: "collaborative",
     work_type: "design",
     duration: "nov-2022",
+    version: "alpha-v1.0",
 
     stack: [],
     roles: ["UI/UX", "Product Design"],
@@ -274,6 +278,7 @@ export const PROJECTS: Project[] = [
     project_type: "collaborative",
     work_type: "development",
     duration: "mar-2026",
+    version: "beta-v2.0",
 
     stack: [],
     roles: ["Full-stack"],

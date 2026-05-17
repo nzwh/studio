@@ -37,6 +37,8 @@ export interface Project {
   work_type: "design" | "development" | "full-stack";
   // date the project was published (ex. "09-2025", "In Progress")
   duration: string;
+  // version or status of the project (ex. "alpha-v1.0", "beta-v2.0")
+  version: string;
 
   // list of tools used in the project
   stack: string[];
