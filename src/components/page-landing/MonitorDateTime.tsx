@@ -33,22 +33,26 @@ export default function MonitorDateTime({ className }: { className?: string }) {
     return () => clearInterval(interval);
   }, []);
 
-  const getClockWidth = (hour: string) =>
-    54 + [...hour].reduce((w, d) => w + (d === "1" ? 4 : 8), 0);
+  const [time, period] = clock.split(" ");
 
   return (
     <span
       data-cursor="current time for me"
-      className={`flex items-center gap-2 tracking-wide ${className}`}
+      className={`flex items-center gap-2 ${className}`}
     >
       <span>{date}</span>
-      <span
-        className="flex justify-end"
-        style={{
-          width: `${getClockWidth(clock.slice(0, clock.indexOf(":")))}px`,
-        }}
-      >
-        {clock}
+      <span className="flex items-center gap-1">
+        <span className="flex">
+          {Array.from(time ?? "").map((char, i) => (
+            <span
+              key={i}
+              className={/\d/.test(char) ? "w-1.5 text-center" : ""}
+            >
+              {char}
+            </span>
+          ))}
+        </span>
+        <span>{period}</span>
       </span>
     </span>
   );

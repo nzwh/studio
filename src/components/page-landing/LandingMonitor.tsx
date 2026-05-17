@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import {
   MdAllInbox,
-  MdLocationSearching,
   MdOutlineDarkMode,
+  MdOutlineMyLocation,
   MdOutlinePlayCircle,
 } from "react-icons/md";
 
@@ -67,27 +67,27 @@ export default function LandingMonitor() {
       <div className="absolute inset-0 m-3 flex flex-col gap-2 text-[#888888]">
         <section className="flex w-full cursor-default flex-row justify-between">
           <div className="flex items-center gap-2">
-            <MdAllInbox size={14} />
+            <MdAllInbox size={12} />
             <h6 className="text-xs tracking-tight">Intellecture</h6>
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="relative cursor-pointer" onClick={HandleLocClick}>
-                <MdLocationSearching size={14} />
+                <MdOutlineMyLocation size={12} />
                 {isLocModalOpen && <LocModal />}
               </div>
               <div
                 className="relative cursor-pointer"
                 onClick={HandlePlayClick}
               >
-                <MdOutlinePlayCircle size={14} />
+                <MdOutlinePlayCircle size={12} />
                 {isPlayModalOpen && <PlayModal />}
               </div>
               <div
                 className="relative cursor-pointer"
                 onClick={HandleDarkModeClick}
               >
-                <MdOutlineDarkMode size={14} />
+                <MdOutlineDarkMode size={12} />
                 {isDarkMode && <DarkModeModal />}
               </div>
             </div>
