@@ -89,8 +89,8 @@ export default function AboutPage() {
 
       <FooterButton
         left="send—me—an—email—!"
-        right="notzerowh@gmail.com"
-        href="mailto:notzerowh@gmail.com"
+        right="nzwh@proton.me"
+        href="mailto:nzwh@proton.me"
       />
     </Boilerplate>
   );

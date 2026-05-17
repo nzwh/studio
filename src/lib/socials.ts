@@ -10,8 +10,8 @@ import { SiGmail } from "react-icons/si";
 export const SOCIALS = [
   {
     icon: SiGmail,
-    href: "mailto:notzerowh@gmail.com",
-    username: "notzerowh@gmail.com",
+    href: "mailto:nzwh@proton.me",
+    username: "nzwh@proton.me",
     cursor: "send me an email",
   },
   {
