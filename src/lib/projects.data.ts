@@ -194,7 +194,7 @@ export const PROJECTS: Project[] = [
     title: "Triagent",
     description: "AI-powered Medical Triage & Doctor Recommendation System",
     summary:
-      "Wrong doctors, wrong care.\nSee how AI was used to connect patients with the right care, fast.",
+      "Wrong doctors, wrong care.\nSee how AI was used to connect patients to the right care, fast.",
 
     project_type: "collaborative",
     work_type: "design",
@@ -206,7 +206,7 @@ export const PROJECTS: Project[] = [
     roles: ["Product Engineer", "UX Researcher"],
 
     icon: TriagentIcon,
-    cover: "/images/triagent/banner.png",
+    cover: "/images/projects/triagent/banner.png",
     colors: ["#ffffff", "#8d93ff"],
     href: "https://www.figma.com/community/file/1616703425860952385/triagent",
 
@@ -214,8 +214,9 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Phainon",
-    description: "Pop Culture Card-collecting and Trading Discord Bot",
-    summary: "Years of playing card bots.\nOne decision to build a better one.",
+    description: "Multi-culture Card-collecting and Trading Discord Bot",
+    summary:
+      "Not enough card games with diversity.\nOne decision to build a better one.",
 
     project_type: "solo",
     work_type: "development",
@@ -227,16 +228,15 @@ export const PROJECTS: Project[] = [
     roles: ["Full-Stack"],
 
     icon: PhainonIcon,
-    cover: "/images/phainon/banner.gif",
-    colors: ["#DAC6B4", "#171748"],
+    cover: "/images/projects/phainon/banner.gif",
+    colors: ["#EAEAFF", "#8799F2"],
 
     article: ARTICLES.find((a) => a.title === "phainon"),
   },
   {
     title: "Array",
     description: "Real-time Mentor-Mentee Journaling Platform ",
-    summary:
-      "Accountability is the missing piece in most mentorship.\nSee how we built a shared journaling space that keeps mentors and mentees aligned, reflective, and growing together.",
+    summary: "",
 
     project_type: "collaborative",
     work_type: "design",
@@ -248,8 +248,8 @@ export const PROJECTS: Project[] = [
     roles: ["Product Engineer"],
 
     icon: ArrayIcon,
-    cover: "/images/banners/array.png",
-    colors: ["#ffffff", "#8d93ff"],
+    cover: "/images/projects/array/banner.png",
+    colors: [],
     href: "https://www.figma.com/community/file/1616703158808681788/array",
 
     article: ARTICLES.find((a) => a.title === "array"),
@@ -258,8 +258,7 @@ export const PROJECTS: Project[] = [
   {
     title: "Senge",
     description: "Facebook Messenger Redesign for Productivity",
-    summary:
-      "Social apps are designed to be distracting.\nSee how we reimagined Facebook Messenger to help users connect without losing focus.",
+    summary: "",
 
     project_type: "collaborative",
     work_type: "design",
@@ -271,7 +270,7 @@ export const PROJECTS: Project[] = [
     roles: ["Product Engineer"],
 
     icon: SengeLogo,
-    cover: "/images/banners/senge.png",
+    cover: "/images/projects/senge/banner.png",
     colors: ["#ffffff", "#8d93ff"],
     href: "https://www.figma.com/community/file/1616702986484755771/senge",
 
@@ -280,8 +279,7 @@ export const PROJECTS: Project[] = [
   {
     title: "Influx",
     description: "Community-driven Marketplace for Local Discovery",
-    summary:
-      "Local commerce is fragmented and impersonal.\nSee how we designed Influx to make buying and selling feel like a community experience, not a transaction.",
+    summary: "",
 
     project_type: "collaborative",
     work_type: "development",
@@ -293,8 +291,8 @@ export const PROJECTS: Project[] = [
     roles: ["Full-stack"],
 
     icon: InfluxIcon,
-    cover: "/images/banners/influx.png",
-    colors: ["#ffffff", "#8d93ff"],
+    cover: "/images/projects/influx/banner.png",
+    colors: [],
     href: "https://www.figma.com/community/file/1616702824695818552/influx",
 
     article: ARTICLES.find((a) => a.title === "influx"),
@@ -302,19 +300,18 @@ export const PROJECTS: Project[] = [
   // {
   //   title: "Astrail",
   //   description: "Honkai: Star Rail Build Showcase Tool",
-  //   summary:
-  //     "Builds are the heart of Honkai: Star Rail's gameplay, but sharing them is a hassle.\nSee how Astrail makes it easy for players to showcase their builds, share strategies, and connect with the community.",
+  //   summary: "",
 
-  //   project_type: "solo",
-  //   work_type: "development",
-  //   duration: "in-development",
+  //   project_type: "",
+  //   work_type: "",
+  //   duration: "",
 
   //   stack: [],
-  //   roles: ["Full-stack"],
+  //   roles: [],
 
   //   icon: () => null,
   //   cover: "/placeholder.jpg",
-  //   colors: ["#ffffff", "#8d93ff"],
+  //   colors: [],
   //   href: "",
 
   //   article: ARTICLES.find((a) => a.title === "astrail"),

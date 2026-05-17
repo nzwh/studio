@@ -32,7 +32,7 @@ export interface Project {
   summary: string;
 
   // the type of project (ex. "side project", "collaborative work")
-  project_type: string;
+  project_type: "collaborative" | "solo" | "client work";
   // the type of work involved (ex. "design", "development")
   work_type: "design" | "development" | "full-stack";
   // date the project was published (ex. "09-2025", "In Progress")
