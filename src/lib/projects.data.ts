@@ -5,6 +5,10 @@ import InfluxIcon from "../components/svgs/logos/InfluxLogo";
 import SengeLogo from "../components/svgs/logos/SengeLogo";
 
 import { Project, ProjectArticle } from "./projects.types";
+import { FiFigma } from "react-icons/fi";
+import { RiNextjsLine, RiSupabaseLine } from "react-icons/ri";
+import { SiDiscorddotjs } from "react-icons/si";
+import { TbBrandTypescript } from "react-icons/tb";
 
 export const ARTICLES: ProjectArticle[] = [
   {
@@ -197,8 +201,9 @@ export const PROJECTS: Project[] = [
     duration: "sep-2025",
     version: "alpha-v1.0",
 
+    techs: [FiFigma],
     stack: ["Figma", "AI/NLP Integration", "Usability Testing"],
-    roles: ["Lead UI/UX Engineer", "Product Designer"],
+    roles: ["Product Engineer", "UX Researcher"],
 
     icon: TriagentIcon,
     cover: "/images/triagent/banner.png",
@@ -217,8 +222,9 @@ export const PROJECTS: Project[] = [
     duration: "in-development",
     version: "beta-v0.4",
 
-    stack: ["Typescript", "Discord.js v14", "Supabase", "PostgreSQL"],
-    roles: ["Owner", "Full-Stack Developer"],
+    techs: [SiDiscorddotjs, TbBrandTypescript, RiSupabaseLine],
+    stack: ["Discord.js v14", "Typescript", "Supabase", "PostgreSQL"],
+    roles: ["Full-Stack"],
 
     icon: PhainonIcon,
     cover: "/images/phainon/banner.gif",
@@ -237,8 +243,9 @@ export const PROJECTS: Project[] = [
     duration: "dec-2023",
     version: "alpha-v1.0",
 
-    stack: [],
-    roles: ["UI/UX", "Product Design"],
+    techs: [FiFigma],
+    stack: ["Figma"],
+    roles: ["Product Engineer"],
 
     icon: ArrayIcon,
     cover: "/images/banners/array.png",
@@ -259,8 +266,9 @@ export const PROJECTS: Project[] = [
     duration: "nov-2022",
     version: "alpha-v1.0",
 
-    stack: [],
-    roles: ["UI/UX", "Product Design"],
+    techs: [FiFigma],
+    stack: ["Figma"],
+    roles: ["Product Engineer"],
 
     icon: SengeLogo,
     cover: "/images/banners/senge.png",
@@ -280,7 +288,8 @@ export const PROJECTS: Project[] = [
     duration: "mar-2026",
     version: "beta-v2.0",
 
-    stack: [],
+    techs: [FiFigma, RiNextjsLine, RiSupabaseLine],
+    stack: ["Figma", "Next.js", "Supabase"],
     roles: ["Full-stack"],
 
     icon: InfluxIcon,

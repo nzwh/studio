@@ -1,5 +1,4 @@
 import { Project } from "@/src/lib/projects.types";
-import { FiFigma, FiGithub } from "react-icons/fi";
 
 export default function ProjectDetails({
   project,
@@ -26,13 +25,14 @@ export default function ProjectDetails({
         )}
 
         <div className="flex flex-row gap-1 text-xs whitespace-nowrap text-[#707070]">
-          <span className="flex h-4.5 items-center justify-center rounded-xs bg-[#F0F0F0] px-1 py-1">
-            {project.work_type === "design" ? (
-              <FiFigma className="h-2.5 w-2.5" />
-            ) : (
-              <FiGithub className="h-2.5 w-2.5" />
-            )}
-          </span>
+          {project.techs?.map((Icon, i) => (
+            <span
+              key={i}
+              className="flex h-4.5 items-center justify-center rounded-xs bg-[#F0F0F0] px-1 py-1"
+            >
+              <Icon size={10} />
+            </span>
+          ))}
           {project.roles.slice(0, 2).map((role, i) => (
             <span
               key={i}

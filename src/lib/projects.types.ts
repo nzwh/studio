@@ -40,6 +40,8 @@ export interface Project {
   // version or status of the project (ex. "alpha-v1.0", "beta-v2.0")
   version: string;
 
+  // (optional) list of specific technologies used in the project, represented as React components (e.g. icons)
+  techs?: React.ComponentType<{ size?: number }>[];
   // list of tools used in the project
   stack: string[];
   // list of roles involved in the project
