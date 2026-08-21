@@ -1,0 +1,45 @@
+---
+title: "triagent"
+---
+
+## Introduction
+
+Most people have been in this situation: something feels wrong, you don't know if it's serious, and you have no idea which type of doctor handles it. Going to a hospital just to be redirected is exhausting, and for older adults or people with full schedules, it's often not even an option. Triagent was built to remove that friction entirely, letting users describe their symptoms conversationally and walk away with a doctor's recommendation in mind.
+
+Developed as a thesis project at De La Salle University with three colleagues and attracted a formal partnership with a real healthcare platform. I led the UI design end-to-end, built and maintained the design system across all five iterations, and was deeply involved in research, interview facilitation, and usability testing throughout.
+
+## Research and Needfinding
+
+66 participants were gathered across the full study: 33 in the final iteration, spanning Gen Z, Millennials, Gen X/Boomers, and practicing doctors that we interviewed on-site at St. Luke's Medical Center BGC.
+
+Most participants across both groups also mentioned some degree of vision difficulty, which pushed the design toward larger UI elements and a lighter theme throughout.
+
+The finding that reframed everything early on came from younger users, who pointed out they could already do this with ChatGPT. Older users told a completely different story: they found the concept genuinely valuable, were used to navigating healthcare through hospital visits alone, and many of them found that process physically exhausting.
+
+That contrast defined the entire design challenge going forward: approachable enough for someone who barely uses tech, distinct enough that someone who uses AI daily would still find it worth opening.
+
+## Design Process and Iterations
+
+The first version was exactly what you'd expect: a ChatGPT-style interface with a text input at the bottom, chat bubbles, and a doctor recommendation at the end. We tested mid-fidelity Figma prototypes remotely over Zoom, since vague wireframes produce vague feedback.
+
+Early rounds surfaced the usual comments: color choices, button placements, and layout preferences. But the comment that kept coming back, and the one that mattered most, was: "Why would I use this instead of just asking ChatGPT?" We could have ignored it. Instead, we treated it as the central design problem and built around it.
+
+Three features came out of that decision. The symptom summary modal sits above the chat and pulls excerpts from the conversation in real time. It surfaces potential symptoms as tappable tags, each linked back to the specific messages the AI used to identify them.
+
+The Q&A section gave users a guided path into the conversation when they weren't sure how to describe what they were feeling, particularly useful for those who found an open text field intimidating.
+
+The 3D body model took the most deliberate path to the final product. It lets users tap a diagram to pinpoint where they feel pain and attach a note for the AI to factor in, because sometimes you genuinely can't describe in words where something hurts. We were unsure if it was feasible within our timeline, so we tested a simplified 2D version first to gauge how people responded. The response was overwhelmingly positive, so we committed to including it in the final product.
+
+We called each iteration complete when the volume and weight of feedback dropped noticeably, which turned out to be a more reliable signal than any arbitrary deadline.
+
+## Outcomes
+
+The result that meant the most to me was generational parity. We measured it across three rounds using NASA-TLX, a standardized tool for perceived task difficulty, with participants using the live app over Zoom in a thinking-aloud approach. At baseline, older users reported significantly higher cognitive and physical load than younger users, which made sense given what we had found in research. By the guided round, those differences had disappeared entirely across every subdimension. The app didn't just reduce workload on average; it equalized the experience across age groups, which was the whole point.
+
+Frustration and Effort stayed relatively stable throughout, and that was useful information rather than a disappointment. It pointed directly at what the interface alone couldn't fix: better onboarding, clearer communication about what the AI can and can't do, and more empathetic language throughout the conversation.
+
+## What I Learned
+
+This was the first project where I went genuinely deep into UX research rather than designing from instinct. The most uncomfortable part of that was realizing how many of my design instincts were just personal preferences dressed up as decisions. Everyone has a different relationship with interfaces, and the research is what keeps you honest about whose problem you're actually solving.
+
+Designing for someone who finds AI exciting and someone who has never relied on technology in their life are almost opposite challenges. Holding both in mind at the same time is something I got better at over the course of this project. Working under consistent time pressure helped too: I'm less precious about individual screens now, more willing to ship something good enough to learn from rather than waiting for something perfect that never arrives.

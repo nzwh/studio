@@ -57,5 +57,5 @@ export interface Project {
   href?: string;
 
   // (optional) article about the project
-  article?: ProjectArticle;
+  slug?: string;
 }

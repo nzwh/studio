@@ -4,9 +4,9 @@ import Boilerplate from "@/src/components/global/Boilerplate";
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
 
 export default function PlaygroundPage() {
-  const Pattern = (index: number) => {
-    return [4, 6, 7, 8, 9, 11, 16].includes(index);
-  };
+  // const Pattern = (index: number) => {
+  //   return [4, 6, 7, 8, 9, 11, 16].includes(index);
+  // };
   return (
     <Boilerplate className="flex h-auto flex-1 flex-col items-center justify-center gap-3">
       <AnimateFlyIn delay={100} className="mb-4 flex w-full gap-3">

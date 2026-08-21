@@ -1,0 +1,39 @@
+---
+title: "phainon"
+---
+
+## Introduction
+
+Phainon is a card-collecting game bot for Discord built around characters from music, anime, video games, and celebrities. The idea came from years of playing other card bots and noticing a consistent gap: nobody had built one that was issue-based across this breadth of characters.
+
+The project was initialized in September 2025, with roughly 2 to 3 weeks of focused development squeezed in between finishing my CS degree, freelance work, and job hunting.
+
+## Background
+
+I've been building Discord bots throughout college: an embed formatter, a music player, and a scraper bot that parsed card game embeds, which is also where I picked up TypeScript. Years of being a player in these communities taught me exactly what to replicate and what to leave behind. Phainon is where all of that experience finally had somewhere to go.
+
+TypeScript, Discord.js v14, and Supabase were chosen because I had strong existing knowledge across all three. Supabase made early development fast, handles authentication cleanly for the planned companion website, and costs little to nothing at current scale. Migrating to Neon and Prisma is already partially accounted for. All server-side logic is written in pure SQL with no host-specific terminology, so the SQL itself transfers and only the invocation layer needs updating.
+
+## How it plays
+
+Players can drop a card every 10 minutes or spend in-game currency to pull 5 cards at once. There's a player-run marketplace, seasonal events, and a leaderboard. Everything is obtainable free-to-play, and the gacha is designed to be engaging without being predatory.
+
+Cards have a rarity of 1 through 5, with 6-star cards reserved for events. Rarities are introduced gradually as the card count grows rather than releasing everything at launch and diluting the pool immediately.
+
+Every rarity has a bot-side floor price that players can always sell into. It keeps cards from losing value over time without over-engineering the player-to-player side, which is left to supply and demand.
+
+## What was hard
+
+Concurrency was the biggest challenge. The core principle: never make a user wait on another user. Every command is fully asynchronous, and even commands that require a response window don't block other users from playing. In practice, this meant fast lookups, minimal database round-trips, and an architecture built to stay stable under simultaneous load.
+
+The hardest specific problem was race conditions on card issuance. When multiple users triggered a button-based collector in rapid succession, Discord's API would return an unpredictable user rather than reliably the first. Storing the initial user's ID client-side and rejecting the rest was unreliable because Discord collectors are inconsistently ordered when inputs arrive close together.
+
+The fix had two parts: for drops, the collector is filtered to the user who initiated it, sidestepping the race condition by design. For package openings, PostgreSQL row-level locks inside RPCs make every issuance atomic, and all database operations are strictly sequential unless the command is read-only.
+
+The database architecture is what made all of this possible. Early versions handled most logic client-side: querying multiple tables in sequence, merging results, and handling nulls before passing anything back. The problem is that the client is unpredictable. One step can fail cleanly while the rest continue, leaving the database in a mismatched state.
+
+Moving critical logic into server-side RPCs solved both problems: fewer round-trips and self-contained transactions that exit cleanly on failure before any destructive operation goes through. Data cleanup still happens client-side for parsing arguments and handling malformed input, but anything that touches the database directly lives in the RPC. Every entity lives in its own table and joins are handled entirely server-side.
+
+## What's left
+
+Testing, quality-of-life commands, image optimization, and hosting remain. The more deliberate decision is sharding: running multiple bot instances under a single token, each handling a subset of servers. For a card game where every user should have one uninterrupted instance of the bot, it becomes necessary earlier than most developers account for. The architecture already avoids patterns that assume a single shared process. A companion website in Next.js, TypeScript, and Tailwind is planned when demand increases.
