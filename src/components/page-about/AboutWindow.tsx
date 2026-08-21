@@ -11,7 +11,7 @@ export const AboutWindow = ({
 }: WindowPanelProps) => {
   return (
     <div
-      className={`${className} x-panel flex h-full flex-col gap-2 rounded-lg p-2`}
+      className={`${className} x-panel flex h-full min-w-0 flex-col gap-2 rounded-lg p-2`}
     >
       <div className="grid grid-cols-[1fr_auto_1fr] items-center">
         <div className="flex gap-1">
@@ -24,7 +24,7 @@ export const AboutWindow = ({
         </h3>
         <div />
       </div>
-      <div className="min-h-0 flex-1">{children}</div>
+      <div className="min-h-0 min-w-0 flex-1">{children}</div>
     </div>
   );
 };

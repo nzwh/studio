@@ -13,6 +13,26 @@ import { WindowImage } from "@/src/components/page-about/WindowImage";
 
 import { PARAGRAPHS } from "@/src/lib/about.data";
 
+interface ResumeLinkProps {
+  path: string;
+  name: string;
+}
+const ResumeLink = ({ path, name }: ResumeLinkProps) => {
+  return (
+    <a
+      href={path}
+      download
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex w-full min-w-0 flex-1 items-center gap-3 rounded-sm border border-[#f0f0f0] px-3.5 py-2.5 text-sm font-light text-[#a5a5a5] transition-colors hover:bg-[#f9f9f9]"
+    >
+      <FaRegFilePdf size={18} className="shrink-0" />
+      <span className="min-w-0 flex-1 text-[#393939]">{name}</span>
+      <MdOutlineDownload size={20} className="shrink-0" />
+    </a>
+  );
+};
+
 export default function AboutPage() {
   const ParseMarkdown = (text: string) => {
     return text.split("\n").flatMap((line, lineIndex, lines) => {
@@ -38,12 +58,12 @@ export default function AboutPage() {
   return (
     <Boilerplate
       dividers={true}
-      className="flex h-auto flex-1 flex-col items-center justify-center gap-3"
+      className="flex h-auto w-full min-w-0 flex-1 flex-col items-center justify-center gap-3"
     >
       <AnimateFlyIn delay={100} className="mb-4 flex w-full gap-3">
-        <AboutWindow title="about_me.md — Edited" className="w-full">
+        <AboutWindow title="about_me.md — Edited" className="w-full min-w-0">
           <WindowToolbar />
-          <article className="flex w-full flex-col gap-3 p-2 pt-4 font-light">
+          <article className="flex w-full min-w-0 flex-col gap-3 p-2 pt-4 font-light">
             <h2 className="text-2xl font-normal">
               Hey there!
               <span className="mx-0.5 mb-1 inline-block h-5 w-0.5 animate-[caret_1.1s_ease-in-out_infinite] bg-[#393939] align-middle" />
@@ -55,19 +75,16 @@ export default function AboutPage() {
                 </p>
               ))}
             </div>
-            <a
-              href="/nzwh_resume_2026_van_serato.pdf"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full items-center gap-3 rounded-sm border border-[#f0f0f0] px-3.5 py-2.5 text-sm font-light text-[#a5a5a5] transition-colors hover:bg-[#f9f9f9]"
-            >
-              <FaRegFilePdf size={16} />
-              <span className="w-full text-[#393939]">
-                nzwh_resume_cv_2026.pdf
-              </span>
-              <MdOutlineDownload size={16} />
-            </a>
+            <div className="flex w-full min-w-0 flex-row gap-2 pt-2">
+              <ResumeLink
+                path="/Ivan_Serato_Frontend_Developer_Resume.pdf"
+                name="nzwh_frontend_dev_cv.pdf"
+              />
+              <ResumeLink
+                path="/Ivan_Serato_UIUX_Designer_Resume.pdf"
+                name="nzwh_uiux_design_cv.pdf"
+              />
+            </div>
           </article>
         </AboutWindow>
 
