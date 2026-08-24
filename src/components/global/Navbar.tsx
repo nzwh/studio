@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLenis } from "./effects/LenisScroll";
 
 import Logo from "./Logo";
 
@@ -12,7 +11,6 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
-  const lenis = useLenis();
   const pathname = usePathname();
 
   const HandleScroll = (e: React.MouseEvent, href: string) => {
@@ -22,7 +20,10 @@ export default function Navbar() {
 
     e.preventDefault();
     const el = document.getElementById(id);
-    if (el) lenis?.scrollTo(el, { duration: 1.2 });
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
   return (
     <nav className="flex w-200 items-center justify-between px-6 py-4 select-none max-md:w-full max-md:px-0">

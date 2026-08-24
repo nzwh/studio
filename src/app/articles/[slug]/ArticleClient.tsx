@@ -7,7 +7,6 @@ import Divider from "@/src/components/global/Divider";
 import Boilerplate from "@/src/components/global/Boilerplate";
 
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
-import { useLenis } from "@/src/components/global/effects/LenisScroll";
 
 const ConvertID = (header: string) => {
   return header
@@ -25,8 +24,6 @@ export default function ArticleClient({
   headings: string[];
   children: React.ReactNode;
 }) {
-  const lenis = useLenis();
-
   const HandleScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     header: string,
@@ -34,7 +31,11 @@ export default function ArticleClient({
     e.preventDefault();
     const id = ConvertID(header);
 
-    lenis?.scrollTo(`#${id}`, { offset: -80 });
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80; // -80 offset like before
+      window.scrollTo({ top, behavior: "smooth" });
+    }
     history.pushState(null, "", `#${id}`);
   };
 

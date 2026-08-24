@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 
 import { nikkeimaru } from "../fonts/fonts";
-import { LenisScroll } from "../components/global/effects/LenisScroll";
 import Cursor from "../components/global/effects/Cursor";
 
 export const metadata: Metadata = {
@@ -19,11 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nikkeimaru.className} antialiased`}>
-        <LenisScroll>
-          <Cursor />
-          {children}
-          <Analytics />
-        </LenisScroll>
+        <Cursor />
+        {children}
+        <Analytics />
       </body>
     </html>
   );
