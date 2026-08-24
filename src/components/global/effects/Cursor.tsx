@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export default function Cursor() {
+export function Cursor() {
   const rootRef = useRef<HTMLDivElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);

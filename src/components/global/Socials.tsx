@@ -1,5 +1,5 @@
-import { SOCIALS } from "@/src/lib/socials";
 import Link from "next/link";
+import { SOCIALS } from "@/src/lib/socials";
 
 export function Socials() {
   return (

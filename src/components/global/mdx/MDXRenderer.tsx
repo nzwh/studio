@@ -1,7 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { MDXComponent } from "./MDXComponent";
 
-export default function MdxRenderer({
+export function MdxRenderer({
   source,
   className,
 }: {

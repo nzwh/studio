@@ -12,7 +12,7 @@ type Track = {
   url: string;
 };
 
-export default function NowPlaying() {
+export function NowPlaying() {
   const [track, setTrack] = useState<Track | null>(null);
 
   useEffect(() => {

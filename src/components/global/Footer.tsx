@@ -1,4 +1,4 @@
-import SwapOnHover from "./effects/SwapOnHover";
+import { SwapOnHover } from "./effects/SwapOnHover";
 import { Logo, Socials } from ".";
 
 export function Footer() {

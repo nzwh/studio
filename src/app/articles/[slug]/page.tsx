@@ -6,7 +6,7 @@ import { PROJECTS } from "@/src/lib/projects.data";
 import { ArticleHeadline } from "@/src/components/page-articles/ArticleHeadline";
 
 import { getMdxSource } from "@/src/lib/mdx";
-import ArticleClient from "./client";
+import { ArticleClient } from "./client";
 
 export const ConvertID = (header: string) => {
   return header

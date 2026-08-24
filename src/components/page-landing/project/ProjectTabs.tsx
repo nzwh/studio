@@ -1,4 +1,4 @@
-import SwapOnHover from "../../global/effects/SwapOnHover";
+import { SwapOnHover } from "../../global/effects/SwapOnHover";
 
 const TABS = [
   {

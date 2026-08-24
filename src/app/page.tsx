@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import AnimateFlyIn from "../components/global/effects/AnimateFlyIn";
+import { AnimateFlyIn } from "../components/global/effects/AnimateFlyIn";
 import { Boilerplate, Divider, Redirect } from "../components/global/";
 import {
   LandingMonitor,

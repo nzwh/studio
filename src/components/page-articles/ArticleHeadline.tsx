@@ -3,7 +3,7 @@ import Image from "next/image";
 import { instrumentsans } from "@/src/fonts/fonts";
 import { Project } from "@/src/lib/projects.types";
 
-import { Redirect } from "../global/Redirect";
+import { Redirect } from "@/src/components/global/Redirect";
 
 export function ArticleHeadline({ project }: { project: Project }) {
   const TYPES = {

@@ -1,6 +1,6 @@
 "use client";
 
-import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
+import { AnimateFlyIn } from "@/src/components/global/effects/AnimateFlyIn";
 import { Boilerplate, Redirect } from "@/src/components/global";
 
 import {
@@ -10,11 +10,7 @@ import {
   WindowLink,
 } from "@/src/components/page-about/";
 
-export default function AboutClient({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function AboutClient({ children }: { children: React.ReactNode }) {
   return (
     <Boilerplate
       dividers={true}

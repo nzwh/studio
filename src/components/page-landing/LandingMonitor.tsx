@@ -9,7 +9,7 @@ import {
   MdOutlinePlayCircle,
 } from "react-icons/md";
 
-import MonitorShape from "../svgs/shapes/MonitorShape";
+import { MonitorShape } from "../svgs/shapes/MonitorShape";
 import { MonitorDateTime } from "./MonitorDateTime";
 import { DitherCanvas } from "./sandbox/DitherCanvas";
 

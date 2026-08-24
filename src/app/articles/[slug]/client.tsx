@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { instrumentsans } from "@/src/fonts/fonts";
 
-import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
+import { AnimateFlyIn } from "@/src/components/global/effects/AnimateFlyIn";
 import { Divider, Boilerplate } from "@/src/components/global";
 
 export const ConvertID = (header: string) => {
@@ -13,7 +13,7 @@ export const ConvertID = (header: string) => {
     .replace(/\s+/g, "-");
 };
 
-export default function ArticleClient({
+export function ArticleClient({
   headline,
   headings,
   children,

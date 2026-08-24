@@ -8,7 +8,7 @@ interface SwapOnHoverProps {
   className?: string;
   onClick?: () => void;
 }
-export default function SwapOnHover({
+export function SwapOnHover({
   children,
   SwapOnHover,
   className,

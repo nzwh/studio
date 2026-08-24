@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 
+import { MdxRenderer } from "@/src/components/global/mdx/MDXRenderer";
 import { getMdxSource } from "@/src/lib/mdx";
-import MdxRenderer from "@/src/components/global/mdx/MDXRenderer";
-import AboutClient from "./client";
+import { AboutClient } from "./client";
 
 export default function AboutPage() {
   const article = getMdxSource("about", "index");

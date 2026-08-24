@@ -1,7 +1,7 @@
 "use client";
 
-import Boilerplate from "@/src/components/global/Boilerplate";
-import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
+import { AnimateFlyIn } from "@/src/components/global/effects/AnimateFlyIn";
+import { Boilerplate } from "@/src/components/global/Boilerplate";
 
 export default function PlaygroundPage() {
   // const Pattern = (index: number) => {

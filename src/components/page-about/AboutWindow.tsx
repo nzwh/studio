@@ -1,14 +1,12 @@
-interface WindowPanelProps {
-  title?: string;
-  className?: string;
-  children?: React.ReactNode;
-}
-
 export const AboutWindow = ({
   title,
   className,
   children,
-}: WindowPanelProps) => {
+}: {
+  title?: string;
+  className?: string;
+  children?: React.ReactNode;
+}) => {
   return (
     <div
       className={`${className} x-panel flex h-full min-w-0 flex-col gap-2 rounded-lg p-2`}
