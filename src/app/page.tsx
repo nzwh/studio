@@ -2,28 +2,27 @@
 import { useState } from "react";
 
 import AnimateFlyIn from "../components/global/effects/AnimateFlyIn";
-import Boilerplate from "../components/global/Boilerplate";
-import Divider from "../components/global/Divider";
-import Redirect from "../components/global/Redirect";
-
-import LandingMonitor from "../components/page-landing/LandingMonitor";
-import LandingKeyboard from "../components/page-landing/LandingKeyboard";
-import LandingCassette from "../components/page-landing/LandingCassette";
-import ProjectCard from "../components/page-landing/project/ProjectCard";
-import ProjectTabs from "../components/page-landing/project/ProjectTabs";
-import ProjectGridItem from "../components/page-landing/project/ProjectGridItem";
+import { Boilerplate, Divider, Redirect } from "../components/global/";
+import {
+  LandingMonitor,
+  LandingKeyboard,
+  LandingCassette,
+  ProjectCard,
+  ProjectTabs,
+  ProjectGridItem,
+} from "../components/page-landing";
 
 import { PROJECTS } from "../lib/projects.data";
 
 export default function HomePage() {
-  const [type, setType] = useState<"development" | "design">("design");
+  const [type, setType] = useState<"development" | "design">("development");
 
   const DEVELOPMENT_PROJECTS = PROJECTS.filter(
     (p) => p.work_type === "development",
   );
 
   const DESIGN_PROJECTS = PROJECTS.filter((p) => p.work_type === "design");
-  const [projects, setProjects] = useState(DESIGN_PROJECTS);
+  const [projects, setProjects] = useState(DEVELOPMENT_PROJECTS);
 
   const HandleTypeChange = (newType: "development" | "design") => {
     setType(newType);

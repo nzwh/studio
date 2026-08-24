@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function MonitorDateTime({ className }: { className?: string }) {
+export function MonitorDateTime({ className }: { className?: string }) {
   const [date, setDate] = useState("");
   const [clock, setClock] = useState("");
 

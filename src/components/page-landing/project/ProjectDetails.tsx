@@ -1,6 +1,6 @@
 import { Project } from "@/src/lib/projects.types";
 
-export default function ProjectDetails({
+export function ProjectDetails({
   project,
   isExpanded = false,
 }: {

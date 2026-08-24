@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ImArrowUpRight2 } from "react-icons/im";
 
-export default function Redirect({
+export function Redirect({
   left,
   right,
   href,

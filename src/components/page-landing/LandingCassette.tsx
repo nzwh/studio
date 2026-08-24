@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 import { MdOutlineAutoStories } from "react-icons/md";
+import { ibmplexmono } from "@/src/fonts/fonts";
+
 import { Project } from "@/src/lib/projects.types";
 import CassetteShape from "../svgs/shapes/CassetteShape";
 
-import { ibmplexmono } from "@/src/fonts/fonts";
-
-export default function LandingCassette({ project }: { project: Project }) {
+export function LandingCassette({ project }: { project: Project }) {
   return (
     <section className="shadow-card relative my-3 w-full rounded-lg">
       <Stripe {...project} />

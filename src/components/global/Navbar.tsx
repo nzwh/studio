@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import Logo from "./Logo";
+import { Logo } from ".";
 
 const NAV_LINKS = [
   { href: "/#work", label: "—works", cursor: "see my work" },
@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { href: "/playground", label: "—playground", cursor: "visit my playground" },
 ];
 
-export default function Navbar() {
+export function Navbar() {
   const pathname = usePathname();
 
   const HandleScroll = (e: React.MouseEvent, href: string) => {

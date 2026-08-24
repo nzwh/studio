@@ -1,17 +1,14 @@
-import Divider from "./Divider";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import { Divider, Footer, Navbar } from ".";
 
-interface BoilerplateProps {
-  children: React.ReactNode;
-  dividers?: boolean;
-  className?: string;
-}
-export default function Boilerplate({
+export function Boilerplate({
   children,
   dividers = true,
   className = "",
-}: BoilerplateProps) {
+}: {
+  children: React.ReactNode;
+  dividers?: boolean;
+  className?: string;
+}) {
   return (
     <main
       className="mx-auto flex min-h-svh w-200 flex-col items-center px-6 pt-16 max-md:w-full"

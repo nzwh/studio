@@ -1,9 +1,10 @@
-import { Project } from "@/src/lib/projects.types";
 import Image from "next/image";
 import Link from "next/link";
-import ProjectDetails from "./ProjectDetails";
 
-export default function ProjectGridItem({ project }: { project: Project }) {
+import { Project } from "@/src/lib/projects.types";
+import { ProjectDetails } from "./ProjectDetails";
+
+export function ProjectGridItem({ project }: { project: Project }) {
   return (
     <Link
       href={project.href || "#"}

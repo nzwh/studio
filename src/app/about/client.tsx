@@ -1,13 +1,14 @@
 "use client";
 
-import Boilerplate from "@/src/components/global/Boilerplate";
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
-import FooterButton from "@/src/components/global/Redirect";
+import { Boilerplate, Redirect } from "@/src/components/global";
 
-import { AboutWindow } from "@/src/components/page-about/AboutWindow";
-import { WindowToolbar } from "@/src/components/page-about/WindowToolbar";
-import { WindowImage } from "@/src/components/page-about/WindowImage";
-import { WindowLink } from "@/src/components/page-about/WindowLink";
+import {
+  AboutWindow,
+  WindowToolbar,
+  WindowImage,
+  WindowLink,
+} from "@/src/components/page-about/";
 
 export default function AboutClient({
   children,
@@ -53,7 +54,7 @@ export default function AboutClient({
         </aside>
       </AnimateFlyIn>
 
-      <FooterButton
+      <Redirect
         left="send—me—an—email—!"
         right="nzwh@proton.me"
         href="https://mail.google.com/mail/?view=cm&fs=1&to=nzwh@proton.me"

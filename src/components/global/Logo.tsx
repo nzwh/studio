@@ -12,7 +12,7 @@ const LETTERS = [
 ];
 const TRAIL_COLORS = ["#ff00ff", "#ffff00", "#00ffff"];
 
-export default function Logo() {
+export function Logo() {
   const [hovered, setHovered] = useState(false);
   const [exiting, setExiting] = useState(false);
 

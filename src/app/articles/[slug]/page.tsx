@@ -3,10 +3,10 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 
 import { PROJECTS } from "@/src/lib/projects.data";
+import { ArticleHeadline } from "@/src/components/page-articles/ArticleHeadline";
 
-import ArticleClient from "./client";
-import Headline from "@/src/components/page-articles/ArticleHeadline";
 import { getMdxSource } from "@/src/lib/mdx";
+import ArticleClient from "./client";
 
 export const ConvertID = (header: string) => {
   return header
@@ -77,7 +77,7 @@ export default async function ArticlePage({
 
   return (
     <ArticleClient
-      headline={<Headline project={project} />}
+      headline={<ArticleHeadline project={project} />}
       headings={article.headings}
     >
       <MDXRemote source={article.content} components={MDXComponent} />

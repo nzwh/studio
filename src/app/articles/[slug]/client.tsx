@@ -3,10 +3,8 @@
 import { useEffect, useState } from "react";
 import { instrumentsans } from "@/src/fonts/fonts";
 
-import Divider from "@/src/components/global/Divider";
-import Boilerplate from "@/src/components/global/Boilerplate";
-
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
+import { Divider, Boilerplate } from "@/src/components/global";
 
 export const ConvertID = (header: string) => {
   return header

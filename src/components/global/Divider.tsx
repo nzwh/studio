@@ -1,11 +1,10 @@
-interface DividerProps {
-  type?: "short" | "long";
-  direction?: "horizontal" | "vertical";
-}
-export default function Divider({
+export function Divider({
   type = "long",
   direction = "horizontal",
-}: DividerProps) {
+}: {
+  type?: "short" | "long";
+  direction?: "horizontal" | "vertical";
+}) {
   const width = type === "short" ? "w-full" : "-mx-[calc(50vw-50%)] w-screen";
   return direction === "horizontal" ? (
     <div className={`border-b border-[#f0f0f0] ${width}`} />

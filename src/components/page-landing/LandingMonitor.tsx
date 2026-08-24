@@ -10,17 +10,19 @@ import {
 } from "react-icons/md";
 
 import MonitorShape from "../svgs/shapes/MonitorShape";
-import MonitorDateTime from "./MonitorDateTime";
-import DitherCanvas from "./sandbox/DitherCanvas";
+import { MonitorDateTime } from "./MonitorDateTime";
+import { DitherCanvas } from "./sandbox/DitherCanvas";
 
 import { useClick } from "@/src/hooks/useClick";
 import { SOCIALS } from "@/src/lib/socials";
 
 const SandboxCanvas = dynamic(
-  () => import("@/src/components/page-landing/sandbox/SandboxCanvas"),
+  () =>
+    import("@/src/components/page-landing/sandbox/SandboxCanvas").then(
+      (mod) => mod.SandboxCanvas,
+    ),
   { ssr: false },
 );
-
 const LocModal = () => (
   <div className="absolute top-5 left-1/2 z-10 flex w-60 -translate-x-1/2 flex-row gap-2 rounded-md border border-[#f0f0f0] bg-[#ffffff]/80 p-2 tracking-tight text-[#393939] backdrop-blur-sm">
     <p className="text-sm font-normal">Location Modal</p>
@@ -39,7 +41,7 @@ const DarkModeModal = () => (
   </div>
 );
 
-export default function LandingMonitor() {
+export function LandingMonitor() {
   const click = useClick();
 
   const [isLocModalOpen, setIsLocModalOpen] = useState(false);

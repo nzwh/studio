@@ -107,7 +107,7 @@ function getBounds(s: Sticker): { hw: number; hh: number } {
 
 const DAMP = 0.994;
 
-export default function SandboxCanvas() {
+export function SandboxCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

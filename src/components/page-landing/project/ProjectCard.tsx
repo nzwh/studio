@@ -2,13 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Project } from "@/src/lib/projects.types";
-import ProjectDetails from "./ProjectDetails";
+import { ProjectDetails } from "./ProjectDetails";
 
-interface ProjectCardProps {
+export function ProjectCard({
+  project,
+  children,
+}: {
   project: Project;
   children?: React.ReactNode;
-}
-export default function ProjectCard({ project, children }: ProjectCardProps) {
+}) {
   return (
     <div className="flex w-full flex-col gap-3">
       <Link

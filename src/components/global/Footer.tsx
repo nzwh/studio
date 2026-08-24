@@ -1,8 +1,7 @@
 import SwapOnHover from "./effects/SwapOnHover";
-import Logo from "./Logo";
-import MiniSocials from "./Socials";
+import { Logo, Socials } from ".";
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="flex w-full items-center justify-between py-4">
       <div className="flex w-full items-center gap-4">
@@ -14,7 +13,7 @@ export default function Footer() {
           @2026 all—rights—reserved
         </SwapOnHover>
       </div>
-      <MiniSocials />
+      <Socials />
     </footer>
   );
 }

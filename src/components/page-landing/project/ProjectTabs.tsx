@@ -15,7 +15,7 @@ const TABS = [
   },
 ] as const;
 
-export default function ProjectTabs({
+export function ProjectTabs({
   type,
   HandleTypeChange,
 }: {
