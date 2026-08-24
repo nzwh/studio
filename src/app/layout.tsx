@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 
 import { nikkeimaru } from "../fonts/fonts";
-import Cursor from "../components/global/effects/Cursor";
+import { Cursor } from "../components/global/effects/Cursor";
 
 export const metadata: Metadata = {
   title: "@nzwh—portfolio",
