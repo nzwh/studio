@@ -8,7 +8,7 @@ import Boilerplate from "@/src/components/global/Boilerplate";
 
 import AnimateFlyIn from "@/src/components/global/effects/AnimateFlyIn";
 
-const ConvertID = (header: string) => {
+export const ConvertID = (header: string) => {
   return header
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, "")

@@ -3,11 +3,12 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 
 import { PROJECTS } from "@/src/lib/projects.data";
-import { getProjectArticleSource } from "@/src/lib/mdx";
-import ArticleClient from "./ArticleClient";
-import Headline from "@/src/components/page-articles/ArticleHeadline";
 
-const ConvertID = (header: string) => {
+import ArticleClient from "./client";
+import Headline from "@/src/components/page-articles/ArticleHeadline";
+import { getMdxSource } from "@/src/lib/mdx";
+
+export const ConvertID = (header: string) => {
   return header
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, "")
@@ -31,7 +32,7 @@ const getTextContent = (node: React.ReactNode): string => {
   return "";
 };
 
-const mdxComponents = {
+const MDXComponent = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
     const text = getTextContent(props.children);
     const id = ConvertID(text);
@@ -71,7 +72,7 @@ export default async function ArticlePage({
   const project = PROJECTS.find((p) => p.slug === slug);
   if (!project) notFound();
 
-  const article = getProjectArticleSource(slug);
+  const article = getMdxSource("projects", slug);
   if (!article) notFound();
 
   return (
@@ -79,7 +80,7 @@ export default async function ArticlePage({
       headline={<Headline project={project} />}
       headings={article.headings}
     >
-      <MDXRemote source={article.content} components={mdxComponents} />
+      <MDXRemote source={article.content} components={MDXComponent} />
     </ArticleClient>
   );
 }

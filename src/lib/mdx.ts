@@ -2,10 +2,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const PROJECTS_DIR = path.join(process.cwd(), "src", "content", "projects");
+const CONTENT_ROOT = path.join(process.cwd(), "src", "content");
 
-export function getProjectArticleSource(slug: string) {
-  const filePath = path.join(PROJECTS_DIR, `${slug}.mdx`);
+export function getMdxSource(collection: string, slug: string) {
+  const filePath = path.join(CONTENT_ROOT, collection, `${slug}.mdx`);
 
   if (!fs.existsSync(filePath)) return null;
 
