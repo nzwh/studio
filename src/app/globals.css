@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: --color-zinc-50;
-  --foreground: --color-zinc-900;
+  --background: var(--color-zinc-50);
+  --foreground: var(--color-zinc-900);
 }
 
 @theme inline {

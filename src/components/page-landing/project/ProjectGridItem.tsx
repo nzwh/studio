@@ -5,10 +5,14 @@ import { Project } from "@/src/lib/projects.types";
 import { ProjectDetails } from "./ProjectDetails";
 
 export function ProjectGridItem({ project }: { project: Project }) {
+  const href = project.href ?? `/articles/${project.slug}`;
+  const isExternal = Boolean(project.href);
+
   return (
     <Link
-      href={project.href || "#"}
-      target="_blank"
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="flex cursor-pointer flex-col gap-3 transition-transform duration-200 hover:-translate-y-1"
     >
       <div className="shadow-card h-32 w-full overflow-hidden rounded-lg border border-[#dadada] bg-[#ffffff] px-8 pt-4">
